@@ -176,59 +176,107 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 .footer__link:hover{color:#fff}
 .footer__bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:.8rem;color:rgba(255,255,255,.4)}
 
-/* ── PROGRAMME DETAIL ── */
-.prog-section{padding:96px 0}
-.prog-header{display:flex;align-items:flex-start;gap:24px;margin-bottom:48px}
-.prog-icon-big{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0}
-.prog-icon-big--green{background:linear-gradient(135deg,#1B5E20,#2E7D32)}
-.prog-icon-big--teal{background:linear-gradient(135deg,#00695C,#00897B)}
-.prog-icon-big--gold{background:linear-gradient(135deg,#E65100,#F9A825)}
-.prog-header__content{}
-.prog-header__badge{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 11px;border-radius:100px;margin-bottom:10px}
-.prog-header__badge--green{background:#e8f5e9;color:#1B5E20}
-.prog-header__badge--teal{background:#e0f2f1;color:#00695C}
-.prog-header__badge--gold{background:#fff3e0;color:#E65100}
-.prog-header__title{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;color:var(--c-text);margin-bottom:8px}
-.prog-header__desc{font-size:.97rem;color:var(--c-muted);max-width:680px;line-height:1.7}
-.prog-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-.prog-meta-item{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;padding:5px 12px;border-radius:100px;border:1.5px solid var(--c-border);color:var(--c-text);background:#fff}
+/* ══════════════════════════════════════════
+   PROGRAMME DETAIL — REDESIGN
+══════════════════════════════════════════ */
 
-/* Levels timeline */
-.prog-levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:2px solid var(--c-border);border-radius:var(--radius-lg);overflow:hidden}
-.prog-level{padding:28px 24px;border-right:2px solid var(--c-border);position:relative;transition:background var(--t)}
-.prog-level:last-child{border-right:none}
-.prog-level:hover{background:var(--c-bg)}
-.prog-level__num{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c-muted);margin-bottom:6px}
-.prog-level__age{display:inline-block;font-size:.78rem;font-weight:700;padding:2px 10px;border-radius:100px;margin-bottom:12px}
-.prog-level__age--green{background:#e8f5e9;color:#1B5E20}
-.prog-level__age--teal{background:#e0f2f1;color:#00695C}
-.prog-level__age--gold{background:#fff3e0;color:#E65100}
-.prog-level__title{font-size:1rem;font-weight:800;color:var(--c-text);margin-bottom:10px}
-.prog-level__list{list-style:none;display:flex;flex-direction:column;gap:5px}
-.prog-level__list li{font-size:.83rem;color:var(--c-muted);display:flex;align-items:flex-start;gap:6px;line-height:1.5}
-.prog-level__list li::before{content:'›';color:var(--c-brand-light);font-weight:900;flex-shrink:0;margin-top:1px}
+/* Section wrapper */
+.prog-section{padding:0}
 
-/* Quran phases (adult) */
-.quran-phases{display:flex;flex-direction:column;gap:0;border:2px solid var(--c-border);border-radius:var(--radius-lg);overflow:hidden}
-.quran-phase{display:grid;grid-template-columns:80px 1fr auto;gap:0;align-items:stretch;border-bottom:2px solid var(--c-border)}
-.quran-phase:last-child{border-bottom:none}
-.quran-phase__num{display:flex;align-items:center;justify-content:center;padding:24px 16px;font-size:1.8rem;font-weight:900;color:rgba(255,255,255,.9);writing-mode:horizontal-tb}
-.quran-phase__num--1{background:linear-gradient(160deg,#1B5E20,#388E3C)}
-.quran-phase__num--2{background:linear-gradient(160deg,#00695C,#00897B)}
-.quran-phase__num--3{background:linear-gradient(160deg,#1565C0,#1E88E5)}
-.quran-phase__num--4{background:linear-gradient(160deg,#4A148C,#7B1FA2)}
-.quran-phase__body{padding:24px 28px}
-.quran-phase__title{font-size:1.05rem;font-weight:800;color:var(--c-text);margin-bottom:4px}
-.quran-phase__arabic{font-family:'Amiri',serif;font-size:1rem;color:var(--c-muted);direction:rtl;margin-bottom:12px}
-.quran-phase__desc{font-size:.88rem;color:var(--c-muted);line-height:1.65;margin-bottom:12px}
-.quran-phase__items{display:flex;flex-wrap:wrap;gap:6px}
-.quran-chip{font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:100px;border:1.5px solid var(--c-border);color:var(--c-text)}
-.quran-phase__duration{padding:24px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--c-bg);border-left:2px solid var(--c-border);min-width:110px;text-align:center;gap:4px}
-.quran-phase__dur-num{font-size:1.4rem;font-weight:900;color:var(--c-brand)}
-.quran-phase__dur-label{font-size:.72rem;color:var(--c-muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-.quran-phase__dur-note{font-size:.7rem;color:var(--c-muted)}
+/* Programme block: full visual card */
+.prog-block{padding:80px 0;position:relative}
+.prog-block--green{background:linear-gradient(170deg,#f0faf1 0%,#fff 60%)}
+.prog-block--teal{background:linear-gradient(170deg,#e8f8f5 0%,#fff 60%)}
+.prog-block--gold{background:linear-gradient(170deg,#fff9f0 0%,#fff 60%)}
 
-.prog-divider{border:none;border-top:2px solid var(--c-border);margin:64px 0}
+/* Programme number + title hero row */
+.prog-banner{display:flex;align-items:center;gap:28px;margin-bottom:48px;padding:32px 40px;border-radius:24px;position:relative;overflow:hidden}
+.prog-banner--green{background:linear-gradient(135deg,#1B5E20 0%,#2E7D32 60%,#43A047 100%)}
+.prog-banner--teal{background:linear-gradient(135deg,#00695C 0%,#00897B 60%,#26A69A 100%)}
+.prog-banner--gold{background:linear-gradient(135deg,#BF360C 0%,#E64A19 50%,#F9A825 100%)}
+.prog-banner::after{font-family:'Amiri',serif;font-size:14rem;color:rgba(255,255,255,.06);position:absolute;right:20px;top:50%;transform:translateY(-50%);pointer-events:none;line-height:1}
+.prog-banner--green::after{content:'عربي'}
+.prog-banner--teal::after{content:'إسلام'}
+.prog-banner--gold::after{content:'قرآن'}
+.prog-banner__num{font-size:5rem;font-weight:900;color:rgba(255,255,255,.2);line-height:1;flex-shrink:0;letter-spacing:-.05em}
+.prog-banner__body{flex:1;min-width:0}
+.prog-banner__overtitle{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px}
+.prog-banner__title{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
+.prog-banner__desc{font-size:.95rem;color:rgba(255,255,255,.82);line-height:1.65;max-width:600px}
+.prog-banner__meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.prog-banner__pill{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;padding:4px 12px;border-radius:100px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(4px)}
+
+/* Level cards grid */
+.prog-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prog-level{border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);transition:transform var(--t),box-shadow var(--t);background:#fff;display:flex;flex-direction:column}
+.prog-level:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(0,0,0,.13)}
+.prog-level__header{padding:20px 20px 16px;position:relative}
+.prog-level__header--green{background:linear-gradient(135deg,#1B5E20,#43A047)}
+.prog-level__header--teal{background:linear-gradient(135deg,#00695C,#26A69A)}
+.prog-level__header--gold{background:linear-gradient(135deg,#BF360C,#F9A825)}
+.prog-level__num-badge{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;font-size:.85rem;font-weight:900;margin-bottom:10px;border:2px solid rgba(255,255,255,.3)}
+.prog-level__age-tag{display:inline-block;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);margin-left:6px;vertical-align:middle}
+.prog-level__title{font-size:1rem;font-weight:800;color:#fff;line-height:1.3}
+.prog-level__body{padding:20px;flex:1;background:#fff}
+.prog-level__list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.prog-level__list li{font-size:.84rem;color:#374151;display:flex;align-items:flex-start;gap:8px;line-height:1.55}
+.prog-level__list li .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.dot--green{background:#2E7D32}
+.dot--teal{background:#00897B}
+.dot--gold{background:#E64A19}
+
+/* ── Quran phases — Timeline redesign ── */
+.quran-timeline{display:flex;flex-direction:column;gap:0;position:relative}
+.quran-timeline::before{content:'';position:absolute;left:52px;top:40px;bottom:40px;width:3px;background:linear-gradient(to bottom,#1B5E20,#00897B,#1565C0,#7B1FA2);border-radius:2px;z-index:0}
+.quran-phase{display:grid;grid-template-columns:104px 1fr;gap:0;margin-bottom:20px;position:relative;z-index:1}
+.quran-phase:last-child{margin-bottom:0}
+.quran-phase__left{display:flex;flex-direction:column;align-items:center;padding-top:32px;gap:8px}
+.quran-phase__circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.2);border:3px solid #fff;flex-shrink:0}
+.quran-phase__circle--1{background:linear-gradient(135deg,#1B5E20,#43A047)}
+.quran-phase__circle--2{background:linear-gradient(135deg,#00695C,#26A69A)}
+.quran-phase__circle--3{background:linear-gradient(135deg,#1565C0,#42A5F5)}
+.quran-phase__circle--4{background:linear-gradient(135deg,#4A148C,#AB47BC)}
+.quran-phase__dur-pill{background:#fff;border:2px solid var(--c-border);border-radius:100px;padding:4px 10px;text-align:center;white-space:nowrap}
+.quran-phase__dur-num{font-size:.9rem;font-weight:900;color:var(--c-text);display:block}
+.quran-phase__dur-unit{font-size:.62rem;color:var(--c-muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:block}
+.quran-phase__card{background:#fff;border-radius:16px;border:2px solid var(--c-border);padding:28px 32px;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:all var(--t)}
+.quran-phase__card:hover{border-color:transparent;box-shadow:0 8px 32px rgba(0,0,0,.1);transform:translateX(4px)}
+.quran-phase__top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+.quran-phase__title{font-size:1.1rem;font-weight:800;color:var(--c-text)}
+.quran-phase__arabic{font-family:'Amiri',serif;font-size:1.05rem;color:var(--c-muted);direction:rtl;text-align:right;margin-bottom:10px}
+.quran-phase__desc{font-size:.9rem;color:var(--c-muted);line-height:1.7;margin-bottom:16px}
+.quran-phase__chips{display:flex;flex-wrap:wrap;gap:6px}
+.quran-chip{font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:100px;background:var(--c-bg);color:var(--c-text);border:1.5px solid var(--c-border)}
+.quran-chip--special{background:#fce4ec;color:#880E4F;border-color:#f48fb1}
+
+/* Divider between programmes */
+.prog-divider{display:flex;align-items:center;gap:16px;padding:16px 0;text-align:center;color:var(--c-muted);font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.prog-divider::before,.prog-divider::after{content:'';flex:1;height:1px;background:var(--c-border)}
+
+/* Info pédagogique bar */
+.prog-info-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
+.prog-info-item{background:#fff;border-radius:12px;padding:16px 20px;border:1.5px solid var(--c-border);display:flex;align-items:flex-start;gap:12px}
+.prog-info-item--green{border-left:4px solid #2E7D32}
+.prog-info-item--teal{border-left:4px solid #00897B}
+.prog-info-item--gold{border-left:4px solid #E64A19}
+.prog-info-icon{font-size:1.4rem;flex-shrink:0;margin-top:1px}
+.prog-info-label{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--c-muted);margin-bottom:3px}
+.prog-info-value{font-size:.87rem;font-weight:600;color:var(--c-text);line-height:1.45}
+.prog-info-sub{font-size:.75rem;color:var(--c-muted);margin-top:2px;line-height:1.4}
+@media(max-width:700px){.prog-info-bar{grid-template-columns:1fr}}
+
+@media(max-width:900px){
+  .prog-levels{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .prog-levels{grid-template-columns:1fr}
+  .prog-banner{flex-direction:column;padding:24px}
+  .prog-banner__num{font-size:3rem}
+  .quran-timeline::before{left:28px}
+  .quran-phase{grid-template-columns:64px 1fr}
+  .quran-phase__circle{width:40px;height:40px;font-size:1rem}
+  .quran-phase__card{padding:20px 18px}
+}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
@@ -382,285 +430,440 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 <!-- ═══════════════════════════════════════════════════════
      PROGRAMMES DÉTAILLÉS
 ═══════════════════════════════════════════════════════ -->
-<section class="prog-section section--alt" id="programmes">
-  <div class="container">
+<div id="programmes">
 
-    <div class="text-center" style="margin-bottom:64px">
+  <!-- Section title -->
+  <div style="padding:80px 0 0;background:#fff;text-align:center">
+    <div class="container">
       <span class="badge section-eyebrow">Programmes détaillés</span>
-      <h2 class="section-title">Des cursus structurés de A à Z</h2>
+      <h2 class="section-title" style="margin-top:12px">Des cursus structurés, de A à Z</h2>
       <p class="section-sub">Chaque programme est progressif, avec des objectifs clairs par niveau et un suivi personnalisé tout au long du parcours.</p>
     </div>
-
-    <!-- ── PROGRAMME 1 : ARABE ENFANTS ── -->
-    <div class="prog-header">
-      <div class="prog-icon-big prog-icon-big--green">📖</div>
-      <div class="prog-header__content">
-        <div class="prog-header__badge prog-header__badge--green">Programme 1 · Enfants &amp; Ados</div>
-        <h3 class="prog-header__title">Langue Arabe — de l'alphabet à la maîtrise</h3>
-        <p class="prog-header__desc">Un parcours complet sur 4 ans pour apprendre l'arabe littéraire (Fusha) de zéro. Alphabet, lecture, écriture, grammaire (Nahw &amp; Sarf) et expression orale progressive. Objectif final : lire et comprendre le Coran sans traduction.</p>
-        <div class="prog-meta">
-          <div class="prog-meta-item">👦 7 – 18 ans</div>
-          <div class="prog-meta-item">📅 2 séances / semaine</div>
-          <div class="prog-meta-item">⏱ 45 – 60 min / séance</div>
-          <div class="prog-meta-item">👥 Max 6 élèves / groupe</div>
-          <div class="prog-meta-item">🎯 Durée totale : 4 ans</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="prog-levels">
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 1</div>
-        <div class="prog-level__age prog-level__age--green">7 – 9 ans</div>
-        <div class="prog-level__title">🌱 Les Fondations</div>
-        <ul class="prog-level__list">
-          <li>Alphabet arabe (28 lettres) : reconnaissance et prononciation</li>
-          <li>Écriture des lettres isolées et liées</li>
-          <li>Voyelles courtes (fatha, kasra, damma)</li>
-          <li>Voyelles longues, sukun et chadda</li>
-          <li>Lecture syllabique de mots simples</li>
-          <li>Vocabulaire de base (corps, famille, couleurs)</li>
-          <li>Comptines &amp; chants éducatifs en arabe</li>
-        </ul>
-      </div>
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 2</div>
-        <div class="prog-level__age prog-level__age--green">10 – 12 ans</div>
-        <div class="prog-level__title">📚 Les Bases</div>
-        <ul class="prog-level__list">
-          <li>Lecture fluide de textes courts</li>
-          <li>Introduction à la grammaire : nom, verbe, particule</li>
-          <li>Genre (masculin / féminin), nombre (singulier / pluriel)</li>
-          <li>Les cas (رفع نصب جر) de manière simplifiée</li>
-          <li>Verbes au passé : conjugaison régulière</li>
-          <li>Vocabulaire courant (école, maison, nature)</li>
-          <li>Petits textes avec compréhension écrite</li>
-        </ul>
-      </div>
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 3</div>
-        <div class="prog-level__age prog-level__age--green">13 – 15 ans</div>
-        <div class="prog-level__title">🏗 Grammaire &amp; Expression</div>
-        <ul class="prog-level__list">
-          <li>Nahw approfondi : i'rab (analyse grammaticale)</li>
-          <li>Verbes : présent, impératif, formes dérivées (أوزان)</li>
-          <li>Sarf (morphologie) : racines trilittères</li>
-          <li>Expressions idiomatiques et proverbes</li>
-          <li>Lecture et compréhension de textes islamiques simples</li>
-          <li>Expression orale : présentation, dialogue</li>
-          <li>Rédaction de courts paragraphes</li>
-        </ul>
-      </div>
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 4</div>
-        <div class="prog-level__age prog-level__age--green">16 – 18 ans</div>
-        <div class="prog-level__title">🎓 Maîtrise &amp; Autonomie</div>
-        <ul class="prog-level__list">
-          <li>Lecture de textes coraniques avec analyse</li>
-          <li>Introduction aux textes classiques (Alfiyya, Ajurrumiyya)</li>
-          <li>Nahw et Sarf niveau avancé</li>
-          <li>Rhétorique arabe (Balagha) : introduction</li>
-          <li>Rédaction d'essais et de compositions</li>
-          <li>Préparation à l'autonomie en lecture islamique</li>
-          <li>Option : préparation diplôme arabe niveau DELF équivalent</li>
-        </ul>
-      </div>
-    </div>
-
-    <hr class="prog-divider">
-
-    <!-- ── PROGRAMME 2 : SCIENCES ISLAMIQUES ENFANTS ── -->
-    <div class="prog-header">
-      <div class="prog-icon-big prog-icon-big--teal">🕌</div>
-      <div class="prog-header__content">
-        <div class="prog-header__badge prog-header__badge--teal">Programme 2 · Enfants &amp; Ados</div>
-        <h3 class="prog-header__title">Sciences Islamiques — connaître et pratiquer sa religion</h3>
-        <p class="prog-header__desc">Un cursus progressif en Aqida (foi), Fiqh (jurisprudence pratique), Seerah (biographie du Prophète ﷺ) et Hadith. L'objectif : former des enfants et adolescents ancrés dans leur identité islamique, avec une compréhension solide et pratique de leur religion.</p>
-        <div class="prog-meta">
-          <div class="prog-meta-item">👦 7 – 18 ans</div>
-          <div class="prog-meta-item">📅 2 séances / semaine</div>
-          <div class="prog-meta-item">⏱ 45 – 60 min / séance</div>
-          <div class="prog-meta-item">👥 Max 8 élèves / groupe</div>
-          <div class="prog-meta-item">🎯 Durée totale : 4 ans</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="prog-levels">
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 1</div>
-        <div class="prog-level__age prog-level__age--teal">7 – 9 ans</div>
-        <div class="prog-level__title">🌟 Les Piliers de l'Islam</div>
-        <ul class="prog-level__list">
-          <li>Les 5 piliers de l'Islam (عبادات)</li>
-          <li>Les 6 piliers de la foi (أركان الإيمان)</li>
-          <li>Allah : noms et attributs simples (Al-Asma Al-Husna × 10)</li>
-          <li>La prière : wudhu, gestes, sourates courtes</li>
-          <li>Seerah : naissance et enfance du Prophète ﷺ</li>
-          <li>Les prophètes : Adam, Ibrahim, Musa, Issa, Muhammad ﷺ</li>
-          <li>Adab islamique : salutations, avant de manger, du'a quotidiens</li>
-        </ul>
-      </div>
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 2</div>
-        <div class="prog-level__age prog-level__age--teal">10 – 12 ans</div>
-        <div class="prog-level__title">📿 Fiqh &amp; Pratique</div>
-        <ul class="prog-level__list">
-          <li>Purification rituelle : wudhu, ghusl, tayammum (règles détaillées)</li>
-          <li>La prière : conditions, rukn, sunnah et nullités</li>
-          <li>Le jeûne : conditions, ce qui rompt le jeûne, fidya</li>
-          <li>La Zakat : définition, nissab, bénéficiaires</li>
-          <li>Seerah : la Mission prophétique, Hijra, batailles</li>
-          <li>Hadith : 40 hadiths de base (An-Nawawi simplifié)</li>
-          <li>Aqida : Asma Al-Husna (99 noms), anges, livres révélés</li>
-        </ul>
-      </div>
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 3</div>
-        <div class="prog-level__age prog-level__age--teal">13 – 15 ans</div>
-        <div class="prog-level__title">🔬 Approfondissement</div>
-        <ul class="prog-level__list">
-          <li>Aqida : Al-Wasitiyya (Ibn Taymiyya) — introduction commentée</li>
-          <li>Fiqh : transactions licites et illicites, halal/haram alimentaire</li>
-          <li>Seerah complète : Madine, conquête de La Mecque, dernière prêche</li>
-          <li>Tafsir : sourates al-Fatiha, Al-Baqara (v.1-20), sourates Juz'Amma</li>
-          <li>Hadith : Arba'oun An-Nawawi complètes avec explication</li>
-          <li>Vie des Compagnons (As-Sahaba) : Abu Bakr, Omar, Othman, Ali</li>
-          <li>Introduction à l'éthique islamique (Akhlaq)</li>
-        </ul>
-      </div>
-      <div class="prog-level">
-        <div class="prog-level__num">Niveau 4</div>
-        <div class="prog-level__age prog-level__age--teal">16 – 18 ans</div>
-        <div class="prog-level__title">🎓 Sciences &amp; Identité</div>
-        <ul class="prog-level__list">
-          <li>Usul Al-Fiqh : introduction aux fondements de la jurisprudence</li>
-          <li>Aqida avancée : réfutation du polythéisme, at-Tawhid (3 catégories)</li>
-          <li>Tafsir thématique : versets sur la justice, la famille, l'éducation</li>
-          <li>Sciences du Hadith : introduction (Mustalah Al-Hadith)</li>
-          <li>Histoire islamique : les 4 califes, dynasties Umayyade et Abbasside</li>
-          <li>Islam et modernité : réponses aux questions contemporaines</li>
-          <li>Préparation à l'autonomie religieuse et spirituelle</li>
-        </ul>
-      </div>
-    </div>
-
-    <hr class="prog-divider">
-
-    <!-- ── PROGRAMME 3 : CORAN ADULTES ── -->
-    <div class="prog-header">
-      <div class="prog-icon-big prog-icon-big--gold">🌙</div>
-      <div class="prog-header__content">
-        <div class="prog-header__badge prog-header__badge--gold">Programme 3 · Adultes Femmes &amp; Hommes</div>
-        <h3 class="prog-header__title">Coran — de la Nourania à l'Ijaza</h3>
-        <p class="prog-header__desc">Un parcours en 4 phases pour apprendre à lire le Coran correctement, maîtriser les règles du Tajwid, mémoriser (Hifz) et obtenir une Ijaza transmise de maître à élève depuis le Prophète Muhammad ﷺ. Cours mixtes (hommes et femmes) avec séances séparées.</p>
-        <div class="prog-meta">
-          <div class="prog-meta-item">👨👩 Hommes &amp; Femmes</div>
-          <div class="prog-meta-item">📅 3 séances / semaine</div>
-          <div class="prog-meta-item">⏱ 45 – 60 min / séance</div>
-          <div class="prog-meta-item">👤 Cours individuel ou petit groupe (max 4)</div>
-          <div class="prog-meta-item">🎯 Durée totale : 3 à 5 ans selon rythme</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="quran-phases">
-
-      <div class="quran-phase">
-        <div class="quran-phase__num quran-phase__num--1">①</div>
-        <div class="quran-phase__body">
-          <div class="quran-phase__title">Phase 1 — Al-Qa'ida Al-Nourania (القاعدة النورانية)</div>
-          <div class="quran-phase__arabic">تَعَلُّمُ مَخَارِجِ الحُرُوفِ وَالنُّطْقِ الصَّحِيحِ</div>
-          <p class="quran-phase__desc">Méthode Nourania pour apprendre à lire le Coran depuis zéro. On travaille les makhraj (points d'articulation) de chaque lettre, les formes des lettres, les voyelles, puis la lecture syllabique jusqu'à lire des versets coraniques. Aucune connaissance préalable requise.</p>
-          <div class="quran-phase__items">
-            <span class="quran-chip">Alphabet &amp; makhraj</span>
-            <span class="quran-chip">28 lettres arabes</span>
-            <span class="quran-chip">Voyelles courtes &amp; longues</span>
-            <span class="quran-chip">Lecture syllabique</span>
-            <span class="quran-chip">Méthode Nourania (18 leçons)</span>
-            <span class="quran-chip">Lecture de Juz' Amma</span>
-          </div>
-        </div>
-        <div class="quran-phase__duration">
-          <div class="quran-phase__dur-num">4 – 6</div>
-          <div class="quran-phase__dur-label">mois</div>
-          <div class="quran-phase__dur-note">selon rythme</div>
-        </div>
-      </div>
-
-      <div class="quran-phase">
-        <div class="quran-phase__num quran-phase__num--2">②</div>
-        <div class="quran-phase__body">
-          <div class="quran-phase__title">Phase 2 — Tajwid (أحكام التجويد)</div>
-          <div class="quran-phase__arabic">تِلَاوَةُ القُرْآنِ بِالتَّجْوِيدِ الكَامِلِ</div>
-          <p class="quran-phase__desc">Apprentissage complet des règles du Tajwid théoriques et pratiques. Chaque règle est apprise, exercée sur des versets, puis intégrée dans la lecture continue du Coran. Objectif : lire tout le Coran avec Tajwid correct et fluide.</p>
-          <div class="quran-phase__items">
-            <span class="quran-chip">Nun Sakin &amp; Tanwin (إظهار، إدغام، إقلاب، إخفاء)</span>
-            <span class="quran-chip">Mim Sakin</span>
-            <span class="quran-chip">Madd (prolongation)</span>
-            <span class="quran-chip">Lam Shamsiyya / Qamariyya</span>
-            <span class="quran-chip">Qalqala</span>
-            <span class="quran-chip">Waqf &amp; Ibtida'</span>
-            <span class="quran-chip">Lecture du Coran complet avec Tajwid</span>
-          </div>
-        </div>
-        <div class="quran-phase__duration">
-          <div class="quran-phase__dur-num">6 – 12</div>
-          <div class="quran-phase__dur-label">mois</div>
-          <div class="quran-phase__dur-note">selon rythme</div>
-        </div>
-      </div>
-
-      <div class="quran-phase">
-        <div class="quran-phase__num quran-phase__num--3">③</div>
-        <div class="quran-phase__body">
-          <div class="quran-phase__title">Phase 3 — Hifz Al-Qur'an (حفظ القرآن الكريم)</div>
-          <div class="quran-phase__arabic">مَنْ حَفِظَ القُرْآنَ فَقَدِ اسْتَدْرَجَ النُّبُوَّةَ بَيْنَ جَنْبَيْهِ</div>
-          <p class="quran-phase__desc">Mémorisation progressive du Coran avec méthode structurée : nouvelle mémorisation quotidienne + révision des acquis. Chaque Juz' est testé avant de passer au suivant. Suivi personnalisé avec rapport hebdomadaire de progression envoyé à l'élève.</p>
-          <div class="quran-phase__items">
-            <span class="quran-chip">Plan de mémorisation personnalisé</span>
-            <span class="quran-chip">Nouvelle mémorisation : 1/4 à 1/2 page/jour</span>
-            <span class="quran-chip">Révision journalière des acquis</span>
-            <span class="quran-chip">Test par Juz' avant progression</span>
-            <span class="quran-chip">Révision générale tous les 5 Juz'</span>
-            <span class="quran-chip">Journal de Hifz hebdomadaire</span>
-            <span class="quran-chip">Correction Tajwid en continu</span>
-          </div>
-        </div>
-        <div class="quran-phase__duration">
-          <div class="quran-phase__dur-num">2 – 3</div>
-          <div class="quran-phase__dur-label">ans</div>
-          <div class="quran-phase__dur-note">selon mémorisation</div>
-        </div>
-      </div>
-
-      <div class="quran-phase">
-        <div class="quran-phase__num quran-phase__num--4">④</div>
-        <div class="quran-phase__body">
-          <div class="quran-phase__title">Phase 4 — Al-Ijaza (الإجازة في رواية حفص)</div>
-          <div class="quran-phase__arabic">إِسْنَادٌ مُتَّصِلٌ بِرَسُولِ اللَّهِ ﷺ</div>
-          <p class="quran-phase__desc">Obtention de l'Ijaza en riwayat Hafs 'an 'Asim. L'élève récite le Coran complet devant le Shaykh porteur d'Ijaza. En cas de réussite, l'Ijaza est transmise avec la chaîne de transmission (sanad) remontant jusqu'au Prophète ﷺ. Phase individuelle uniquement.</p>
-          <div class="quran-phase__items">
-            <span class="quran-chip">Révision générale du Coran complet</span>
-            <span class="quran-chip">Récitation devant le Shaykh</span>
-            <span class="quran-chip">Corrections finales Tajwid</span>
-            <span class="quran-chip">Examen oral (Khatma)</span>
-            <span class="quran-chip">Délivrance de l'Ijaza avec Sanad</span>
-            <span class="quran-chip">Riwayat Hafs 'an 'Asim</span>
-            <span class="quran-chip">🏅 Certificat officiel</span>
-          </div>
-        </div>
-        <div class="quran-phase__duration">
-          <div class="quran-phase__dur-num">6 – 12</div>
-          <div class="quran-phase__dur-label">mois</div>
-          <div class="quran-phase__dur-note">préparation ijaza</div>
-        </div>
-      </div>
-
-    </div><!-- /quran-phases -->
-
   </div>
-</section>
+
+  <!-- ══ PROGRAMME 1 : ARABE ENFANTS ══ -->
+  <section class="prog-block prog-block--green">
+    <div class="container">
+
+      <div class="prog-banner prog-banner--green">
+        <div class="prog-banner__num">01</div>
+        <div class="prog-banner__body">
+          <div class="prog-banner__overtitle">📖 Programme Enfants &amp; Ados · à partir de 7 ans</div>
+          <h3 class="prog-banner__title">Langue Arabe — de l'alphabet à la maîtrise</h3>
+          <p class="prog-banner__desc">Un parcours progressif en 4 niveaux annuels pour apprendre l'arabe littéraire (Fusha) depuis zéro. Alphabet, lecture, écriture, grammaire (Nahw &amp; Sarf) et expression orale. Objectif final : lire et comprendre le Coran sans traduction. <strong>Chaque niveau correspond à une année scolaire.</strong></p>
+          <div class="prog-banner__meta">
+            <span class="prog-banner__pill">👦 Dès 7 ans</span>
+            <span class="prog-banner__pill">💻 Ordinateur requis</span>
+            <span class="prog-banner__pill">📅 Plusieurs séances / semaine</span>
+            <span class="prog-banner__pill">👥 Max 6 élèves</span>
+            <span class="prog-banner__pill">🗓 1 an / niveau</span>
+            <span class="prog-banner__pill">📝 Devoirs en ligne</span>
+            <span class="prog-banner__pill">📋 Évaluations en ligne &amp; présentiel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info pédagogique -->
+      <div class="prog-info-bar">
+        <div class="prog-info-item prog-info-item--green">
+          <div class="prog-info-icon">💻</div>
+          <div>
+            <div class="prog-info-label">Prérequis</div>
+            <div class="prog-info-value">Maîtrise de l'ordinateur ou tablette</div>
+            <div class="prog-info-sub">L'élève doit savoir naviguer et accéder à une visioconférence. Dès 7 ans.</div>
+          </div>
+        </div>
+        <div class="prog-info-item prog-info-item--green">
+          <div class="prog-info-icon">📝</div>
+          <div>
+            <div class="prog-info-label">Devoirs</div>
+            <div class="prog-info-value">Exercices hebdomadaires en ligne</div>
+            <div class="prog-info-sub">Fiches de révision, exercices de lecture et d'écriture déposés sur la plateforme chaque semaine.</div>
+          </div>
+        </div>
+        <div class="prog-info-item prog-info-item--green">
+          <div class="prog-info-icon">📋</div>
+          <div>
+            <div class="prog-info-label">Évaluations</div>
+            <div class="prog-info-value">En ligne (trimestriel) + présentiel</div>
+            <div class="prog-info-sub">Tests en ligne 3×/an. Examen de fin d'année en présentiel possible selon les centres partenaires locaux.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prog-levels">
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--green">
+            <div class="prog-level__num-badge">N1</div>
+            <span class="prog-level__age-tag">Année 1 · dès 7 ans</span>
+            <div class="prog-level__title">🌱 Les Fondations</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--green"></span>Alphabet arabe : 28 lettres, reconnaisance &amp; prononciation</li>
+              <li><span class="dot dot--green"></span>Écriture des lettres isolées et liées</li>
+              <li><span class="dot dot--green"></span>Voyelles courtes (fatha, kasra, damma)</li>
+              <li><span class="dot dot--green"></span>Voyelles longues, sukun &amp; chadda</li>
+              <li><span class="dot dot--green"></span>Lecture syllabique de mots simples</li>
+              <li><span class="dot dot--green"></span>Vocabulaire de base : corps, famille, couleurs</li>
+              <li><span class="dot dot--green"></span>Comptines &amp; chants éducatifs en arabe</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--green">
+            <div class="prog-level__num-badge">N2</div>
+            <span class="prog-level__age-tag">Année 2</span>
+            <div class="prog-level__title">📚 Les Bases</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--green"></span>Lecture fluide de textes courts</li>
+              <li><span class="dot dot--green"></span>Grammaire : nom, verbe, particule</li>
+              <li><span class="dot dot--green"></span>Genre &amp; nombre (singulier, duel, pluriel)</li>
+              <li><span class="dot dot--green"></span>Les cas i'rab (رفع نصب جر) simplifié</li>
+              <li><span class="dot dot--green"></span>Verbes au passé : conjugaison régulière</li>
+              <li><span class="dot dot--green"></span>Vocabulaire courant : école, maison, nature</li>
+              <li><span class="dot dot--green"></span>Compréhension écrite de textes courts</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--green">
+            <div class="prog-level__num-badge">N3</div>
+            <span class="prog-level__age-tag">Année 3</span>
+            <div class="prog-level__title">🏗 Grammaire &amp; Expression</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--green"></span>Nahw approfondi : i'rab complet</li>
+              <li><span class="dot dot--green"></span>Verbes : présent, impératif, formes dérivées (أوزان)</li>
+              <li><span class="dot dot--green"></span>Sarf (morphologie) : racines trilittères</li>
+              <li><span class="dot dot--green"></span>Expressions idiomatiques &amp; proverbes</li>
+              <li><span class="dot dot--green"></span>Lecture de textes islamiques simples</li>
+              <li><span class="dot dot--green"></span>Expression orale : présentation, dialogue</li>
+              <li><span class="dot dot--green"></span>Rédaction de courts paragraphes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--green">
+            <div class="prog-level__num-badge">N4</div>
+            <span class="prog-level__age-tag">Année 4</span>
+            <div class="prog-level__title">🎓 Maîtrise &amp; Autonomie</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--green"></span>Lecture de textes coraniques avec analyse</li>
+              <li><span class="dot dot--green"></span>Textes classiques : Ajurrumiyya, Alfiyya</li>
+              <li><span class="dot dot--green"></span>Nahw &amp; Sarf niveau avancé</li>
+              <li><span class="dot dot--green"></span>Rhétorique arabe (Balagha) : introduction</li>
+              <li><span class="dot dot--green"></span>Rédaction d'essais et de compositions</li>
+              <li><span class="dot dot--green"></span>Autonomie complète en lecture islamique</li>
+              <li><span class="dot dot--green"></span>Option : préparation diplôme arabe officiel</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /prog-levels -->
+    </div>
+  </section>
+
+  <!-- ══ PROGRAMME 2 : SCIENCES ISLAMIQUES ENFANTS ══ -->
+  <section class="prog-block prog-block--teal">
+    <div class="container">
+
+      <div class="prog-divider">Programme suivant</div>
+
+      <div class="prog-banner prog-banner--teal">
+        <div class="prog-banner__num">02</div>
+        <div class="prog-banner__body">
+          <div class="prog-banner__overtitle">🕌 Programme Enfants &amp; Ados · à partir de 7 ans</div>
+          <h3 class="prog-banner__title">Sciences Islamiques — connaître et pratiquer sa religion</h3>
+          <p class="prog-banner__desc">Un cursus progressif en 4 niveaux annuels : Aqida (foi), Fiqh (jurisprudence pratique), Seerah (vie du Prophète ﷺ) et Hadith. Former des enfants et adolescents ancrés dans leur identité islamique. <strong>Chaque niveau correspond à une année scolaire.</strong></p>
+          <div class="prog-banner__meta">
+            <span class="prog-banner__pill">👦 Dès 7 ans</span>
+            <span class="prog-banner__pill">💻 Ordinateur requis</span>
+            <span class="prog-banner__pill">📅 Plusieurs séances / semaine</span>
+            <span class="prog-banner__pill">👥 Max 8 élèves</span>
+            <span class="prog-banner__pill">🗓 1 an / niveau</span>
+            <span class="prog-banner__pill">📝 Devoirs en ligne</span>
+            <span class="prog-banner__pill">📋 Évaluations en ligne &amp; présentiel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info pédagogique -->
+      <div class="prog-info-bar">
+        <div class="prog-info-item prog-info-item--teal">
+          <div class="prog-info-icon">💻</div>
+          <div>
+            <div class="prog-info-label">Prérequis</div>
+            <div class="prog-info-value">Maîtrise de l'ordinateur ou tablette</div>
+            <div class="prog-info-sub">L'élève doit savoir naviguer et accéder à une visioconférence. Dès 7 ans.</div>
+          </div>
+        </div>
+        <div class="prog-info-item prog-info-item--teal">
+          <div class="prog-info-icon">📝</div>
+          <div>
+            <div class="prog-info-label">Devoirs</div>
+            <div class="prog-info-value">Fiches &amp; quiz hebdomadaires en ligne</div>
+            <div class="prog-info-sub">Quiz de mémorisation, questions de compréhension et fiches d'étude sur la plateforme.</div>
+          </div>
+        </div>
+        <div class="prog-info-item prog-info-item--teal">
+          <div class="prog-info-icon">📋</div>
+          <div>
+            <div class="prog-info-label">Évaluations</div>
+            <div class="prog-info-value">En ligne (trimestriel) + présentiel</div>
+            <div class="prog-info-sub">Tests en ligne 3×/an. Examen de fin d'année en présentiel possible selon les centres partenaires.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prog-levels">
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--teal">
+            <div class="prog-level__num-badge">N1</div>
+            <span class="prog-level__age-tag">Année 1 · dès 7 ans</span>
+            <div class="prog-level__title">🌟 Les Piliers de l'Islam</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--teal"></span>Les 5 piliers de l'Islam</li>
+              <li><span class="dot dot--teal"></span>Les 6 piliers de la foi (أركان الإيمان)</li>
+              <li><span class="dot dot--teal"></span>Allah : 10 noms et attributs essentiels</li>
+              <li><span class="dot dot--teal"></span>La prière : wudhu, gestes, sourates</li>
+              <li><span class="dot dot--teal"></span>Seerah : naissance &amp; enfance du Prophète ﷺ</li>
+              <li><span class="dot dot--teal"></span>Les grands prophètes : Adam, Ibrahim, Musa, Issa, Muhammad ﷺ</li>
+              <li><span class="dot dot--teal"></span>Adab islamique : salutations &amp; du'a quotidiens</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--teal">
+            <div class="prog-level__num-badge">N2</div>
+            <span class="prog-level__age-tag">Année 2</span>
+            <div class="prog-level__title">📿 Fiqh &amp; Pratique</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--teal"></span>Purification : wudhu, ghusl, tayammum</li>
+              <li><span class="dot dot--teal"></span>La prière : conditions, rukn, sunnah, nullités</li>
+              <li><span class="dot dot--teal"></span>Le jeûne : conditions &amp; ce qui le rompt</li>
+              <li><span class="dot dot--teal"></span>La Zakat : définition, nissab, bénéficiaires</li>
+              <li><span class="dot dot--teal"></span>Seerah : Mission prophétique, Hijra, batailles</li>
+              <li><span class="dot dot--teal"></span>Hadith : 40 hadiths An-Nawawi (simplifié)</li>
+              <li><span class="dot dot--teal"></span>Asma Al-Husna (99 noms), anges, livres</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--teal">
+            <div class="prog-level__num-badge">N3</div>
+            <span class="prog-level__age-tag">Année 3</span>
+            <div class="prog-level__title">🔬 Approfondissement</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--teal"></span>Aqida : Al-Wasitiyya (introduction commentée)</li>
+              <li><span class="dot dot--teal"></span>Fiqh : halal/haram alimentaire &amp; transactions</li>
+              <li><span class="dot dot--teal"></span>Seerah complète : conquête La Mecque &amp; dernier prêche</li>
+              <li><span class="dot dot--teal"></span>Tafsir : Fatiha, Al-Baqara v.1-20, Juz' Amma</li>
+              <li><span class="dot dot--teal"></span>40 hadiths An-Nawawi avec explication</li>
+              <li><span class="dot dot--teal"></span>Vie des Compagnons : Abu Bakr, Omar, Othman, Ali</li>
+              <li><span class="dot dot--teal"></span>Introduction à l'éthique islamique (Akhlaq)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-level">
+          <div class="prog-level__header prog-level__header--teal">
+            <div class="prog-level__num-badge">N4</div>
+            <span class="prog-level__age-tag">Année 4</span>
+            <div class="prog-level__title">🎓 Sciences &amp; Identité</div>
+          </div>
+          <div class="prog-level__body">
+            <ul class="prog-level__list">
+              <li><span class="dot dot--teal"></span>Usul Al-Fiqh : fondements de la jurisprudence</li>
+              <li><span class="dot dot--teal"></span>Aqida avancée : at-Tawhid (3 catégories)</li>
+              <li><span class="dot dot--teal"></span>Tafsir thématique : justice, famille, éducation</li>
+              <li><span class="dot dot--teal"></span>Mustalah Al-Hadith : introduction</li>
+              <li><span class="dot dot--teal"></span>Histoire islamique : 4 califes, Ummayades, Abbassides</li>
+              <li><span class="dot dot--teal"></span>Islam &amp; modernité : réponses contemporaines</li>
+              <li><span class="dot dot--teal"></span>Autonomie religieuse &amp; spirituelle</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /prog-levels -->
+    </div>
+  </section>
+
+  <!-- ══ PROGRAMME 3 : CORAN ADULTES ══ -->
+  <section class="prog-block prog-block--gold">
+    <div class="container">
+
+      <div class="prog-divider">Programme suivant</div>
+
+      <div class="prog-banner prog-banner--gold">
+        <div class="prog-banner__num">03</div>
+        <div class="prog-banner__body">
+          <div class="prog-banner__overtitle">🌙 Programme Adultes · Hommes &amp; Femmes</div>
+          <h3 class="prog-banner__title">Coran — de la Nourania à l'Ijaza</h3>
+          <p class="prog-banner__desc">4 phases progressives pour apprendre à lire le Coran correctement, maîtriser le Tajwid, mémoriser (Hifz) et obtenir une Ijaza transmise depuis le Prophète Muhammad ﷺ. <strong>Chaque phase dure une année</strong>, selon la progression de l'élève. Cours séparés hommes / femmes.</p>
+          <div class="prog-banner__meta">
+            <span class="prog-banner__pill">👨 Hommes séparés 👩 Femmes</span>
+            <span class="prog-banner__pill">📅 Plusieurs séances / semaine</span>
+            <span class="prog-banner__pill">👤 Individuel ou groupe max 4</span>
+            <span class="prog-banner__pill">🗓 1 an / phase</span>
+            <span class="prog-banner__pill">📝 Devoirs &amp; révisions en ligne</span>
+            <span class="prog-banner__pill">📋 Évaluations en ligne &amp; présentiel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info pédagogique -->
+      <div class="prog-info-bar">
+        <div class="prog-info-item prog-info-item--gold">
+          <div class="prog-info-icon">📱</div>
+          <div>
+            <div class="prog-info-label">Accès</div>
+            <div class="prog-info-value">Ordinateur, tablette ou smartphone</div>
+            <div class="prog-info-sub">Application mobile disponible pour écouter les récitations. Les cours en direct se font via visioconférence.</div>
+          </div>
+        </div>
+        <div class="prog-info-item prog-info-item--gold">
+          <div class="prog-info-icon">📝</div>
+          <div>
+            <div class="prog-info-label">Devoirs &amp; révisions</div>
+            <div class="prog-info-value">Journal de Hifz hebdomadaire en ligne</div>
+            <div class="prog-info-sub">Chaque élève soumet sa révision de la semaine en enregistrement audio vérifié par l'enseignant.</div>
+          </div>
+        </div>
+        <div class="prog-info-item prog-info-item--gold">
+          <div class="prog-info-icon">📋</div>
+          <div>
+            <div class="prog-info-label">Évaluations</div>
+            <div class="prog-info-value">Khatma en ligne + Ijaza en présentiel</div>
+            <div class="prog-info-sub">Test de récitation par Juz' en ligne. La Khatma finale et la remise de l'Ijaza se font en présentiel obligatoirement.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quran-timeline">
+
+        <div class="quran-phase">
+          <div class="quran-phase__left">
+            <div class="quran-phase__circle quran-phase__circle--1">①</div>
+            <div class="quran-phase__dur-pill">
+              <span class="quran-phase__dur-num">~1 an</span>
+              <span class="quran-phase__dur-unit">Phase 1</span>
+            </div>
+          </div>
+          <div class="quran-phase__card">
+            <div class="quran-phase__top">
+              <div class="quran-phase__title">Phase 1 — Al-Qa'ida Al-Nourania (القاعدة النورانية)</div>
+            </div>
+            <div class="quran-phase__arabic">تَعَلُّمُ مَخَارِجِ الحُرُوفِ وَالنُّطْقِ الصَّحِيحِ</div>
+            <p class="quran-phase__desc">Méthode Nourania pour apprendre à lire le Coran depuis zéro. On travaille les makhraj (points d'articulation) de chaque lettre, les formes, les voyelles puis la lecture syllabique jusqu'à lire des versets coraniques. <strong>Aucune connaissance préalable requise.</strong></p>
+            <div class="quran-phase__chips">
+              <span class="quran-chip">Alphabet &amp; makhraj (28 lettres)</span>
+              <span class="quran-chip">Voyelles courtes &amp; longues</span>
+              <span class="quran-chip">Lecture syllabique</span>
+              <span class="quran-chip">Méthode Nourania (18 leçons)</span>
+              <span class="quran-chip">Lecture Juz' Amma</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quran-phase">
+          <div class="quran-phase__left">
+            <div class="quran-phase__circle quran-phase__circle--2">②</div>
+            <div class="quran-phase__dur-pill">
+              <span class="quran-phase__dur-num">~1 an</span>
+              <span class="quran-phase__dur-unit">Phase 2</span>
+            </div>
+          </div>
+          <div class="quran-phase__card">
+            <div class="quran-phase__top">
+              <div class="quran-phase__title">Phase 2 — Tajwid complet (أحكام التجويد)</div>
+            </div>
+            <div class="quran-phase__arabic">تِلَاوَةُ القُرْآنِ بِالتَّجْوِيدِ الكَامِلِ</div>
+            <p class="quran-phase__desc">Apprentissage complet des règles du Tajwid, théoriques et pratiques. Chaque règle est apprise, exercée sur des versets, puis intégrée dans la lecture continue. Objectif : lire le Coran complet avec Tajwid correct et fluide.</p>
+            <div class="quran-phase__chips">
+              <span class="quran-chip">Nun Sakin &amp; Tanwin (إظهار، إدغام، إقلاب، إخفاء)</span>
+              <span class="quran-chip">Mim Sakin</span>
+              <span class="quran-chip">Madd (prolongations)</span>
+              <span class="quran-chip">Lam Shamsiyya / Qamariyya</span>
+              <span class="quran-chip">Qalqala</span>
+              <span class="quran-chip">Waqf &amp; Ibtida'</span>
+              <span class="quran-chip">Lecture Coran complet avec Tajwid</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quran-phase">
+          <div class="quran-phase__left">
+            <div class="quran-phase__circle quran-phase__circle--3">③</div>
+            <div class="quran-phase__dur-pill">
+              <span class="quran-phase__dur-num">1–3 ans</span>
+              <span class="quran-phase__dur-unit">Phase 3</span>
+            </div>
+          </div>
+          <div class="quran-phase__card">
+            <div class="quran-phase__top">
+              <div class="quran-phase__title">Phase 3 — Hifz Al-Qur'an (حفظ القرآن الكريم)</div>
+            </div>
+            <div class="quran-phase__arabic">مَنْ حَفِظَ القُرْآنَ فَقَدِ اسْتَدْرَجَ النُّبُوَّةَ بَيْنَ جَنْبَيْهِ</div>
+            <p class="quran-phase__desc">Mémorisation progressive avec méthode structurée : nouvelle mémorisation quotidienne + révision des acquis. Chaque Juz' est testé avant de passer au suivant. <strong>Rapport hebdomadaire de progression</strong> envoyé à chaque élève.</p>
+            <div class="quran-phase__chips">
+              <span class="quran-chip">Plan personnalisé de mémorisation</span>
+              <span class="quran-chip">¼ à ½ page / jour</span>
+              <span class="quran-chip">Révision journalière des acquis</span>
+              <span class="quran-chip">Test par Juz' avant progression</span>
+              <span class="quran-chip">Révision générale tous les 5 Juz'</span>
+              <span class="quran-chip">Journal Hifz hebdomadaire</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quran-phase">
+          <div class="quran-phase__left">
+            <div class="quran-phase__circle quran-phase__circle--4">④</div>
+            <div class="quran-phase__dur-pill">
+              <span class="quran-phase__dur-num">~1 an</span>
+              <span class="quran-phase__dur-unit">Phase 4</span>
+            </div>
+          </div>
+          <div class="quran-phase__card">
+            <div class="quran-phase__top">
+              <div class="quran-phase__title">Phase 4 — Al-Ijaza (الإجازة في رواية حفص عن عاصم)</div>
+            </div>
+            <div class="quran-phase__arabic">إِسْنَادٌ مُتَّصِلٌ بِرَسُولِ اللَّهِ ﷺ</div>
+            <p class="quran-phase__desc">Obtention de l'Ijaza en riwayat Hafs 'an 'Asim. L'élève récite le Coran complet devant le Shaykh porteur d'Ijaza. En cas de réussite, l'Ijaza est délivrée avec le <strong>sanad remontant jusqu'au Prophète ﷺ</strong>. Phase individuelle uniquement.</p>
+            <div class="quran-phase__chips">
+              <span class="quran-chip">Révision générale du Coran complet</span>
+              <span class="quran-chip">Récitation devant le Shaykh</span>
+              <span class="quran-chip">Examen oral (Khatma)</span>
+              <span class="quran-chip">Riwayat Hafs 'an 'Asim</span>
+              <span class="quran-chip--special quran-chip">🏅 Ijaza avec Sanad officiel</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /quran-timeline -->
+    </div>
+  </section>
+
+</div><!-- /#programmes -->
 
 <!-- WHY -->
 <section class="section section--alt">
@@ -876,7 +1079,15 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
             </div>
           </div>
           <button type="submit" class="form-submit">✅ Je me préinscris gratuitement</button>
-          <p class="form-note">🔒 Vos données sont confidentielles. Aucun spam. Vous pouvez vous désinscrire à tout moment.</p>
+          <!-- Honeypot anti-bot : champ invisible, un bot le remplit, un humain non -->
+          <input type="text" name="_hp" id="_hp" value="" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
+          <label class="form-checkbox" style="margin-top:16px;align-items:flex-start;gap:10px">
+            <input type="checkbox" id="rgpd" name="rgpd" required style="margin-top:3px;flex-shrink:0">
+            <span style="font-size:.85rem;color:var(--c-muted);line-height:1.5">
+              J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma préinscription à Online MadrassaNET. Elles ne seront pas transmises à des tiers. Conformément au RGPD, vous pouvez demander leur suppression à tout moment à <a href="mailto:contact@madrassanet.fr" style="color:var(--c-brand)">contact@madrassanet.fr</a>. <span class="required">*</span>
+            </span>
+          </label>
+          <p class="form-note">🔒 Données confidentielles · Aucun spam · Suppression sur demande</p>
         </form>
       </div>
 
@@ -979,39 +1190,88 @@ window.addEventListener('scroll', () => {
   if (!bannerDismissed && window.scrollY > 600) banner.classList.add('visible');
 });
 
+// ── Google Apps Script URL ──
+// Remplacez cette URL par votre URL de déploiement Apps Script
+const APPS_SCRIPT_URL = 'REMPLACER_PAR_URL_APPS_SCRIPT';
+
 // ── Form submit ──
-document.getElementById('registration-form').addEventListener('submit', function(e) {
+document.getElementById('registration-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = this;
+  const submitBtn = form.querySelector('.form-submit');
+
   const prenom = form.querySelector('#prenom').value.trim();
   const nom = form.querySelector('#nom').value.trim();
   const email = form.querySelector('#email').value.trim();
+  const telephone = form.querySelector('#telephone').value.trim();
   const type = form.querySelector('#type').value;
   const age = form.querySelector('#age').value;
-  const coursCochees = Array.from(form.querySelectorAll('input[name="cours"]:checked'));
+  const niveau = form.querySelector('#niveau').value;
+  const ville = form.querySelector('#ville').value.trim();
+  const message = form.querySelector('#message').value.trim();
+  const coursCochees = Array.from(form.querySelectorAll('input[name="cours"]:checked'))
+                            .map(cb => cb.value);
 
-  // Basic validation
+  // Validation
   if (!prenom || !nom || !email || !type || !age || coursCochees.length === 0) {
-    alert('Merci de remplir tous les champs obligatoires (marqués d\'un *).');
+    showFormError('Merci de remplir tous les champs obligatoires (marqués d\'un *).');
+    return;
+  }
+  if (!form.querySelector('#rgpd').checked) {
+    showFormError('Vous devez accepter les conditions d\'utilisation des données (RGPD) pour continuer.');
     return;
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    alert('Veuillez saisir une adresse email valide.');
+    showFormError('Veuillez saisir une adresse email valide.');
     return;
   }
 
-  // Show success
-  document.getElementById('form-content').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-  document.getElementById('form-success').style.display = 'flex';
-  document.getElementById('form-success').style.flexDirection = 'column';
-  document.getElementById('form-success').style.alignItems = 'center';
+  // Loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = '⏳ Envoi en cours…';
 
+  const payload = { prenom, nom, email, telephone, type, age, niveau, ville, message,
+                    cours: coursCochees.join(', '),
+                    _hp: form.querySelector('#_hp').value,
+                    date: new Date().toLocaleString('fr-FR', {timeZone: 'Europe/Paris'}) };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Apps Script ne supporte pas CORS complet — no-cors suffit
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    });
+    // no-cors ne retourne pas de réponse lisible — on considère le succès si pas d'erreur réseau
+    showFormSuccess();
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '✅ Je me préinscris gratuitement';
+    showFormError('Une erreur réseau est survenue. Veuillez réessayer ou nous écrire directement.');
+  }
+});
+
+function showFormError(msg) {
+  let el = document.getElementById('form-error-msg');
+  if (!el) {
+    el = document.createElement('p');
+    el.id = 'form-error-msg';
+    el.style.cssText = 'color:#c62828;background:#ffebee;border:1px solid #ef9a9a;border-radius:8px;padding:10px 16px;margin-top:12px;font-size:.9rem;font-weight:600';
+    document.querySelector('.form-submit').insertAdjacentElement('afterend', el);
+  }
+  el.textContent = '⚠️ ' + msg;
+  el.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function showFormSuccess() {
+  document.getElementById('form-content').style.display = 'none';
+  const successEl = document.getElementById('form-success');
+  successEl.style.cssText = 'display:flex;flex-direction:column;align-items:center';
   // Update counter
   const el = document.getElementById('counter-inscrit');
   const current = parseInt(el.textContent) || 47;
   animateCounter(el, current + 1, 600);
-});
+}
 </script>
 </body>
 </html>
