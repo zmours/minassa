@@ -314,13 +314,12 @@
     "rgpd": "J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma préinscription à Minassa. Elles ne seront pas transmises à des tiers. Conformément au RGPD, vous pouvez demander leur suppression à tout moment à <a href=\"mailto:contact@minassa.fr\" style=\"color:var(--c-brand)\">contact@minassa.fr</a>. <span class=\"required\">*</span>",
     "note": "🔒 Données confidentielles · Aucun spam · Suppression sur demande",
     "success_title": "Préinscription enregistrée !",
-    "success_subtitle": "بارك الله فيكم — Nous vous contacterons dès l'ouverture des inscriptions définitives. En attendant, rejoignez notre groupe WhatsApp pour rester informé(e).",
+    "success_subtitle": "بارك الله فيكم — Nous vous contacterons dès l'ouverture des inscriptions définitives.",
     "loading": "⏳ Envoi en cours…",
     "error_required": "Merci de remplir tous les champs obligatoires (marqués d'un *).",
     "error_rgpd": "Vous devez accepter les conditions d'utilisation des données (RGPD) pour continuer.",
     "error_email": "Veuillez saisir une adresse email valide.",
-    "error_network": "Une erreur réseau s'est produite. Veuillez réessayer ou nous écrire directement.",
-    "success_whatsapp": "📱 Rejoindre le groupe WhatsApp →"
+    "error_network": "Une erreur réseau s'est produite. Veuillez réessayer ou nous écrire directement."
   },
   "faq": {
     "eyebrow": "FAQ",
