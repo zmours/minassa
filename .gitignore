@@ -12,6 +12,7 @@
 !i18n.json
 !locales/
 !locales/*.json
+!og-image.jpg
 
 # 3. Autoriser git lui-même et ce fichier
 !.gitignore
