@@ -334,8 +334,7 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 /* Turnstile */
 .cf-turnstile{margin:16px 0 4px}
 </style>
-<!-- Cloudflare Turnstile désactivé temporairement -->
-<!-- <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script> -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -1122,9 +1121,7 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
             </div>
           </div>
           <!-- Cloudflare Turnstile — remplacer VOTRE_SITE_KEY après création du widget -->
-          <!-- Turnstile désactivé temporairement
           <div class="cf-turnstile" data-sitekey="0x4AAAAAADU1Kwvjip0WjmbB" data-theme="light" data-language="fr"></div>
-          -->
           <button type="submit" class="form-submit" data-i18n="form.submit">✅ Préinscription gratuite</button>
           <!-- Honeypot anti-bot : champ invisible, un bot le remplit, un humain non -->
           <input type="text" name="_hp" id="_hp" value="" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
@@ -1351,7 +1348,7 @@ window.addEventListener('scroll', () => {
 // FORM SUBMISSION
 // ═══════════════════════════════════════════════════════
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw82GoObRZCQGwyy0XKz_oSHth20QB9OJPoGx6rBskm1kHwrvnNJ0PjKbr6kH2GwNQ8/exec'; // TODO: Add your Apps Script URL
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwzbxqxKVishHGDgWJAf8JTvc_KZn8L_kSlg6sSrZSeAFMgnH6oPfk3ytq96sU6OXk/exec'; // TODO: Add your Apps Script URL
 
 document.getElementById('registration-form').addEventListener('submit', async function(e) {
   e.preventDefault();
