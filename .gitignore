@@ -1,0 +1,23 @@
+# ============================================================
+# Whitelist — repo PUBLIC : on ignore TOUT sauf les fichiers
+# strictement nécessaires au fonctionnement du site.
+# ============================================================
+
+# 1. Ignorer tout par défaut
+*
+
+# 2. Autoriser uniquement les fichiers du site
+!index.html
+!CNAME
+!i18n.json
+!locales/
+!locales/*.json
+
+# 3. Autoriser git lui-même et ce fichier
+!.gitignore
+!.git/
+
+# ── Fichiers exclus (sensibles ou inutiles en production) ──
+# apps-script/     → contient la Secret Key Turnstile
+# README_*.md      → documentation interne
+# og-image-generator.html → outil de génération, pas le site
