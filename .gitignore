@@ -13,6 +13,7 @@
 !locales/
 !locales/*.json
 !og-image.jpg
+!favicon.svg
 
 # 3. Autoriser git lui-même et ce fichier
 !.gitignore
