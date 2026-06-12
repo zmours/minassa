@@ -346,6 +346,27 @@
     "legal": "Mentions légales",
     "privacy": "Confidentialité"
   },
+  "popup": {
+    "badge": "🌸 Ouverture officielle",
+    "title": "Les cours pour sœurs adultes <span>sont ouverts !</span>",
+    "sub": "Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya. Petits groupes · Suivi personnalisé · 100 % en ligne.",
+    "price1": "280 €",
+    "price1_label": "/ an · Cours collectifs",
+    "price2": "18 €",
+    "price2_label": "/ séance · Individuel",
+    "cta": "Voir le programme complet →",
+    "later": "Pas maintenant"
+  },
+  "femmes": {
+    "badge": "🌸 Cours pour sœurs adultes · Places disponibles",
+    "title": "Apprenez le Coran à votre rythme",
+    "sub": "Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya — avec un vrai suivi personnalisé pour chaque sœur.",
+    "pill1": "📖 Cours collectifs — 280 €/an",
+    "pill2": "💎 Séances individuelles — dès 18 €",
+    "pill3": "👥 Groupes de 6 à 10 sœurs",
+    "pill4": "💻 100 % en ligne",
+    "cta": "Voir le programme →"
+  },
   "sticky": {
     "text": "🌟 Préinscription ouverte",
     "highlight": "Places limitées pour la rentrée 2026",

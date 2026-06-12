@@ -334,10 +334,76 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 .sticky-banner__close{background:none;border:none;color:rgba(255,255,255,.5);font-size:1.3rem;cursor:pointer;padding:0 4px;line-height:1}
 /* Turnstile */
 .cf-turnstile{margin:16px 0 4px}
+
+/* ── POPUP OUVERTURE COURS FEMMES ── */
+.popup-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.popup-overlay.visible{opacity:1;pointer-events:all}
+.popup-card{background:#fff;border-radius:24px;padding:44px 40px;max-width:500px;width:100%;position:relative;text-align:center;box-shadow:0 28px 72px rgba(0,0,0,.28);transform:translateY(24px) scale(.97);transition:transform .38s cubic-bezier(.34,1.4,.64,1);overflow:hidden}
+.popup-overlay.visible .popup-card{transform:translateY(0) scale(1)}
+.popup-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#9D174D,#DB2777,#F59E0B)}
+.popup-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;color:#9ca3af;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s,color .2s;line-height:1}
+.popup-close:hover{background:#f3f4f6;color:#374151}
+.popup__badge{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D174D;background:#FCE7F3;padding:4px 14px;border-radius:100px;margin-bottom:14px}
+.popup__arabic{font-family:'Amiri',serif;font-size:1.1rem;color:var(--c-muted);direction:rtl;margin-bottom:12px}
+.popup__title{font-size:clamp(1.35rem,3.5vw,1.8rem);font-weight:900;color:var(--c-text);margin-bottom:12px;line-height:1.2}
+.popup__title span{color:#9D174D}
+.popup__sub{font-size:.9rem;color:var(--c-muted);line-height:1.65;margin-bottom:22px}
+.popup__prices{display:flex;align-items:center;justify-content:center;gap:12px;background:#f9fafb;border:1px solid var(--c-border);border-radius:12px;padding:14px 20px;margin-bottom:24px}
+.popup__price-block{text-align:center}
+.popup__price-num{font-size:1.55rem;font-weight:900;color:var(--c-brand);display:block;line-height:1.1}
+.popup__price-label{font-size:.75rem;color:var(--c-muted);font-weight:500;margin-top:2px;display:block}
+.popup__price-sep{font-size:.82rem;font-weight:600;color:var(--c-border);padding:0 4px}
+.popup__cta{display:block;padding:15px;background:linear-gradient(135deg,#9D174D 0%,#DB2777 100%);color:#fff;border-radius:10px;font-weight:800;font-size:1rem;transition:all .22s;margin-bottom:10px;box-shadow:0 4px 18px rgba(157,23,77,.3)}
+.popup__cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(157,23,77,.42)}
+.popup__later{background:none;border:none;font-size:.83rem;color:var(--c-muted);cursor:pointer;padding:8px;width:100%;font-family:inherit;transition:color .2s}
+.popup__later:hover{color:var(--c-text)}
+@media(max-width:480px){.popup-card{padding:36px 24px 28px}}
+
+/* ── COURS FEMMES TEASER ── */
+.femmes-teaser{padding:56px 0;background:linear-gradient(135deg,#FFF1F5 0%,#f0fdf9 100%);border-top:1px solid #FCE7F3;border-bottom:1px solid #e5e7eb}
+.femmes-teaser__card{display:flex;align-items:center;justify-content:space-between;gap:40px;background:#fff;border-radius:24px;padding:40px 48px;box-shadow:0 8px 40px rgba(157,23,77,.08),0 2px 12px rgba(15,118,110,.06);border:2px solid #FCE7F3}
+.femmes-teaser__left{flex:1;min-width:0}
+.femmes-teaser__badge{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D174D;background:#FCE7F3;padding:4px 12px;border-radius:100px;margin-bottom:14px}
+.femmes-teaser__title{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--c-text);margin-bottom:10px;line-height:1.2}
+.femmes-teaser__sub{font-size:.97rem;color:var(--c-muted);margin-bottom:20px;max-width:540px;line-height:1.65}
+.femmes-teaser__pills{display:flex;flex-wrap:wrap;gap:8px}
+.femmes-teaser__pill{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;padding:5px 13px;border-radius:100px;background:#f0fdfa;color:var(--c-brand);border:1px solid #CCFBF1}
+.femmes-teaser__cta{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:15px 30px;background:linear-gradient(135deg,#9D174D,#DB2777);color:#fff;border-radius:12px;font-weight:800;font-size:.97rem;transition:all var(--t);box-shadow:0 4px 20px rgba(157,23,77,.3);white-space:nowrap}
+.femmes-teaser__cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(157,23,77,.4)}
+@media(max-width:768px){
+  .femmes-teaser__card{flex-direction:column;padding:28px 24px;text-align:center}
+  .femmes-teaser__pills{justify-content:center}
+  .femmes-teaser__sub{margin-left:auto;margin-right:auto}
+  .femmes-teaser__cta{width:100%;justify-content:center}
+}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
+
+<!-- POPUP OUVERTURE COURS FEMMES -->
+<div class="popup-overlay" id="popup-femmes" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()" aria-label="Fermer">×</button>
+    <div class="popup__badge" data-i18n="popup.badge">🌸 Ouverture officielle</div>
+    <p class="popup__arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    <h2 class="popup__title" id="popup-title" data-i18n="popup.title" data-i18n-html>Les cours pour sœurs adultes <span>sont ouverts !</span></h2>
+    <p class="popup__sub" data-i18n="popup.sub">Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya. Petits groupes · Suivi personnalisé · 100 % en ligne.</p>
+    <div class="popup__prices">
+      <div class="popup__price-block">
+        <span class="popup__price-num" data-i18n="popup.price1">280 €</span>
+        <span class="popup__price-label" data-i18n="popup.price1_label">/ an · Cours collectifs</span>
+      </div>
+      <span class="popup__price-sep">|</span>
+      <div class="popup__price-block">
+        <span class="popup__price-num" data-i18n="popup.price2">18 €</span>
+        <span class="popup__price-label" data-i18n="popup.price2_label">/ séance · Individuel</span>
+      </div>
+    </div>
+    <a href="cours-femmes.html" class="popup__cta" data-i18n="popup.cta">Voir le programme complet →</a>
+    <button class="popup__later" onclick="closePopup()" data-i18n="popup.later">Pas maintenant</button>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav class="nav">
@@ -908,6 +974,26 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 
 </div><!-- /#programmes -->
 
+<!-- COURS FEMMES TEASER -->
+<div class="femmes-teaser">
+  <div class="container">
+    <div class="femmes-teaser__card">
+      <div class="femmes-teaser__left">
+        <div class="femmes-teaser__badge" data-i18n="femmes.badge">🌸 Cours pour sœurs adultes · Places disponibles</div>
+        <h2 class="femmes-teaser__title" data-i18n="femmes.title">Apprenez le Coran à votre rythme</h2>
+        <p class="femmes-teaser__sub" data-i18n="femmes.sub">Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya — avec un vrai suivi personnalisé pour chaque sœur.</p>
+        <div class="femmes-teaser__pills">
+          <span class="femmes-teaser__pill" data-i18n="femmes.pill1">📖 Cours collectifs — 280 €/an</span>
+          <span class="femmes-teaser__pill" data-i18n="femmes.pill2">💎 Séances individuelles — dès 18 €</span>
+          <span class="femmes-teaser__pill" data-i18n="femmes.pill3">👥 Groupes de 6 à 10 sœurs</span>
+          <span class="femmes-teaser__pill" data-i18n="femmes.pill4">💻 100 % en ligne</span>
+        </div>
+      </div>
+      <a href="cours-femmes.html" class="femmes-teaser__cta" data-i18n="femmes.cta">Voir le programme →</a>
+    </div>
+  </div>
+</div>
+
 <!-- WHY -->
 <section class="section section--alt">
   <div class="container">
@@ -1421,6 +1507,32 @@ function showFormError(msg) {
   el.textContent = '⚠️ ' + msg;
   el.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
+
+// ═══════════════════════════════════════════════════════
+// POPUP COURS FEMMES
+// ═══════════════════════════════════════════════════════
+
+function closePopup() {
+  document.getElementById('popup-femmes').classList.remove('visible');
+  sessionStorage.setItem('popup-femmes-seen', '1');
+}
+
+function showPopup() {
+  if (sessionStorage.getItem('popup-femmes-seen')) return;
+  setTimeout(() => {
+    document.getElementById('popup-femmes').classList.add('visible');
+  }, 900);
+}
+
+document.getElementById('popup-femmes').addEventListener('click', function(e) {
+  if (e.target === this) closePopup();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePopup();
+});
+
+window.addEventListener('DOMContentLoaded', showPopup);
 
 function showFormSuccess() {
   document.getElementById('form-content').style.display = 'none';
