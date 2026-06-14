@@ -84,8 +84,19 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 .lang-switcher:hover{border-color:var(--c-brand);background:var(--c-bg)}
 .lang-switcher button{background:none;border:none;padding:4px 8px;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:5px;transition:all var(--t);color:var(--c-muted)}
 .lang-switcher button.active{background:var(--c-brand);color:#fff}
-.nav__cta{display:inline-flex;align-items:center;padding:9px 22px;background:var(--c-brand);color:#fff;border-radius:8px;font-weight:700;font-size:.9rem;transition:background var(--t),transform var(--t)}
+.nav__cta{display:inline-flex;align-items:center;padding:9px 22px;background:var(--c-brand);color:#fff;border-radius:8px;font-weight:700;font-size:.9rem;transition:background var(--t),transform var(--t);white-space:nowrap}
 .nav__cta:hover{background:var(--c-brand-dark);transform:translateY(-1px)}
+.nav__cta--rose{background:#9D174D}
+.nav__cta--rose:hover{background:#831843}
+@media(max-width:640px){
+  .nav{padding:10px 0}
+  .nav__inner{flex-wrap:wrap;gap:6px}
+  .nav__logo-svg{width:36px;height:36px}
+  .nav__logo-sub{display:none}
+  .nav__actions{width:100%;gap:8px}
+  .nav__cta{flex:1;justify-content:center;padding:10px 6px;font-size:.82rem}
+  .lang-switcher{display:none}
+}
 
 /* ── HERO ── */
 .hero{background:var(--grad-hero);padding:100px 0 80px;overflow:hidden;position:relative}
@@ -400,7 +411,7 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
         <span class="popup__price-label" data-i18n="popup.price2_label">/ séance · Individuel</span>
       </div>
     </div>
-    <a href="cours-femmes.html" class="popup__cta" data-i18n="popup.cta">Voir le programme complet →</a>
+    <a href="cours-femmes/" class="popup__cta" data-i18n="popup.cta">Voir le programme complet →</a>
     <button class="popup__later" onclick="closePopup()" data-i18n="popup.later">Pas maintenant</button>
   </div>
 </div>
@@ -436,7 +447,8 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
           <button class="lang-btn active" data-lang="fr" onclick="setLanguage('fr')">FR</button>
           <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
         </div>
-        <a href="#preinscription" class="nav__cta" data-i18n="nav.cta">Inscription gratuite →</a>
+        <a href="cours-femmes/" class="nav__cta nav__cta--rose">🌸 Cours adultes</a>
+        <a href="#preinscription" class="nav__cta">Préinscription →</a>
       </div>
     </div>
   </div>
@@ -459,10 +471,6 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
         <a href="#programmes" class="btn-secondary" data-i18n="hero.cta_secondary">Voir les programmes ↓</a>
       </div>
       <div class="hero__counter">
-        <div class="hero__stat">
-          <div class="hero__stat-num" id="counter-inscrit">0</div>
-          <div class="hero__stat-label" data-i18n="hero.stat1_label">préinscrits</div>
-        </div>
         <div class="hero__stat">
           <div class="hero__stat-num">3</div>
           <div class="hero__stat-label" data-i18n="hero.stat2_label">programmes</div>
@@ -989,7 +997,7 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
           <span class="femmes-teaser__pill" data-i18n="femmes.pill4">💻 100 % en ligne</span>
         </div>
       </div>
-      <a href="cours-femmes.html" class="femmes-teaser__cta" data-i18n="femmes.cta">Voir le programme →</a>
+      <a href="cours-femmes/" class="femmes-teaser__cta" data-i18n="femmes.cta">Voir le programme →</a>
     </div>
   </div>
 </div>
@@ -1417,10 +1425,6 @@ function animateCounter(el, target, duration) {
   }, 16);
 }
 
-window.addEventListener('load', () => {
-  animateCounter(document.getElementById('counter-inscrit'), 127, 1500);
-});
-
 // ═══════════════════════════════════════════════════════
 // STICKY BANNER
 // ═══════════════════════════════════════════════════════
@@ -1435,7 +1439,7 @@ window.addEventListener('scroll', () => {
 // FORM SUBMISSION
 // ═══════════════════════════════════════════════════════
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwzbxqxKVishHGDgWJAf8JTvc_KZn8L_kSlg6sSrZSeAFMgnH6oPfk3ytq96sU6OXk/exec'; // TODO: Add your Apps Script URL
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLIWiRL4jLl5cuLMoyVVNfXkXkCvWPXDHFuRia8gsbn9lGSz3HLxB-bK_s1Mdz-2mq/exec';
 
 document.getElementById('registration-form').addEventListener('submit', async function(e) {
   e.preventDefault();

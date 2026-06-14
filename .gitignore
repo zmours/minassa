@@ -14,7 +14,10 @@
 !locales/*.json
 !og-image.jpg
 !favicon.svg
-!cours-femmes.html
+!cours-femmes/
+!cours-femmes/index.html
+!cours-femmes/og-image-femmes.jpg
+
 
 # 3. Autoriser git lui-même et ce fichier
 !.gitignore
