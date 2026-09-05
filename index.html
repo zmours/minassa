@@ -88,13 +88,17 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 .nav__cta:hover{background:var(--c-brand-dark);transform:translateY(-1px)}
 .nav__cta--rose{background:#9D174D}
 .nav__cta--rose:hover{background:#831843}
+.nav__cta--violet{background:#6D28D9}
+.nav__cta--violet:hover{background:#5B21B6}
 @media(max-width:640px){
   .nav{padding:10px 0}
   .nav__inner{flex-wrap:wrap;gap:6px}
   .nav__logo-svg{width:36px;height:36px}
   .nav__logo-sub{display:none}
-  .nav__actions{width:100%;gap:8px}
+  .nav__actions{width:100%;gap:8px;flex-wrap:wrap}
   .nav__cta{flex:1;justify-content:center;padding:10px 6px;font-size:.82rem}
+  .nav__cta--offer{flex:1 1 40%}
+  .nav__cta--main{flex:1 1 100%}
   .lang-switcher{display:none}
 }
 
@@ -158,6 +162,13 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 .form-card{background:#fff;border-radius:var(--radius-lg);padding:48px;box-shadow:var(--shadow-lg);max-width:660px;margin:0 auto;position:relative;z-index:1}
 .form-card__title{font-size:1.75rem;font-weight:800;color:var(--c-text);margin-bottom:8px}
 .form-card__sub{font-size:.95rem;color:var(--c-muted);margin-bottom:36px}
+.form-redirect{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;margin-bottom:32px;background:#F5F3FF;border:2px solid #DDD6FE;border-radius:var(--radius)}
+.form-redirect__icon{font-size:1.5rem;line-height:1;flex-shrink:0}
+.form-redirect strong{display:block;font-size:.95rem;font-weight:800;color:#4C1D95;margin-bottom:4px}
+.form-redirect p{font-size:.86rem;color:var(--c-muted);line-height:1.6;margin-bottom:10px}
+.form-redirect__links{display:flex;flex-wrap:wrap;gap:10px}
+.form-redirect__links a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:8px;background:#fff;border:2px solid #DDD6FE;color:#5B21B6;font-size:.83rem;font-weight:700;transition:all var(--t)}
+.form-redirect__links a:hover{border-color:#6D28D9;transform:translateY(-1px)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .form-group{display:flex;flex-direction:column;gap:6px}
 .form-group--full{grid-column:1/-1}
@@ -351,15 +362,32 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 .popup-overlay.visible{opacity:1;pointer-events:all}
 .popup-card{background:#fff;border-radius:24px;padding:44px 40px;max-width:500px;width:100%;position:relative;text-align:center;box-shadow:0 28px 72px rgba(0,0,0,.28);transform:translateY(24px) scale(.97);transition:transform .38s cubic-bezier(.34,1.4,.64,1);overflow:hidden}
 .popup-overlay.visible .popup-card{transform:translateY(0) scale(1)}
-.popup-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#9D174D,#DB2777,#F59E0B)}
+.popup-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#6D28D9,#9D174D,#F59E0B)}
 .popup-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;color:#9ca3af;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s,color .2s;line-height:1}
 .popup-close:hover{background:#f3f4f6;color:#374151}
-.popup__badge{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D174D;background:#FCE7F3;padding:4px 14px;border-radius:100px;margin-bottom:14px}
+.popup__badge{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-brand);background:#CCFBF1;padding:4px 14px;border-radius:100px;margin-bottom:14px}
 .popup__arabic{font-family:'Amiri',serif;font-size:1.1rem;color:var(--c-muted);direction:rtl;margin-bottom:12px}
 .popup__title{font-size:clamp(1.35rem,3.5vw,1.8rem);font-weight:900;color:var(--c-text);margin-bottom:12px;line-height:1.2}
-.popup__title span{color:#9D174D}
+.popup__title span{color:var(--c-brand)}
 .popup__sub{font-size:.9rem;color:var(--c-muted);line-height:1.65;margin-bottom:22px}
 .popup__prices{display:flex;align-items:center;justify-content:center;gap:12px;background:#f9fafb;border:1px solid var(--c-border);border-radius:12px;padding:14px 20px;margin-bottom:24px}
+.popup__offers{display:flex;flex-direction:column;gap:12px;margin:0 0 18px}
+.popup-offer{display:flex;align-items:center;gap:14px;text-align:left;padding:14px 16px;border:2px solid var(--c-border);border-radius:14px;background:#fff;transition:all .22s}
+.popup-offer:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.1)}
+.popup-offer__icon{font-size:1.7rem;line-height:1;flex-shrink:0}
+.popup-offer__body{flex:1;min-width:0}
+.popup-offer__title{display:block;font-size:.94rem;font-weight:800;color:var(--c-text);line-height:1.25}
+.popup-offer__meta{display:block;font-size:.77rem;color:var(--c-muted);margin-top:3px;line-height:1.4}
+.popup-offer__side{flex-shrink:0;text-align:right}
+.popup-offer__price{display:block;font-size:1.15rem;font-weight:900;line-height:1.1;white-space:nowrap}
+.popup-offer__price small{font-size:.7rem;font-weight:600;color:var(--c-muted)}
+.popup-offer__go{display:block;font-size:.74rem;font-weight:700;color:var(--c-muted);margin-top:3px}
+.popup-offer--violet{border-color:#DDD6FE}
+.popup-offer--violet:hover{border-color:#6D28D9}
+.popup-offer--violet .popup-offer__price{color:#6D28D9}
+.popup-offer--rose{border-color:#FCE7F3}
+.popup-offer--rose:hover{border-color:#9D174D}
+.popup-offer--rose .popup-offer__price{color:#9D174D}
 .popup__price-block{text-align:center}
 .popup__price-num{font-size:1.55rem;font-weight:900;color:var(--c-brand);display:block;line-height:1.1}
 .popup__price-label{font-size:.75rem;color:var(--c-muted);font-weight:500;margin-top:2px;display:block}
@@ -368,10 +396,21 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 .popup__cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(157,23,77,.42)}
 .popup__later{background:none;border:none;font-size:.83rem;color:var(--c-muted);cursor:pointer;padding:8px;width:100%;font-family:inherit;transition:color .2s}
 .popup__later:hover{color:var(--c-text)}
-@media(max-width:480px){.popup-card{padding:36px 24px 28px}}
+@media(max-width:480px){
+  .popup-card{padding:36px 24px 28px}
+  .popup-offer{gap:10px;padding:12px 13px}
+  .popup-offer__icon{font-size:1.4rem}
+  .popup-offer__title{font-size:.88rem}
+  .popup-offer__meta{font-size:.72rem}
+}
 
 /* ── COURS FEMMES TEASER ── */
-.femmes-teaser{padding:56px 0;background:linear-gradient(135deg,#FFF1F5 0%,#f0fdf9 100%);border-top:1px solid #FCE7F3;border-bottom:1px solid #e5e7eb}
+.femmes-teaser{padding:56px 0;background:linear-gradient(135deg,#F5F3FF 0%,#f0fdf9 55%,#FFF1F5 100%);border-top:1px solid #DDD6FE;border-bottom:1px solid #e5e7eb}
+.femmes-teaser__cards{display:flex;flex-direction:column;gap:22px}
+.femmes-teaser__card--coran{border-color:#DDD6FE;box-shadow:0 8px 40px rgba(109,40,217,.08),0 2px 12px rgba(15,118,110,.06)}
+.femmes-teaser__card--coran .femmes-teaser__badge{color:#6D28D9;background:#EDE9FE}
+.femmes-teaser__card--coran .femmes-teaser__cta{background:linear-gradient(135deg,#6D28D9,#8B5CF6);box-shadow:0 4px 20px rgba(109,40,217,.3)}
+.femmes-teaser__card--coran .femmes-teaser__cta:hover{box-shadow:0 8px 28px rgba(109,40,217,.4)}
 .femmes-teaser__card{display:flex;align-items:center;justify-content:space-between;gap:40px;background:#fff;border-radius:24px;padding:40px 48px;box-shadow:0 8px 40px rgba(157,23,77,.08),0 2px 12px rgba(15,118,110,.06);border:2px solid #FCE7F3}
 .femmes-teaser__left{flex:1;min-width:0}
 .femmes-teaser__badge{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D174D;background:#FCE7F3;padding:4px 12px;border-radius:100px;margin-bottom:14px}
@@ -392,26 +431,40 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 </head>
 <body>
 
-<!-- POPUP OUVERTURE COURS FEMMES -->
-<div class="popup-overlay" id="popup-femmes" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+<!-- POPUP OUVERTURE DES INSCRIPTIONS -->
+<div class="popup-overlay" id="popup-offres" role="dialog" aria-modal="true" aria-labelledby="popup-title">
   <div class="popup-card">
     <button class="popup-close" onclick="closePopup()" aria-label="Fermer">×</button>
-    <div class="popup__badge" data-i18n="popup.badge">🌸 Ouverture officielle</div>
-    <p class="popup__arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-    <h2 class="popup__title" id="popup-title" data-i18n="popup.title" data-i18n-html>Les cours pour sœurs adultes <span>sont ouverts !</span></h2>
-    <p class="popup__sub" data-i18n="popup.sub">Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya. Petits groupes · Suivi personnalisé · 100 % en ligne.</p>
-    <div class="popup__prices">
-      <div class="popup__price-block">
-        <span class="popup__price-num" data-i18n="popup.price1">280 €</span>
-        <span class="popup__price-label" data-i18n="popup.price1_label">/ an · Cours collectifs</span>
-      </div>
-      <span class="popup__price-sep">|</span>
-      <div class="popup__price-block">
-        <span class="popup__price-num" data-i18n="popup.price2">18 €</span>
-        <span class="popup__price-label" data-i18n="popup.price2_label">/ séance · Individuel</span>
-      </div>
+    <div class="popup__badge" data-i18n="popup.badge">🎓 Inscriptions ouvertes</div>
+    <p class="popup__arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    <h2 class="popup__title" id="popup-title" data-i18n="popup.title" data-i18n-html>Nos cours de Coran <span>sont ouverts !</span></h2>
+    <p class="popup__sub" data-i18n="popup.sub">Deux programmes distincts, 100 % en ligne, avec un suivi personnalisé. Choisissez celui qui vous concerne.</p>
+
+    <div class="popup__offers">
+      <a href="cours-coran/" class="popup-offer popup-offer--violet">
+        <span class="popup-offer__icon">📖</span>
+        <span class="popup-offer__body">
+          <span class="popup-offer__title" data-i18n="popup.offer1_title">Hommes, adolescents &amp; enfants</span>
+          <span class="popup-offer__meta" data-i18n="popup.offer1_meta">Mémorisation · Révision · Tajwîd — samedi ou dimanche</span>
+        </span>
+        <span class="popup-offer__side">
+          <span class="popup-offer__price" data-i18n="popup.offer1_price" data-i18n-html>300 €<small> /an</small></span>
+          <span class="popup-offer__go" data-i18n="popup.offer_go">Voir →</span>
+        </span>
+      </a>
+      <a href="cours-femmes/" class="popup-offer popup-offer--rose">
+        <span class="popup-offer__icon">🌸</span>
+        <span class="popup-offer__body">
+          <span class="popup-offer__title" data-i18n="popup.offer2_title">Sœurs adultes</span>
+          <span class="popup-offer__meta" data-i18n="popup.offer2_meta">Mémorisation · Tilâwa · Nourania · Al-Jazariyya</span>
+        </span>
+        <span class="popup-offer__side">
+          <span class="popup-offer__price" data-i18n="popup.offer2_price" data-i18n-html>280 €<small> /an</small></span>
+          <span class="popup-offer__go" data-i18n="popup.offer_go">Voir →</span>
+        </span>
+      </a>
     </div>
-    <a href="cours-femmes/" class="popup__cta" data-i18n="popup.cta">Voir le programme complet →</a>
+
     <button class="popup__later" onclick="closePopup()" data-i18n="popup.later">Pas maintenant</button>
   </div>
 </div>
@@ -447,8 +500,9 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
           <button class="lang-btn active" data-lang="fr" onclick="setLanguage('fr')">FR</button>
           <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
         </div>
-        <a href="cours-femmes/" class="nav__cta nav__cta--rose">🌸 Cours adultes</a>
-        <a href="#preinscription" class="nav__cta">Préinscription →</a>
+        <a href="cours-coran/" class="nav__cta nav__cta--violet nav__cta--offer">📖 Cours Coran</a>
+        <a href="cours-femmes/" class="nav__cta nav__cta--rose nav__cta--offer">🌸 Cours sœurs</a>
+        <a href="#preinscription" class="nav__cta nav__cta--main">Préinscription →</a>
       </div>
     </div>
   </div>
@@ -982,22 +1036,41 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 
 </div><!-- /#programmes -->
 
-<!-- COURS FEMMES TEASER -->
+<!-- TEASERS PROGRAMMES -->
 <div class="femmes-teaser">
   <div class="container">
-    <div class="femmes-teaser__card">
-      <div class="femmes-teaser__left">
-        <div class="femmes-teaser__badge" data-i18n="femmes.badge">🌸 Cours pour sœurs adultes · Places disponibles</div>
-        <h2 class="femmes-teaser__title" data-i18n="femmes.title">Apprenez le Coran à votre rythme</h2>
-        <p class="femmes-teaser__sub" data-i18n="femmes.sub">Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya — avec un vrai suivi personnalisé pour chaque sœur.</p>
-        <div class="femmes-teaser__pills">
-          <span class="femmes-teaser__pill" data-i18n="femmes.pill1">📖 Cours collectifs — 280 €/an</span>
-          <span class="femmes-teaser__pill" data-i18n="femmes.pill2">💎 Séances individuelles — dès 18 €</span>
-          <span class="femmes-teaser__pill" data-i18n="femmes.pill3">👥 Groupes de 6 à 10 sœurs</span>
-          <span class="femmes-teaser__pill" data-i18n="femmes.pill4">💻 100 % en ligne</span>
+    <div class="femmes-teaser__cards">
+
+      <div class="femmes-teaser__card femmes-teaser__card--coran">
+        <div class="femmes-teaser__left">
+          <div class="femmes-teaser__badge" data-i18n="coran.badge">📖 Cours Coran · Hommes, adolescents &amp; enfants · Inscriptions ouvertes</div>
+          <h2 class="femmes-teaser__title" data-i18n="coran.title">Mémorisez le Coran le week-end</h2>
+          <p class="femmes-teaser__sub" data-i18n="coran.sub">Mémorisation, révision et règles du tajwîd — deux heures par semaine, le samedi ou le dimanche, en groupes séparés par tranche d’âge.</p>
+          <div class="femmes-teaser__pills">
+            <span class="femmes-teaser__pill" data-i18n="coran.pill1">📖 Mémorisation &amp; révision</span>
+            <span class="femmes-teaser__pill" data-i18n="coran.pill2">🗣️ Tajwîd &amp; tilâwa</span>
+            <span class="femmes-teaser__pill" data-i18n="coran.pill3">🗓️ Samedi ou dimanche · 2 h</span>
+            <span class="femmes-teaser__pill" data-i18n="coran.pill4">💰 300 €/an</span>
+          </div>
         </div>
+        <a href="cours-coran/" class="femmes-teaser__cta" data-i18n="coran.cta">Voir le programme →</a>
       </div>
-      <a href="cours-femmes/" class="femmes-teaser__cta" data-i18n="femmes.cta">Voir le programme →</a>
+
+      <div class="femmes-teaser__card">
+        <div class="femmes-teaser__left">
+          <div class="femmes-teaser__badge" data-i18n="femmes.badge">🌸 Cours pour sœurs adultes · Places disponibles</div>
+          <h2 class="femmes-teaser__title" data-i18n="femmes.title">Apprenez le Coran à votre rythme</h2>
+          <p class="femmes-teaser__sub" data-i18n="femmes.sub">Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya — avec un vrai suivi personnalisé pour chaque sœur.</p>
+          <div class="femmes-teaser__pills">
+            <span class="femmes-teaser__pill" data-i18n="femmes.pill1">📖 Cours collectifs — 280 €/an</span>
+            <span class="femmes-teaser__pill" data-i18n="femmes.pill2">💎 Séances individuelles — dès 18 €</span>
+            <span class="femmes-teaser__pill" data-i18n="femmes.pill3">👥 Groupes de 6 à 10 sœurs</span>
+            <span class="femmes-teaser__pill" data-i18n="femmes.pill4">💻 100 % en ligne</span>
+          </div>
+        </div>
+        <a href="cours-femmes/" class="femmes-teaser__cta" data-i18n="femmes.cta">Voir le programme →</a>
+      </div>
+
     </div>
   </div>
 </div>
@@ -1144,6 +1217,18 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
 
     <div class="form-card">
       <div id="form-content">
+        <div class="form-redirect">
+          <span class="form-redirect__icon">📖</span>
+          <div>
+            <strong data-i18n="form.redirect_title">Vous souhaitez vous inscrire aux cours de Coran ?</strong>
+            <p data-i18n="form.redirect_sub">Les inscriptions se font directement sur la page du programme concerné : c’est plus rapide, et votre demande arrive au bon endroit.</p>
+            <div class="form-redirect__links">
+              <a href="cours-coran/" data-i18n="form.redirect_link1">📖 Hommes, ados &amp; enfants →</a>
+              <a href="cours-femmes/" data-i18n="form.redirect_link2">🌸 Sœurs adultes →</a>
+            </div>
+          </div>
+        </div>
+
         <h3 class="form-card__title" data-i18n="form.form_title">📋 Formulaire de préinscription</h3>
         <p class="form-card__sub" data-i18n="form.form_subtitle">Remplissez ce formulaire et nous vous contacterons dès que les inscriptions définitives seront ouvertes.</p>
 
@@ -1285,6 +1370,8 @@ h1,h2,h3,h4{line-height:1.25;font-weight:800}
       </div>
       <div class="footer__links">
         <a href="#cours" class="footer__link" data-i18n="footer.link_courses">Nos cours</a>
+        <a href="cours-coran/" class="footer__link" data-i18n="footer.link_coran">Cours Coran — hommes, ados, enfants</a>
+        <a href="cours-femmes/" class="footer__link" data-i18n="footer.link_femmes">Cours pour sœurs adultes</a>
         <a href="#preinscription" class="footer__link" data-i18n="footer.link_preinscription">Préinscription</a>
         <a href="mailto:contact@minassa.fr" class="footer__link">contact@minassa.fr</a>
         <a href="https://minassa.fr" class="footer__link">minassa.fr</a>
@@ -1513,22 +1600,22 @@ function showFormError(msg) {
 }
 
 // ═══════════════════════════════════════════════════════
-// POPUP COURS FEMMES
+// POPUP OUVERTURE DES INSCRIPTIONS
 // ═══════════════════════════════════════════════════════
 
 function closePopup() {
-  document.getElementById('popup-femmes').classList.remove('visible');
-  sessionStorage.setItem('popup-femmes-seen', '1');
+  document.getElementById('popup-offres').classList.remove('visible');
+  sessionStorage.setItem('popup-offres-seen', '1');
 }
 
 function showPopup() {
-  if (sessionStorage.getItem('popup-femmes-seen')) return;
+  if (sessionStorage.getItem('popup-offres-seen')) return;
   setTimeout(() => {
-    document.getElementById('popup-femmes').classList.add('visible');
+    document.getElementById('popup-offres').classList.add('visible');
   }, 900);
 }
 
-document.getElementById('popup-femmes').addEventListener('click', function(e) {
+document.getElementById('popup-offres').addEventListener('click', function(e) {
   if (e.target === this) closePopup();
 });
 

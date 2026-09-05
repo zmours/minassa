@@ -319,7 +319,11 @@
     "error_required": "Merci de remplir tous les champs obligatoires (marqués d'un *).",
     "error_rgpd": "Vous devez accepter les conditions d'utilisation des données (RGPD) pour continuer.",
     "error_email": "Veuillez saisir une adresse email valide.",
-    "error_network": "Une erreur réseau s'est produite. Veuillez réessayer ou nous écrire directement."
+    "error_network": "Une erreur réseau s'est produite. Veuillez réessayer ou nous écrire directement.",
+    "redirect_title": "Vous souhaitez vous inscrire aux cours de Coran ?",
+    "redirect_sub": "Les inscriptions se font directement sur la page du programme concerné : c’est plus rapide, et votre demande arrive au bon endroit.",
+    "redirect_link1": "📖 Hommes, ados & enfants →",
+    "redirect_link2": "🌸 Sœurs adultes →"
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -344,18 +348,32 @@
     "link_preinscription": "Préinscription",
     "copyright": "© 2026 Minassa — Tous droits réservés",
     "legal": "Mentions légales",
-    "privacy": "Confidentialité"
+    "privacy": "Confidentialité",
+    "link_coran": "Cours Coran — hommes, ados, enfants",
+    "link_femmes": "Cours pour sœurs adultes"
   },
   "popup": {
-    "badge": "🌸 Ouverture officielle",
-    "title": "Les cours pour sœurs adultes <span>sont ouverts !</span>",
-    "sub": "Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya. Petits groupes · Suivi personnalisé · 100 % en ligne.",
-    "price1": "280 €",
-    "price1_label": "/ an · Cours collectifs",
-    "price2": "18 €",
-    "price2_label": "/ séance · Individuel",
-    "cta": "Voir le programme complet →",
-    "later": "Pas maintenant"
+    "badge": "🎓 Inscriptions ouvertes",
+    "title": "Nos cours de Coran <span>sont ouverts !</span>",
+    "sub": "Deux programmes distincts, 100 % en ligne, avec un suivi personnalisé. Choisissez celui qui vous concerne.",
+    "later": "Pas maintenant",
+    "offer1_title": "Hommes, adolescents & enfants",
+    "offer1_meta": "Mémorisation · Révision · Tajwîd — samedi ou dimanche",
+    "offer1_price": "300 €<small> /an</small>",
+    "offer2_title": "Sœurs adultes",
+    "offer2_meta": "Mémorisation · Tilâwa · Nourania · Al-Jazariyya",
+    "offer2_price": "280 €<small> /an</small>",
+    "offer_go": "Voir →"
+  },
+  "coran": {
+    "badge": "📖 Cours Coran · Hommes, adolescents & enfants · Inscriptions ouvertes",
+    "title": "Mémorisez le Coran le week-end",
+    "sub": "Mémorisation, révision et règles du tajwîd — deux heures par semaine, le samedi ou le dimanche, en groupes séparés par tranche d’âge.",
+    "pill1": "📖 Mémorisation & révision",
+    "pill2": "🗣️ Tajwîd & tilâwa",
+    "pill3": "🗓️ Samedi ou dimanche · 2 h",
+    "pill4": "💰 300 €/an",
+    "cta": "Voir le programme →"
   },
   "femmes": {
     "badge": "🌸 Cours pour sœurs adultes · Places disponibles",
