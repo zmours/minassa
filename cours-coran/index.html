@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cours de Coran pour hommes, adolescents et enfants — Minassa</title>
-  <meta name="description" content="Cours de Coran en ligne le samedi ou le dimanche pour hommes, adolescents et enfants : mémorisation (حفظ), révision (مراجعة) et règles du tajwîd et de la tilâwa. Groupes séparés par âge, 2 h par semaine, 300 € par an.">
-  <meta property="og:title" content="Cours de Coran — hommes, adolescents et enfants">
+  <title>Cours de Coran pour hommes et adolescents — Minassa</title>
+  <meta name="description" content="Cours de Coran en ligne le samedi ou le dimanche pour hommes et adolescents : mémorisation (حفظ), révision (مراجعة) et règles du tajwîd et de la tilâwa. Groupes séparés par âge, 2 h par semaine, 300 € par an.">
+  <meta property="og:title" content="Cours de Coran — hommes et adolescents">
   <meta property="og:description" content="Mémorisation, révision et tajwîd. Samedi ou dimanche, 2 h/semaine, 100 % en ligne. 300 € par an.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Minassa">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content="Minassa — Mémorisez le Coran le week-end. Hommes, adolescents et enfants. 300 € par an.">
+  <meta property="og:image:alt" content="Minassa — Mémorisez le Coran le week-end. Hommes et adolescents. 300 € par an.">
   <meta property="og:image" content="https://minassa.fr/cours-coran/og-image-coran.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -275,13 +275,13 @@ ul{list-style:none}
     <div class="hero__inner">
       <p class="hero__arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
       <div class="hero__badges">
-        <span class="hero__badge">📖 Hommes · Adolescents · Enfants</span>
+        <span class="hero__badge">📖 Hommes · Adolescents</span>
         <span class="hero__badge">🟢 Inscriptions ouvertes</span>
         <span class="hero__badge">🗓️ Samedi ou dimanche</span>
         <span class="hero__badge">💻 100 % en ligne</span>
       </div>
       <h1 class="hero__title">Mémorisez le <span>Coran</span><br>le week-end, depuis chez vous</h1>
-      <p class="hero__sub">Mémorisation, révision et règles du tajwîd — deux heures par semaine, le samedi ou le dimanche, en groupes séparés pour les adultes, les adolescents et les enfants.</p>
+      <p class="hero__sub">Mémorisation, révision et règles du tajwîd — deux heures par semaine, le samedi ou le dimanche, en groupes séparés pour les adultes et les adolescents.</p>
       <div class="hero__cta-row">
         <a href="#tarifs" class="btn-gold">Voir le tarif ↓</a>
         <a href="#preinscription" class="btn-ghost">Je m'inscris →</a>
@@ -309,7 +309,7 @@ ul{list-style:none}
     <div class="features__grid">
       <div class="feature-item">
         <div class="feature-item__check">✔</div>
-        <div class="feature-item__text">Trois groupes séparés — adultes (18 ans et +), adolescents (12 – 17 ans) et enfants (6 – 11 ans) — pour un rythme réellement adapté à chaque âge.</div>
+        <div class="feature-item__text">Deux groupes séparés — adultes (18 ans et +) et adolescents (12 – 17 ans) — pour un rythme réellement adapté à chaque âge.</div>
       </div>
       <div class="feature-item">
         <div class="feature-item__check">✔</div>
@@ -402,7 +402,7 @@ ul{list-style:none}
     <div class="text-center">
       <span class="badge badge--accent" style="margin-bottom:14px">💰 Tarif</span>
       <h2 class="section-title">Un tarif unique, tout compris</h2>
-      <p class="section-sub">Le même tarif pour les adultes, les adolescents et les enfants — les trois axes du programme sont inclus.</p>
+      <p class="section-sub">Le même tarif pour les adultes et les adolescents — les trois axes du programme sont inclus.</p>
     </div>
     <div class="tarifs__grid" style="grid-template-columns:1fr;max-width:440px">
 
@@ -416,7 +416,7 @@ ul{list-style:none}
         </div>
         <div class="tarif-card__body">
           <div class="tarif-card__list">
-            <div class="tarif-card__item"><span class="tarif-card__check">✔</span>Groupes séparés : adultes, adolescents, enfants</div>
+            <div class="tarif-card__item"><span class="tarif-card__check">✔</span>Groupes séparés : adultes et adolescents</div>
             <div class="tarif-card__item"><span class="tarif-card__check">✔</span>2 heures de cours par semaine</div>
             <div class="tarif-card__item"><span class="tarif-card__check">✔</span>Le samedi ou le dimanche, au choix</div>
             <div class="tarif-card__item"><span class="tarif-card__check">✔</span>Mémorisation, révision, tajwîd et tilâwa</div>
@@ -449,13 +449,16 @@ ul{list-style:none}
     </div>
 
     <div class="reg-form-wrap">
-      <form id="reg-form" onsubmit="submitRegForm(event)">
+      <!-- novalidate est indispensable : les radios et cases sont stylées sur mesure,
+         leurs <input> sont en display:none, et la validation native refuserait
+         de soumettre sans pouvoir afficher le moindre message. Validation en JS. -->
+      <form id="reg-form" onsubmit="submitRegForm(event)" novalidate>
         <input type="text" name="_hp" id="_hp" tabindex="-1" autocomplete="off" style="display:none">
 
-        <div class="form-group form-group--full">
+        <div class="form-group form-group--full" id="grp-public">
           <label>Pour qui est cette inscription ? <span class="req">*</span></label>
           <p class="form-hint">Les groupes sont séparés par tranche d'âge, avec le même programme.</p>
-          <div class="radio-cards radio-cards--3" style="margin-top:2px">
+          <div class="radio-cards" style="margin-top:2px">
             <label class="radio-card">
               <input type="radio" name="public" value="adulte" required onchange="onPublicChange()">
               <div class="radio-card__inner">
@@ -474,17 +477,6 @@ ul{list-style:none}
                 <div>
                   <div class="radio-card__title">Adolescent</div>
                   <div class="radio-card__price">12 – 17 ans</div>
-                  <div class="radio-card__note">Groupe garçons</div>
-                </div>
-              </div>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="public" value="enfant" onchange="onPublicChange()">
-              <div class="radio-card__inner">
-                <span class="radio-card__icon">🧒</span>
-                <div>
-                  <div class="radio-card__title">Enfant</div>
-                  <div class="radio-card__price">6 – 11 ans</div>
                   <div class="radio-card__note">Groupe garçons</div>
                 </div>
               </div>
@@ -523,16 +515,16 @@ ul{list-style:none}
           <div class="form-grid">
             <div class="form-group">
               <label for="r-eleve-prenom">Prénom de l'élève <span class="req">*</span></label>
-              <input type="text" id="r-eleve-prenom" name="eleve_prenom" placeholder="Prénom de l'enfant">
+              <input type="text" id="r-eleve-prenom" name="eleve_prenom" placeholder="Prénom de l'élève">
             </div>
             <div class="form-group">
               <label for="r-eleve-age">Âge de l'élève <span class="req">*</span></label>
-              <input type="text" id="r-eleve-age" name="eleve_age" inputmode="numeric" placeholder="Ex : 9">
+              <input type="text" id="r-eleve-age" name="eleve_age" inputmode="numeric" placeholder="Ex : 14">
             </div>
           </div>
         </div>
 
-        <div class="form-group form-group--full" style="margin-top:22px">
+        <div class="form-group form-group--full" style="margin-top:22px" id="grp-programme">
           <label>Axe principal souhaité <span class="req">*</span></label>
           <p class="form-hint">Les trois axes sont travaillés en cours ; indiquez celui qui vous intéresse en priorité.</p>
           <div class="check-grid">
@@ -559,7 +551,7 @@ ul{list-style:none}
           </div>
         </div>
 
-        <div class="form-group form-group--full" style="margin-top:22px">
+        <div class="form-group form-group--full" style="margin-top:22px" id="grp-jour">
           <label>Jour souhaité <span class="req">*</span></label>
           <p class="form-hint">Le cours a lieu une fois par semaine, 2 heures.</p>
           <div class="check-grid" style="grid-template-columns:repeat(3,1fr)">
@@ -609,11 +601,11 @@ ul{list-style:none}
           <textarea id="r-message" name="message" rows="3" placeholder="Des questions, des précisions…"></textarea>
         </div>
 
-        <div class="form-group form-group--full" style="margin-top:18px">
+        <div class="form-group form-group--full" style="margin-top:18px" id="grp-turnstile">
           <div class="cf-turnstile" data-sitekey="0x4AAAAAADU1Kwvjip0WjmbB" data-theme="light" data-language="fr"></div>
         </div>
 
-        <div class="form-group form-group--full" style="margin-top:14px">
+        <div class="form-group form-group--full" style="margin-top:14px" id="grp-rgpd">
           <label class="check-item check-item--rgpd">
             <input type="checkbox" id="r-rgpd" required>
             <span class="check-box"></span>
@@ -627,6 +619,14 @@ ul{list-style:none}
             <span class="check-box"></span>
             <span>J'atteste être le représentant légal de l'élève mineur et consentir à son inscription. <span class="req">*</span></span>
           </label>
+        </div>
+
+        <div id="r-invalid" class="form-feedback form-feedback--error" hidden>
+          <span>⚠️</span>
+          <div>
+            <strong>Il manque une information</strong>
+            <p id="r-invalid-msg"></p>
+          </div>
         </div>
 
         <div class="form-submit-row">
@@ -678,7 +678,7 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLIWiRL4jLl5cu
 // uniquement lorsque l'inscription concerne un mineur.
 function onPublicChange() {
   const checked = document.querySelector('input[name="public"]:checked');
-  const isMinor = !!checked && (checked.value === 'adolescent' || checked.value === 'enfant');
+  const isMinor = !!checked && checked.value === 'adolescent';
 
   document.getElementById('eleve-fields').hidden = !isMinor;
   document.getElementById('rgpd-mineur-row').hidden = !isMinor;
@@ -697,17 +697,79 @@ function onPublicChange() {
     : 'Elles nous servent uniquement à vous recontacter.';
 }
 
+// Validation : renvoie [message, id de l'element vers lequel amener l'utilisateur],
+// ou null si tout est bon. L'ordre suit celui du formulaire.
+function findProblem(form, isMinor) {
+  const txt = id => document.getElementById(id).value.trim();
+  const picked = name => form.querySelector('input[name="' + name + '"]:checked');
+
+  if (!picked('public'))
+    return ['Indiquez pour qui est cette inscription.', 'grp-public'];
+  if (!txt('r-prenom'))
+    return ['Indiquez votre prénom.', 'r-prenom'];
+  if (!txt('r-nom'))
+    return ['Indiquez votre nom.', 'r-nom'];
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(txt('r-email')))
+    return ['Indiquez une adresse email valide.', 'r-email'];
+  if (!txt('r-tel'))
+    return ['Indiquez un numéro de téléphone pour vous recontacter.', 'r-tel'];
+  if (isMinor && !txt('r-eleve-prenom'))
+    return ["Indiquez le prénom de l'élève.", 'r-eleve-prenom'];
+  if (isMinor && !txt('r-eleve-age'))
+    return ["Indiquez l'âge de l'élève.", 'r-eleve-age'];
+  if (!picked('programme'))
+    return ['Choisissez un axe principal.', 'grp-programme'];
+  if (!picked('jour'))
+    return ['Choisissez le jour souhaité.', 'grp-jour'];
+  if (!document.getElementById('r-rgpd').checked)
+    return ['Acceptez la politique de confidentialité pour continuer.', 'grp-rgpd'];
+  if (isMinor && !document.getElementById('r-rgpd-mineur').checked)
+    return ["Confirmez que vous êtes le représentant légal de l'élève.", 'rgpd-mineur-row'];
+
+  // Sans jeton Turnstile le serveur rejettera la demande. Comme la réponse nous est
+  // invisible (mode no-cors), partir quand même afficherait un faux succès : on bloque ici.
+  const widget = document.querySelector('.cf-turnstile');
+  const token = (document.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
+  if (widget && !token)
+    return ['Validez la vérification anti-robot ci-dessus, puis réessayez.', 'grp-turnstile'];
+
+  return null;
+}
+
+function showProblem(message, anchorId) {
+  const box = document.getElementById('r-invalid');
+  document.getElementById('r-invalid-msg').textContent = message;
+  box.hidden = false;
+
+  const anchor = document.getElementById(anchorId);
+  if (anchor) {
+    anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Un champ masqué (radio, case stylée) n'est pas focalisable : on se contente
+    // de l'amener à l'écran.
+    if (anchor.focus && anchor.getClientRects().length > 0) anchor.focus({ preventScroll: true });
+  }
+}
+
 async function submitRegForm(e) {
   e.preventDefault();
   const form = document.getElementById('reg-form');
   const submitBtn = document.getElementById('r-submit');
   const successEl = document.getElementById('r-success');
   const errorEl = document.getElementById('r-error');
+  const invalidEl = document.getElementById('r-invalid');
 
   const publicEl = form.querySelector('input[name="public"]:checked');
-  const isMinor = publicEl.value === 'adolescent' || publicEl.value === 'enfant';
+  const isMinor = !!publicEl && publicEl.value === 'adolescent';
+
+  invalidEl.hidden = true;
+  const problem = findProblem(form, isMinor);
+  if (problem) {
+    showProblem(problem[0], problem[1]);
+    return;
+  }
 
   const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value || '';
+
 
   submitBtn.disabled = true;
   submitBtn.querySelector('.btn-submit__text').hidden = true;
