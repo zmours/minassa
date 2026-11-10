@@ -1,0 +1,147 @@
+<!-- Héros -->
+<section class="heros">
+  <div class="conteneur heros__in">
+    <div class="heros__texte">
+      <p class="heros__marque"><span class="ar">منصّة</span><span class="losange" aria-hidden="true"></span>la plateforme des cours en ligne</p>
+      <h1>Apprendre l'arabe, le Coran et les sciences islamiques, <span>en ligne.</span></h1>
+      <p class="heros__chapo">Des cours en direct, avec un enseignant. Et des parcours pour apprendre l'arabe à son rythme.</p>
+      <form class="recherche" role="search" action="/cours/" method="get">
+        <label for="q" class="sr">Que voulez-vous apprendre ?</label>
+        <input id="q" name="q" type="search" placeholder="Que voulez-vous apprendre ? Tajweed, Coran, sciences islamiques…">
+        <button type="submit" class="btn btn--terre">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+          Rechercher
+        </button>
+      </form>
+      <div class="publics">
+        <span class="publics__label">Pour :</span>
+        <a href="/cours/?pour=femmes">Sœurs</a>
+        <a href="/cours/?pour=hommes">Hommes</a>
+        <a href="/cours/?pour=ados">Adolescents</a>
+      </div>
+    </div>
+
+    <div class="estrade" aria-hidden="true">
+      <div class="estrade__scene">
+        <div class="estrade__ecran"><span class="ar">أَهْلًا</span></div>
+        <div class="estrade__marche estrade__marche--1"></div>
+        <div class="estrade__marche estrade__marche--2"></div>
+        <div class="estrade__bulle estrade__bulle--direct"><span class="point-rouge"></span><span><strong>En direct</strong> · cours de Coran</span></div>
+        <div class="estrade__bulle estrade__bulle--parcours">
+          <span class="rond-teal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"></path></svg></span>
+          <span><strong>9 parcours</strong> d'arabe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trois entrées -->
+<section class="conteneur entrees">
+  <div class="grille-3">
+    <a href="/cours/" class="carte entree">
+      <span class="icone icone--teal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+      <span class="entree__titre">Suivre un cours</span>
+      <span class="entree__texte">En direct, en petit groupe, avec un enseignant. Rediffusions dans l'espace de l'école.</span>
+      <span class="entree__lien">{{NB_COURS}} →</span>
+    </a>
+    <a href="/apprendre/" class="carte entree">
+      <span class="icone icone--terre"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"></path><path d="M10 8l4 2.5-4 2.5z"></path></svg></span>
+      <span class="entree__titre">Apprendre seul</span>
+      <span class="entree__texte">Bientôt : une plateforme complète en autonomie, pour les neuf parcours d'arabe. Vidéos, audio, fiches, exercices et quiz.</span>
+      <span class="entree__lien" style="color: var(--terre)">Découvrir la plateforme →</span>
+    </a>
+    <a href="#ecoles" class="carte entree">
+      <span class="icone icone--sable"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"></path><path d="M5 10v9h14v-9"></path><path d="M10 19v-5h4v5"></path></svg></span>
+      <span class="entree__titre">Les écoles</span>
+      <span class="entree__texte">Des associations qui enseignent en ligne. Chacune inscrit ses élèves et encaisse elle-même.</span>
+      <span class="entree__lien" style="color: var(--nuit)">{{NB_ECOLES}} →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Cours en direct -->
+<section class="conteneur section" id="cours-en-direct">
+  <div class="entete-section">
+    <div>
+      <p class="surtitre" style="margin-bottom: 8px">Inscriptions ouvertes</p>
+      <h2 class="titre-section">Les cours en direct</h2>
+    </div>
+    <a href="/cours/">Tous les cours →</a>
+  </div>
+  <div class="grille-cours">
+{{CARTES_COURS}}  </div>
+  <p class="note">{{I_INFO}} Cours Minassa : préinscription ici, sur Minassa. Cours des autres écoles : inscription sur leur site.</p>
+</section>
+
+<!-- Les parcours d'arabe -->
+<section class="conteneur section">
+  <div class="bloc-blanc">
+    <div class="bloc-blanc__texte">
+      <p class="surtitre" style="display: flex; align-items: center; gap: 10px"><span class="pastille pastille--bientot">Bientôt</span>Apprendre en autonomie</p>
+      <h2 class="titre-section" style="font-size: 36px">Les parcours d'arabe</h2>
+      <p class="chapo">Neuf parcours qui s'enchaînent, de l'écoute des premiers sons à la lecture de textes sans voyelles. Sur la plateforme Minassa, chaque chapitre réunira une vidéo, de l'audio, une fiche à imprimer, des exercices et un quiz.</p>
+      <a href="/apprendre/" class="btn">Découvrir la plateforme</a>
+    </div>
+    <div class="chemins">
+      <div class="chemin">
+        <span class="chemin__titre">Enfants et adolescents · 3 à 15 ans</span>
+        <div class="chemin__etapes">
+          <span class="etape etape--terre">Maternelle</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Les lettres</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je lis</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je comprends</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je parle</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je raconte</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape etape--nuit">Ados</span>
+        </div>
+      </div>
+      <div class="chemin">
+        <span class="chemin__titre">Adultes · 16 ans et plus</span>
+        <div class="chemin__etapes">
+          <span class="etape etape--nuit">Adulte débutant · A1</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape etape--nuit">Adulte confirmé · B1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Les écoles -->
+<section class="conteneur section" id="ecoles">
+  <h2 class="titre-section" style="margin-bottom: 8px">Les écoles</h2>
+  <p class="chapo" style="margin-bottom: 28px">Chaque école a ses enseignants, ses tarifs et son espace en ligne. Minassa les présente ; vous vous inscrivez chez elles.</p>
+  <div class="grille-ecoles">
+{{ECOLES}}  </div>
+</section>
+
+<!-- La plateforme d'apprentissage : MadrassaNET -->
+<section class="conteneur section" id="plateforme">
+  <div class="bandeau-nuit">
+    <div class="bandeau-nuit__texte">
+      <p class="surtitre" style="color: var(--terre-clair)">La plateforme d'apprentissage</p>
+      <h2>Les cours se suivent sur MadrassaNET</h2>
+      <p>Une fois inscrit, vous retrouvez votre école sur MadrassaNET : la classe en direct, les rediffusions, les leçons, les devoirs et le suivi.</p>
+      <a href="{{MADRASSANET}}" target="_blank" rel="noopener" class="btn btn--clair">Découvrir MadrassaNET {{I_EXTERNE}}<span class="sr">(nouvel onglet)</span></a>
+      <span style="font-size: 13px; color: var(--teal-clair)">www.madrassanet.com</span>
+    </div>
+    <ul class="atouts">
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M10 9l4 2-4 2z"></path><path d="M8 21h8"></path></svg></span><span><strong>Classe virtuelle</strong>Le cours en direct, avec l'enseignant, depuis l'ordinateur ou le téléphone.</span></li>
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><span><strong>Rediffusions</strong>Revoir une séance manquée ou à réviser.</span></li>
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path><path d="M8 13h8M8 17h5"></path></svg></span><span><strong>Leçons et devoirs</strong>Les supports du cours et le travail à faire, au même endroit.</span></li>
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><span><strong>Suivi et messagerie</strong>Présences, résultats, échanges avec l'enseignant.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Votre école -->
+<section class="conteneur section" id="votre-ecole">
+  <div class="bandeau-terre">
+    <div class="bandeau-terre__texte">
+      <h2>Vous dirigez une école en ligne ?</h2>
+      <p>Vos cours apparaissent sur Minassa avec vos prix et vos horaires. L'inscription, le paiement et la relation avec vos élèves restent chez vous.</p>
+      <p style="font-size: 15px">Pas encore d'espace en ligne ? <a href="{{MADRASSANET}}" target="_blank" rel="noopener" style="color: var(--terre); font-weight: 700">Votre école sur MadrassaNET {{I_EXTERNE}}</a></p>
+    </div>
+    <a href="mailto:contact@minassa.fr?subject=Pr%C3%A9senter%20mon%20%C3%A9cole%20sur%20Minassa" class="btn btn--terre">Présenter mon école</a>
+  </div>
+</section>

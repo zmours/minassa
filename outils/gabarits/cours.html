@@ -1,0 +1,35 @@
+<section class="conteneur page-titre">
+  <nav class="ariane" aria-label="Fil d'Ariane"><a href="/">Accueil</a> › Cours</nav>
+  <div class="page-titre__ligne">
+    <div>
+      <h1>Les cours en direct</h1>
+      <p class="chapo">En ligne, avec un enseignant : les cours Minassa et ceux des écoles partenaires.</p>
+    </div>
+    <form class="champ-recherche" role="search" onsubmit="return false">
+      <label for="q" class="sr">Rechercher un cours</label>
+      <input id="q" type="search" placeholder="Rechercher un cours" autocomplete="off">
+    </form>
+  </div>
+</section>
+
+<section class="conteneur catalogue" data-catalogue>
+  <aside class="filtres" aria-label="Filtres">
+    <fieldset>
+      <legend>Pour</legend>
+      <div class="filtres__choix">{{FILTRES_PUBLIC}}</div>
+    </fieldset>
+    <fieldset>
+      <legend>École</legend>
+      <div class="filtres__choix">{{FILTRES_ECOLE}}</div>
+    </fieldset>
+    <div class="filtres__note">Cours Minassa : préinscription ici, comme aujourd'hui. Cours des autres écoles : inscription et paiement sur leur site.</div>
+  </aside>
+
+  <div class="resultats">
+    <div class="resultats__tete">
+      <p class="resultats__compte" role="status" data-compte>{{NB}} cours</p>
+      <button type="button" class="lien-bouton" data-effacer hidden>Effacer les filtres</button>
+    </div>
+{{LIGNES}}    <div class="vide" data-vide hidden>Aucun cours ne correspond. <button type="button" class="lien-bouton" data-effacer>Effacer les filtres</button></div>
+  </div>
+</section>

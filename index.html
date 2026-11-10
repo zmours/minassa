@@ -1,1640 +1,259 @@
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<!doctype html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minassa – منصة تعليمية إسلامية · Plateforme d'apprentissage islamique</title>
-  <meta name="description" content="📖 École digitale 100% en ligne | Arabe • Coran • Sciences | Dès 7 ans & adultes | Cours en direct + enregistrés | Préinscription gratuite pour l'automne 2026">
-  <meta property="og:title" content="Minassa – École digitale 100% en ligne">
-  <meta property="og:description" content="📖 École digitale 100% en ligne | Arabe • Coran • Sciences | Dès 7 ans & adultes | Cours en direct + enregistrés | Préinscription gratuite pour l'automne 2026">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://minassa.fr/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Minassa – École digitale 100% en ligne">
-  <meta name="twitter:description" content="📖 École digitale 100% en ligne | Arabe • Coran • Sciences | Dès 7 ans & adultes | Cours en direct + enregistrés | Préinscription gratuite pour l'automne 2026">
-  <meta property="og:url" content="https://minassa.fr">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-/* ── RESET & BASE ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',system-ui,sans-serif;color:#1a1d2e;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;transition:font-family .3s ease}
-body[dir="rtl"]{font-family:'Cairo','Amiri',system-ui,sans-serif}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%;height:auto}
-ul{list-style:none}
-
-/* ── DESIGN TOKENS ── */
-:root{
-  --c-brand:       #0F766E;
-  --c-brand-dark:  #0D5C56;
-  --c-brand-light: #14B8A6;
-  --c-gold:        #F59E0B;
-  --c-gold-dark:   #D97706;
-  --c-accent:      #8B5CF6;
-  --c-text:        #1a1d2e;
-  --c-muted:       #6b7280;
-  --c-bg:          #f0fdfa;
-  --c-surface:     #ffffff;
-  --c-border:      #e5e7eb;
-  --grad-hero:     linear-gradient(140deg, #0D5C56 0%, #0F766E 55%, #14B8A6 100%);
-  --grad-cta:      linear-gradient(135deg, #0F766E 0%, #F59E0B 100%);
-  --grad-accent:   linear-gradient(135deg, #8B5CF6 0%, #14B8A6 100%);
-  --radius:        12px;
-  --radius-lg:     20px;
-  --shadow:        0 4px 24px rgba(15,118,110,.12);
-  --shadow-lg:     0 12px 48px rgba(15,118,110,.18);
-  --t:             .22s cubic-bezier(.4,0,.2,1);
-}
-
-/* RTL Support */
-[dir="rtl"] .container{direction:rtl}
-[dir="rtl"] .nav__logo{flex-direction:row-reverse}
-[dir="rtl"] .hero__cta-group{flex-direction:row-reverse}
-[dir="rtl"] .badge{padding:4px 12px}
-
-/* ── UTILITIES ── */
-.container{max-width:1160px;margin:0 auto;padding:0 24px}
-.section{padding:96px 0}
-.section--alt{background:var(--c-bg)}
-.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--c-brand);background:#e8f5e9;padding:4px 12px;border-radius:100px}
-.badge--gold{color:#7B4F00;background:#fff8e1}
-h1,h2,h3,h4{line-height:1.25;font-weight:800}
-.text-center{text-align:center}
-.section-eyebrow{display:block;margin-bottom:12px}
-.section-title{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--c-text);margin-bottom:16px}
-.section-sub{font-size:1.05rem;color:var(--c-muted);max-width:620px;margin:0 auto}
-
-/* ── NAV ── */
-.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-border);padding:14px 0}
-.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.nav__logo{display:flex;align-items:center;gap:12px}
-.nav__logo-svg{width:48px;height:48px;flex-shrink:0}
-.nav__logo-text{font-size:1.3rem;font-weight:900;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em}
-.nav__logo-sub{font-size:.7rem;color:var(--c-muted);font-weight:500;margin-top:-2px}
-.nav__actions{display:flex;align-items:center;gap:16px}
-.lang-switcher{display:flex;align-items:center;gap:4px;padding:6px 10px;border:2px solid var(--c-border);border-radius:8px;cursor:pointer;transition:all var(--t);background:#fff}
-.lang-switcher:hover{border-color:var(--c-brand);background:var(--c-bg)}
-.lang-switcher button{background:none;border:none;padding:4px 8px;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:5px;transition:all var(--t);color:var(--c-muted)}
-.lang-switcher button.active{background:var(--c-brand);color:#fff}
-.nav__cta{display:inline-flex;align-items:center;padding:9px 22px;background:var(--c-brand);color:#fff;border-radius:8px;font-weight:700;font-size:.9rem;transition:background var(--t),transform var(--t);white-space:nowrap}
-.nav__cta:hover{background:var(--c-brand-dark);transform:translateY(-1px)}
-.nav__cta--rose{background:#9D174D}
-.nav__cta--rose:hover{background:#831843}
-.nav__cta--violet{background:#6D28D9}
-.nav__cta--violet:hover{background:#5B21B6}
-@media(max-width:640px){
-  .nav{padding:10px 0}
-  .nav__inner{flex-wrap:wrap;gap:6px}
-  .nav__logo-svg{width:36px;height:36px}
-  .nav__logo-sub{display:none}
-  .nav__actions{width:100%;gap:8px;flex-wrap:wrap}
-  .nav__cta{flex:1;justify-content:center;padding:10px 6px;font-size:.82rem}
-  .nav__cta--offer{flex:1 1 40%}
-  .nav__cta--main{flex:1 1 100%}
-  .lang-switcher{display:none}
-}
-
-/* ── HERO ── */
-.hero{background:var(--grad-hero);padding:100px 0 80px;overflow:hidden;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero__inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;position:relative;z-index:1}
-.hero__arabic{font-family:'Amiri',serif;font-size:clamp(1.4rem,3vw,2rem);color:rgba(255,255,255,.75);direction:rtl;letter-spacing:0.02em;margin-bottom:-8px}
-.hero__title{font-size:clamp(2.2rem,6vw,3.8rem);color:#fff;max-width:800px;line-height:1.15}
-.hero__title span{color:var(--c-gold)}
-.hero__sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.82);max-width:600px}
-.hero__badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.hero__badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;color:#fff;font-size:.85rem;font-weight:600;backdrop-filter:blur(4px)}
-.hero__cta-group{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:var(--c-gold);color:#3B2000;border-radius:10px;font-weight:800;font-size:1rem;transition:all var(--t);box-shadow:0 4px 20px rgba(249,168,37,.4)}
-.btn-primary:hover{background:var(--c-gold-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,168,37,.5)}
-.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.3);border-radius:10px;font-weight:700;font-size:1rem;transition:all var(--t)}
-.btn-secondary:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
-.hero__counter{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;margin-top:12px;padding-top:32px;border-top:1px solid rgba(255,255,255,.15)}
-.hero__stat{text-align:center}
-.hero__stat-num{font-size:2rem;font-weight:900;color:#fff}
-.hero__stat-label{font-size:.82rem;color:rgba(255,255,255,.65);font-weight:500}
-
-/* ── TRUST BAR ── */
-.trust{padding:28px 0;border-bottom:1px solid var(--c-border)}
-.trust__inner{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:32px}
-.trust__item{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--c-muted);font-weight:500}
-.trust__item span:first-child{font-size:1.2rem}
-
-/* ── COURSES ── */
-.courses__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:56px}
-.course-card{border:2px solid var(--c-border);border-radius:var(--radius-lg);padding:36px 32px;transition:all var(--t);cursor:default;position:relative;overflow:hidden}
-.course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad-cta);opacity:0;transition:opacity var(--t)}
-.course-card:hover{border-color:var(--c-brand-light);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
-.course-card:hover::before{opacity:1}
-.course-card__icon{font-size:2.8rem;margin-bottom:18px}
-.course-card__title{font-size:1.25rem;font-weight:800;color:var(--c-text);margin-bottom:10px}
-.course-card__desc{font-size:.95rem;color:var(--c-muted);margin-bottom:20px;line-height:1.65}
-.course-card__tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:100px;background:#e8f5e9;color:var(--c-brand)}
-.tag--gold{background:#fff8e1;color:#7B4F00}
-
-/* ── WHY ── */
-.why__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:56px}
-.why-item{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:var(--radius);background:var(--c-surface);box-shadow:var(--shadow)}
-.why-item__icon{width:48px;height:48px;border-radius:12px;background:var(--grad-hero);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-.why-item__title{font-size:1rem;font-weight:700;color:var(--c-text)}
-.why-item__desc{font-size:.88rem;color:var(--c-muted);line-height:1.6}
-
-/* ── LEVELS ── */
-.levels__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:48px}
-.level-badge{text-align:center;padding:28px 20px;border-radius:var(--radius-lg);background:var(--c-surface);border:2px solid var(--c-border);transition:all var(--t)}
-.level-badge:hover{border-color:var(--c-brand);box-shadow:var(--shadow)}
-.level-badge__icon{font-size:2rem;margin-bottom:12px}
-.level-badge__name{font-size:.95rem;font-weight:700;color:var(--c-text);margin-bottom:4px}
-.level-badge__sub{font-size:.78rem;color:var(--c-muted)}
-
-/* ── FORM SECTION ── */
-.form-section{background:var(--grad-hero);padding:96px 0;position:relative;overflow:hidden}
-.form-section::after{content:'النور';font-family:'Amiri',serif;font-size:18rem;color:rgba(255,255,255,.03);position:absolute;right:-60px;top:50%;transform:translateY(-50%);pointer-events:none;direction:rtl;line-height:1}
-.form-card{background:#fff;border-radius:var(--radius-lg);padding:48px;box-shadow:var(--shadow-lg);max-width:660px;margin:0 auto;position:relative;z-index:1}
-.form-card__title{font-size:1.75rem;font-weight:800;color:var(--c-text);margin-bottom:8px}
-.form-card__sub{font-size:.95rem;color:var(--c-muted);margin-bottom:36px}
-.form-redirect{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;margin-bottom:32px;background:#F5F3FF;border:2px solid #DDD6FE;border-radius:var(--radius)}
-.form-redirect__icon{font-size:1.5rem;line-height:1;flex-shrink:0}
-.form-redirect strong{display:block;font-size:.95rem;font-weight:800;color:#4C1D95;margin-bottom:4px}
-.form-redirect p{font-size:.86rem;color:var(--c-muted);line-height:1.6;margin-bottom:10px}
-.form-redirect__links{display:flex;flex-wrap:wrap;gap:10px}
-.form-redirect__links a{display:inline-flex;align-items:center;padding:8px 14px;border-radius:8px;background:#fff;border:2px solid #DDD6FE;color:#5B21B6;font-size:.83rem;font-weight:700;transition:all var(--t)}
-.form-redirect__links a:hover{border-color:#6D28D9;transform:translateY(-1px)}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.form-group{display:flex;flex-direction:column;gap:6px}
-.form-group--full{grid-column:1/-1}
-.form-label{font-size:.85rem;font-weight:600;color:var(--c-text)}
-.form-label .required{color:#d32f2f;margin-left:2px}
-.form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;border:2px solid var(--c-border);border-radius:8px;font-size:.95rem;font-family:inherit;color:var(--c-text);background:#fff;transition:border-color var(--t),box-shadow var(--t);outline:none}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--c-brand);box-shadow:0 0 0 3px rgba(27,94,32,.12)}
-.form-textarea{resize:vertical;min-height:80px}
-.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:38px}
-.form-submit{width:100%;padding:15px;background:var(--c-brand);color:#fff;border:none;border-radius:10px;font-size:1.05rem;font-weight:800;cursor:pointer;transition:all var(--t);margin-top:8px;font-family:inherit}
-.form-submit:hover{background:var(--c-brand-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(27,94,32,.35)}
-.form-submit:active{transform:none}
-.form-note{font-size:.78rem;color:var(--c-muted);text-align:center;margin-top:12px}
-.form-success{display:none;text-align:center;padding:32px}
-.form-success__icon{font-size:4rem;margin-bottom:16px}
-.form-success__title{font-size:1.4rem;font-weight:800;color:var(--c-brand);margin-bottom:8px}
-.form-success__sub{font-size:.95rem;color:var(--c-muted)}
-
-/* ── CHECKBOXES ── */
-.form-checkboxes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.form-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.88rem;color:var(--c-text)}
-.form-checkbox input{width:16px;height:16px;accent-color:var(--c-brand);cursor:pointer;flex-shrink:0}
-
-/* ── TESTIMONIALS ── */
-.testimonials__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
-.testimonial{padding:28px;border-radius:var(--radius-lg);background:var(--c-surface);border:1px solid var(--c-border);box-shadow:var(--shadow)}
-.testimonial__stars{color:var(--c-gold);font-size:1rem;margin-bottom:12px}
-.testimonial__text{font-size:.92rem;color:var(--c-text);line-height:1.7;font-style:italic;margin-bottom:20px}
-.testimonial__author{display:flex;align-items:center;gap:12px}
-.testimonial__avatar{width:40px;height:40px;border-radius:50%;background:var(--grad-hero);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.9rem;flex-shrink:0}
-.testimonial__name{font-size:.88rem;font-weight:700;color:var(--c-text)}
-.testimonial__role{font-size:.78rem;color:var(--c-muted)}
-
-/* ── FAQ ── */
-.faq__list{max-width:780px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px}
-.faq-item{border:1px solid var(--c-border);border-radius:var(--radius);overflow:hidden}
-.faq-item summary{padding:18px 24px;font-weight:700;font-size:.97rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none;transition:background var(--t)}
-.faq-item summary:hover{background:var(--c-bg)}
-.faq-item summary::after{content:'＋';font-size:1.2rem;color:var(--c-brand);transition:transform var(--t)}
-.faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item__body{padding:0 24px 18px;font-size:.92rem;color:var(--c-muted);line-height:1.7}
-
-/* ── FOOTER ── */
-.footer{background:var(--c-brand-dark);color:rgba(255,255,255,.75);padding:48px 0 28px}
-.footer__inner{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
-.footer__brand{max-width:320px}
-.footer__logo{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:10px}
-.footer__desc{font-size:.88rem;line-height:1.65}
-.footer__links{display:flex;flex-direction:column;gap:8px}
-.footer__link{font-size:.88rem;color:rgba(255,255,255,.6);transition:color var(--t)}
-.footer__link:hover{color:#fff}
-.footer__bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:.8rem;color:rgba(255,255,255,.4)}
-
-/* ══════════════════════════════════════════
-   PROGRAMME DETAIL — REDESIGN
-══════════════════════════════════════════ */
-
-/* Section wrapper */
-.prog-section{padding:0}
-
-/* Programme block: full visual card */
-.prog-block{padding:80px 0;position:relative}
-.prog-block--green{background:linear-gradient(170deg,#f0faf1 0%,#fff 60%)}
-.prog-block--teal{background:linear-gradient(170deg,#e8f8f5 0%,#fff 60%)}
-.prog-block--gold{background:linear-gradient(170deg,#fff9f0 0%,#fff 60%)}
-
-/* Programme number + title hero row */
-.prog-banner{display:flex;align-items:center;gap:28px;margin-bottom:48px;padding:32px 40px;border-radius:24px;position:relative;overflow:hidden}
-.prog-banner--green{background:linear-gradient(135deg,#1B5E20 0%,#2E7D32 60%,#43A047 100%)}
-.prog-banner--teal{background:linear-gradient(135deg,#00695C 0%,#00897B 60%,#26A69A 100%)}
-.prog-banner--gold{background:linear-gradient(135deg,#BF360C 0%,#E64A19 50%,#F9A825 100%)}
-.prog-banner::after{font-family:'Amiri',serif;font-size:14rem;color:rgba(255,255,255,.06);position:absolute;right:20px;top:50%;transform:translateY(-50%);pointer-events:none;line-height:1}
-.prog-banner--green::after{content:'عربي'}
-.prog-banner--teal::after{content:'إسلام'}
-.prog-banner--gold::after{content:'قرآن'}
-.prog-banner__num{font-size:5rem;font-weight:900;color:rgba(255,255,255,.2);line-height:1;flex-shrink:0;letter-spacing:-.05em}
-.prog-banner__body{flex:1;min-width:0}
-.prog-banner__overtitle{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px}
-.prog-banner__title{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
-.prog-banner__desc{font-size:.95rem;color:rgba(255,255,255,.82);line-height:1.65;max-width:600px}
-.prog-banner__meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.prog-banner__pill{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;padding:4px 12px;border-radius:100px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(4px)}
-
-/* Level cards grid */
-.prog-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.prog-level{border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);transition:transform var(--t),box-shadow var(--t);background:#fff;display:flex;flex-direction:column}
-.prog-level:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(0,0,0,.13)}
-.prog-level__header{padding:20px 20px 16px;position:relative}
-.prog-level__header--green{background:linear-gradient(135deg,#1B5E20,#43A047)}
-.prog-level__header--teal{background:linear-gradient(135deg,#00695C,#26A69A)}
-.prog-level__header--gold{background:linear-gradient(135deg,#BF360C,#F9A825)}
-.prog-level__num-badge{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;font-size:.85rem;font-weight:900;margin-bottom:10px;border:2px solid rgba(255,255,255,.3)}
-.prog-level__age-tag{display:inline-block;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);margin-left:6px;vertical-align:middle}
-.prog-level__title{font-size:1rem;font-weight:800;color:#fff;line-height:1.3}
-.prog-level__body{padding:20px;flex:1;background:#fff}
-.prog-level__list{list-style:none;display:flex;flex-direction:column;gap:7px}
-.prog-level__list li{font-size:.84rem;color:#374151;display:flex;align-items:flex-start;gap:8px;line-height:1.55}
-.prog-level__list li .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
-.dot--green{background:#2E7D32}
-.dot--teal{background:#00897B}
-.dot--gold{background:#E64A19}
-
-/* ── Quran phases — Timeline redesign ── */
-.quran-timeline{display:flex;flex-direction:column;gap:0;position:relative}
-.quran-timeline::before{content:'';position:absolute;left:52px;top:40px;bottom:40px;width:3px;background:linear-gradient(to bottom,#1B5E20,#00897B,#1565C0,#7B1FA2);border-radius:2px;z-index:0}
-.quran-phase{display:grid;grid-template-columns:104px 1fr;gap:0;margin-bottom:20px;position:relative;z-index:1}
-.quran-phase:last-child{margin-bottom:0}
-.quran-phase__left{display:flex;flex-direction:column;align-items:center;padding-top:32px;gap:8px}
-.quran-phase__circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.2);border:3px solid #fff;flex-shrink:0}
-.quran-phase__circle--1{background:linear-gradient(135deg,#1B5E20,#43A047)}
-.quran-phase__circle--2{background:linear-gradient(135deg,#00695C,#26A69A)}
-.quran-phase__circle--3{background:linear-gradient(135deg,#1565C0,#42A5F5)}
-.quran-phase__circle--4{background:linear-gradient(135deg,#4A148C,#AB47BC)}
-.quran-phase__dur-pill{background:#fff;border:2px solid var(--c-border);border-radius:100px;padding:4px 10px;text-align:center;white-space:nowrap}
-.quran-phase__dur-num{font-size:.9rem;font-weight:900;color:var(--c-text);display:block}
-.quran-phase__dur-unit{font-size:.62rem;color:var(--c-muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:block}
-.quran-phase__card{background:#fff;border-radius:16px;border:2px solid var(--c-border);padding:28px 32px;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:all var(--t)}
-.quran-phase__card:hover{border-color:transparent;box-shadow:0 8px 32px rgba(0,0,0,.1);transform:translateX(4px)}
-.quran-phase__top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:8px;flex-wrap:wrap}
-.quran-phase__title{font-size:1.1rem;font-weight:800;color:var(--c-text)}
-.quran-phase__arabic{font-family:'Amiri',serif;font-size:1.05rem;color:var(--c-muted);direction:rtl;text-align:right;margin-bottom:10px}
-.quran-phase__desc{font-size:.9rem;color:var(--c-muted);line-height:1.7;margin-bottom:16px}
-.quran-phase__chips{display:flex;flex-wrap:wrap;gap:6px}
-.quran-chip{font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:100px;background:var(--c-bg);color:var(--c-text);border:1.5px solid var(--c-border)}
-.quran-chip--special{background:#fce4ec;color:#880E4F;border-color:#f48fb1}
-
-/* Divider between programmes */
-.prog-divider{display:flex;align-items:center;gap:16px;padding:16px 0;text-align:center;color:var(--c-muted);font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.prog-divider::before,.prog-divider::after{content:'';flex:1;height:1px;background:var(--c-border)}
-
-/* Info pédagogique bar */
-.prog-info-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
-.prog-info-item{background:#fff;border-radius:12px;padding:16px 20px;border:1.5px solid var(--c-border);display:flex;align-items:flex-start;gap:12px}
-.prog-info-item--green{border-left:4px solid #2E7D32}
-.prog-info-item--teal{border-left:4px solid #00897B}
-.prog-info-item--gold{border-left:4px solid #E64A19}
-.prog-info-icon{font-size:1.4rem;flex-shrink:0;margin-top:1px}
-.prog-info-label{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--c-muted);margin-bottom:3px}
-.prog-info-value{font-size:.87rem;font-weight:600;color:var(--c-text);line-height:1.45}
-.prog-info-sub{font-size:.75rem;color:var(--c-muted);margin-top:2px;line-height:1.4}
-@media(max-width:700px){.prog-info-bar{grid-template-columns:1fr}}
-
-@media(max-width:900px){
-  .prog-levels{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-  .prog-levels{grid-template-columns:1fr}
-  .prog-banner{flex-direction:column;padding:24px}
-  .prog-banner__num{font-size:3rem}
-  .quran-timeline::before{left:28px}
-  .quran-phase{grid-template-columns:64px 1fr}
-  .quran-phase__circle{width:40px;height:40px;font-size:1rem}
-  .quran-phase__card{padding:20px 18px}
-}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .prog-levels{grid-template-columns:1fr}
-  .prog-level{border-right:none;border-bottom:2px solid var(--c-border)}
-  .prog-level:last-child{border-bottom:none}
-  .quran-phase{grid-template-columns:60px 1fr}
-  .quran-phase__duration{display:none}
-  .prog-header{flex-direction:column;gap:16px}
-
-  .section{padding:64px 0}
-  .form-grid{grid-template-columns:1fr}
-  .form-checkboxes{grid-template-columns:1fr}
-  .form-card{padding:28px 20px}
-  .footer__inner{grid-template-columns:1fr}
-  .hero{padding:70px 0 56px}
-  .nav__logo-sub{display:none}
-}
-@media(max-width:480px){
-  .hero__cta-group{flex-direction:column;align-items:center}
-  .btn-primary,.btn-secondary{width:100%;justify-content:center}
-}
-
-/* ── STICKY BANNER ── */
-.sticky-banner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--c-brand-dark);color:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 -4px 20px rgba(0,0,0,.2);transform:translateY(100%);transition:transform var(--t)}
-.sticky-banner.visible{transform:translateY(0)}
-.sticky-banner__text{font-size:.9rem}
-.sticky-banner__text strong{color:var(--c-gold)}
-.sticky-banner__cta{flex-shrink:0;padding:9px 20px;background:var(--c-gold);color:#3B2000;border-radius:8px;font-weight:800;font-size:.88rem;transition:background var(--t)}
-.sticky-banner__cta:hover{background:var(--c-gold-dark)}
-.sticky-banner__close{background:none;border:none;color:rgba(255,255,255,.5);font-size:1.3rem;cursor:pointer;padding:0 4px;line-height:1}
-/* Turnstile */
-.cf-turnstile{margin:16px 0 4px}
-
-/* ── POPUP OUVERTURE COURS FEMMES ── */
-.popup-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s ease}
-.popup-overlay.visible{opacity:1;pointer-events:all}
-.popup-card{background:#fff;border-radius:24px;padding:44px 40px;max-width:500px;width:100%;position:relative;text-align:center;box-shadow:0 28px 72px rgba(0,0,0,.28);transform:translateY(24px) scale(.97);transition:transform .38s cubic-bezier(.34,1.4,.64,1);overflow:hidden}
-.popup-overlay.visible .popup-card{transform:translateY(0) scale(1)}
-.popup-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#6D28D9,#9D174D,#F59E0B)}
-.popup-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;color:#9ca3af;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s,color .2s;line-height:1}
-.popup-close:hover{background:#f3f4f6;color:#374151}
-.popup__badge{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-brand);background:#CCFBF1;padding:4px 14px;border-radius:100px;margin-bottom:14px}
-.popup__arabic{font-family:'Amiri',serif;font-size:1.1rem;color:var(--c-muted);direction:rtl;margin-bottom:12px}
-.popup__title{font-size:clamp(1.35rem,3.5vw,1.8rem);font-weight:900;color:var(--c-text);margin-bottom:12px;line-height:1.2}
-.popup__title span{color:var(--c-brand)}
-.popup__sub{font-size:.9rem;color:var(--c-muted);line-height:1.65;margin-bottom:22px}
-.popup__prices{display:flex;align-items:center;justify-content:center;gap:12px;background:#f9fafb;border:1px solid var(--c-border);border-radius:12px;padding:14px 20px;margin-bottom:24px}
-.popup__offers{display:flex;flex-direction:column;gap:12px;margin:0 0 18px}
-.popup-offer{display:flex;align-items:center;gap:14px;text-align:left;padding:14px 16px;border:2px solid var(--c-border);border-radius:14px;background:#fff;transition:all .22s}
-.popup-offer:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.1)}
-.popup-offer__icon{font-size:1.7rem;line-height:1;flex-shrink:0}
-.popup-offer__body{flex:1;min-width:0}
-.popup-offer__title{display:block;font-size:.94rem;font-weight:800;color:var(--c-text);line-height:1.25}
-.popup-offer__meta{display:block;font-size:.77rem;color:var(--c-muted);margin-top:3px;line-height:1.4}
-.popup-offer__side{flex-shrink:0;text-align:right}
-.popup-offer__price{display:block;font-size:1.15rem;font-weight:900;line-height:1.1;white-space:nowrap}
-.popup-offer__price small{font-size:.7rem;font-weight:600;color:var(--c-muted)}
-.popup-offer__go{display:block;font-size:.74rem;font-weight:700;color:var(--c-muted);margin-top:3px}
-.popup-offer--violet{border-color:#DDD6FE}
-.popup-offer--violet:hover{border-color:#6D28D9}
-.popup-offer--violet .popup-offer__price{color:#6D28D9}
-.popup-offer--rose{border-color:#FCE7F3}
-.popup-offer--rose:hover{border-color:#9D174D}
-.popup-offer--rose .popup-offer__price{color:#9D174D}
-.popup__price-block{text-align:center}
-.popup__price-num{font-size:1.55rem;font-weight:900;color:var(--c-brand);display:block;line-height:1.1}
-.popup__price-label{font-size:.75rem;color:var(--c-muted);font-weight:500;margin-top:2px;display:block}
-.popup__price-sep{font-size:.82rem;font-weight:600;color:var(--c-border);padding:0 4px}
-.popup__cta{display:block;padding:15px;background:linear-gradient(135deg,#9D174D 0%,#DB2777 100%);color:#fff;border-radius:10px;font-weight:800;font-size:1rem;transition:all .22s;margin-bottom:10px;box-shadow:0 4px 18px rgba(157,23,77,.3)}
-.popup__cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(157,23,77,.42)}
-.popup__later{background:none;border:none;font-size:.83rem;color:var(--c-muted);cursor:pointer;padding:8px;width:100%;font-family:inherit;transition:color .2s}
-.popup__later:hover{color:var(--c-text)}
-@media(max-width:480px){
-  .popup-card{padding:36px 24px 28px}
-  .popup-offer{gap:10px;padding:12px 13px}
-  .popup-offer__icon{font-size:1.4rem}
-  .popup-offer__title{font-size:.88rem}
-  .popup-offer__meta{font-size:.72rem}
-}
-
-/* ── COURS FEMMES TEASER ── */
-.femmes-teaser{padding:56px 0;background:linear-gradient(135deg,#F5F3FF 0%,#f0fdf9 55%,#FFF1F5 100%);border-top:1px solid #DDD6FE;border-bottom:1px solid #e5e7eb}
-.femmes-teaser__cards{display:flex;flex-direction:column;gap:22px}
-.femmes-teaser__card--coran{border-color:#DDD6FE;box-shadow:0 8px 40px rgba(109,40,217,.08),0 2px 12px rgba(15,118,110,.06)}
-.femmes-teaser__card--coran .femmes-teaser__badge{color:#6D28D9;background:#EDE9FE}
-.femmes-teaser__card--coran .femmes-teaser__cta{background:linear-gradient(135deg,#6D28D9,#8B5CF6);box-shadow:0 4px 20px rgba(109,40,217,.3)}
-.femmes-teaser__card--coran .femmes-teaser__cta:hover{box-shadow:0 8px 28px rgba(109,40,217,.4)}
-.femmes-teaser__card{display:flex;align-items:center;justify-content:space-between;gap:40px;background:#fff;border-radius:24px;padding:40px 48px;box-shadow:0 8px 40px rgba(157,23,77,.08),0 2px 12px rgba(15,118,110,.06);border:2px solid #FCE7F3}
-.femmes-teaser__left{flex:1;min-width:0}
-.femmes-teaser__badge{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9D174D;background:#FCE7F3;padding:4px 12px;border-radius:100px;margin-bottom:14px}
-.femmes-teaser__title{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--c-text);margin-bottom:10px;line-height:1.2}
-.femmes-teaser__sub{font-size:.97rem;color:var(--c-muted);margin-bottom:20px;max-width:540px;line-height:1.65}
-.femmes-teaser__pills{display:flex;flex-wrap:wrap;gap:8px}
-.femmes-teaser__pill{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;padding:5px 13px;border-radius:100px;background:#f0fdfa;color:var(--c-brand);border:1px solid #CCFBF1}
-.femmes-teaser__cta{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:15px 30px;background:linear-gradient(135deg,#9D174D,#DB2777);color:#fff;border-radius:12px;font-weight:800;font-size:.97rem;transition:all var(--t);box-shadow:0 4px 20px rgba(157,23,77,.3);white-space:nowrap}
-.femmes-teaser__cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(157,23,77,.4)}
-@media(max-width:768px){
-  .femmes-teaser__card{flex-direction:column;padding:28px 24px;text-align:center}
-  .femmes-teaser__pills{justify-content:center}
-  .femmes-teaser__sub{margin-left:auto;margin-right:auto}
-  .femmes-teaser__cta{width:100%;justify-content:center}
-}
-</style>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minassa — cours d&#x27;arabe, de Coran et de sciences islamiques en ligne</title>
+<meta name="description" content="Les cours en direct des écoles en ligne, les préinscriptions Minassa et les parcours d&#x27;arabe à suivre à son rythme.">
+<link rel="canonical" href="https://minassa.fr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Minassa">
+<meta property="og:title" content="Minassa — cours d&#x27;arabe, de Coran et de sciences islamiques en ligne">
+<meta property="og:description" content="Les cours en direct des écoles en ligne, les préinscriptions Minassa et les parcours d&#x27;arabe à suivre à son rythme.">
+<meta property="og:url" content="https://minassa.fr/">
+<meta property="og:image" content="https://minassa.fr/og-image.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="theme-color" content="#0B4F4A">
+<link rel="icon" type="image/svg+xml" href="/assets/logo/minassa-icone.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/minassa.css">
 </head>
 <body>
+<header class="entete">
+  <div class="conteneur entete__in">
+    <a href="/" class="entete__logo" aria-label="Minassa, accueil"><img src="/assets/logo/minassa-logo.svg" alt="Minassa منصّة" width="160" height="44"></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/cours/">Cours</a>
+      <a href="/apprendre/">Apprendre</a>
+      <a href="/#ecoles">Écoles</a>
+      <a href="/#votre-ecole" class="nav__ecole">Votre école sur Minassa</a>
+    </nav>
+  </div>
+</header>
+<main>
+<!-- Héros -->
+<section class="heros">
+  <div class="conteneur heros__in">
+    <div class="heros__texte">
+      <p class="heros__marque"><span class="ar">منصّة</span><span class="losange" aria-hidden="true"></span>la plateforme des cours en ligne</p>
+      <h1>Apprendre l'arabe, le Coran et les sciences islamiques, <span>en ligne.</span></h1>
+      <p class="heros__chapo">Des cours en direct, avec un enseignant. Et des parcours pour apprendre l'arabe à son rythme.</p>
+      <form class="recherche" role="search" action="/cours/" method="get">
+        <label for="q" class="sr">Que voulez-vous apprendre ?</label>
+        <input id="q" name="q" type="search" placeholder="Que voulez-vous apprendre ? Tajweed, Coran, sciences islamiques…">
+        <button type="submit" class="btn btn--terre">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+          Rechercher
+        </button>
+      </form>
+      <div class="publics">
+        <span class="publics__label">Pour :</span>
+        <a href="/cours/?pour=femmes">Sœurs</a>
+        <a href="/cours/?pour=hommes">Hommes</a>
+        <a href="/cours/?pour=ados">Adolescents</a>
+      </div>
+    </div>
 
-<!-- POPUP OUVERTURE DES INSCRIPTIONS -->
-<div class="popup-overlay" id="popup-offres" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-  <div class="popup-card">
-    <button class="popup-close" onclick="closePopup()" aria-label="Fermer">×</button>
-    <div class="popup__badge" data-i18n="popup.badge">🎓 Inscriptions ouvertes</div>
-    <p class="popup__arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-    <h2 class="popup__title" id="popup-title" data-i18n="popup.title" data-i18n-html>Nos cours de Coran <span>sont ouverts !</span></h2>
-    <p class="popup__sub" data-i18n="popup.sub">Deux programmes distincts, 100 % en ligne, avec un suivi personnalisé. Choisissez celui qui vous concerne.</p>
+    <div class="estrade" aria-hidden="true">
+      <div class="estrade__scene">
+        <div class="estrade__ecran"><span class="ar">أَهْلًا</span></div>
+        <div class="estrade__marche estrade__marche--1"></div>
+        <div class="estrade__marche estrade__marche--2"></div>
+        <div class="estrade__bulle estrade__bulle--direct"><span class="point-rouge"></span><span><strong>En direct</strong> · cours de Coran</span></div>
+        <div class="estrade__bulle estrade__bulle--parcours">
+          <span class="rond-teal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"></path></svg></span>
+          <span><strong>9 parcours</strong> d'arabe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="popup__offers">
-      <a href="cours-coran/" class="popup-offer popup-offer--violet">
-        <span class="popup-offer__icon">📖</span>
-        <span class="popup-offer__body">
-          <span class="popup-offer__title" data-i18n="popup.offer1_title">Hommes, adolescents &amp; enfants</span>
-          <span class="popup-offer__meta" data-i18n="popup.offer1_meta">Mémorisation · Révision · Tajwîd — samedi ou dimanche</span>
-        </span>
-        <span class="popup-offer__side">
-          <span class="popup-offer__price" data-i18n="popup.offer1_price" data-i18n-html>300 €<small> /an</small></span>
-          <span class="popup-offer__go" data-i18n="popup.offer_go">Voir →</span>
+<!-- Trois entrées -->
+<section class="conteneur entrees">
+  <div class="grille-3">
+    <a href="/cours/" class="carte entree">
+      <span class="icone icone--teal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+      <span class="entree__titre">Suivre un cours</span>
+      <span class="entree__texte">En direct, en petit groupe, avec un enseignant. Rediffusions dans l'espace de l'école.</span>
+      <span class="entree__lien">3 cours ouverts →</span>
+    </a>
+    <a href="/apprendre/" class="carte entree">
+      <span class="icone icone--terre"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"></path><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"></path><path d="M10 8l4 2.5-4 2.5z"></path></svg></span>
+      <span class="entree__titre">Apprendre seul</span>
+      <span class="entree__texte">Bientôt : une plateforme complète en autonomie, pour les neuf parcours d'arabe. Vidéos, audio, fiches, exercices et quiz.</span>
+      <span class="entree__lien" style="color: var(--terre)">Découvrir la plateforme →</span>
+    </a>
+    <a href="#ecoles" class="carte entree">
+      <span class="icone icone--sable"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"></path><path d="M5 10v9h14v-9"></path><path d="M10 19v-5h4v5"></path></svg></span>
+      <span class="entree__titre">Les écoles</span>
+      <span class="entree__texte">Des associations qui enseignent en ligne. Chacune inscrit ses élèves et encaisse elle-même.</span>
+      <span class="entree__lien" style="color: var(--nuit)">2 écoles →</span>
+    </a>
+  </div>
+</section>
+
+<!-- Cours en direct -->
+<section class="conteneur section" id="cours-en-direct">
+  <div class="entete-section">
+    <div>
+      <p class="surtitre" style="margin-bottom: 8px">Inscriptions ouvertes</p>
+      <h2 class="titre-section">Les cours en direct</h2>
+    </div>
+    <a href="/cours/">Tous les cours →</a>
+  </div>
+  <div class="grille-cours">
+      <a href="/cours/shs/899/" class="carte carte-cours">
+        <img src="/assets/couvertures/shs-899.jpg" alt="" loading="lazy" width="640" height="360">
+        <div class="carte-cours__corps">
+          <span class="ecole-ligne"><span class="sigle" aria-hidden="true" style="background: #142039; color: #C29A4B; box-shadow: inset 0 0 0 2px #C29A4B">SHS</span>Académie SHS</span>
+          <span class="carte-cours__nom">1re année — Études islamiques et sociales</span>
+          <span class="carte-cours__info">Lun., mar., mer. · 19 h – 21 h · 90 h · Adultes · Français</span>
+          <span class="carte-cours__bas"><span class="prix">250 €</span><span class="pastille pastille--ecole">Jusqu&#x27;au 30 nov.</span></span>
+        </div>
+      </a>
+      <a href="/cours-femmes/" class="carte carte-cours">
+        <img src="/assets/img/cours-femmes.jpg" alt="" loading="lazy" width="640" height="360">
+        <div class="carte-cours__corps">
+          <span class="ecole-ligne"><img src="/assets/logo/minassa-icone.svg" alt="" width="22" height="22">Minassa</span>
+          <span class="carte-cours__nom">Cours de Coran pour les sœurs</span>
+          <span class="carte-cours__info">Mémorisation, tilâwa, tajwîd · petits groupes · horaires flexibles</span>
+          <span class="carte-cours__bas"><span class="prix">280 € <small>/ an</small></span><span class="pastille pastille--pre">Préinscription</span></span>
+        </div>
+      </a>
+      <a href="/cours-coran/" class="carte carte-cours">
+        <img src="/assets/img/cours-coran.jpg" alt="" loading="lazy" width="640" height="360">
+        <div class="carte-cours__corps">
+          <span class="ecole-ligne"><img src="/assets/logo/minassa-icone.svg" alt="" width="22" height="22">Minassa</span>
+          <span class="carte-cours__nom">Coran le week-end — hommes et adolescents</span>
+          <span class="carte-cours__info">Samedi ou dimanche · 2 h par semaine · groupes par âge</span>
+          <span class="carte-cours__bas"><span class="prix">300 € <small>/ an</small></span><span class="pastille pastille--pre">Préinscription</span></span>
+        </div>
+      </a>
+  </div>
+  <p class="note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 12h1v5h1"></path></svg> Cours Minassa : préinscription ici, sur Minassa. Cours des autres écoles : inscription sur leur site.</p>
+</section>
+
+<!-- Les parcours d'arabe -->
+<section class="conteneur section">
+  <div class="bloc-blanc">
+    <div class="bloc-blanc__texte">
+      <p class="surtitre" style="display: flex; align-items: center; gap: 10px"><span class="pastille pastille--bientot">Bientôt</span>Apprendre en autonomie</p>
+      <h2 class="titre-section" style="font-size: 36px">Les parcours d'arabe</h2>
+      <p class="chapo">Neuf parcours qui s'enchaînent, de l'écoute des premiers sons à la lecture de textes sans voyelles. Sur la plateforme Minassa, chaque chapitre réunira une vidéo, de l'audio, une fiche à imprimer, des exercices et un quiz.</p>
+      <a href="/apprendre/" class="btn">Découvrir la plateforme</a>
+    </div>
+    <div class="chemins">
+      <div class="chemin">
+        <span class="chemin__titre">Enfants et adolescents · 3 à 15 ans</span>
+        <div class="chemin__etapes">
+          <span class="etape etape--terre">Maternelle</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Les lettres</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je lis</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je comprends</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je parle</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape">Je raconte</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape etape--nuit">Ados</span>
+        </div>
+      </div>
+      <div class="chemin">
+        <span class="chemin__titre">Adultes · 16 ans et plus</span>
+        <div class="chemin__etapes">
+          <span class="etape etape--nuit">Adulte débutant · A1</span><span class="fleche" aria-hidden="true">→</span>
+          <span class="etape etape--nuit">Adulte confirmé · B1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Les écoles -->
+<section class="conteneur section" id="ecoles">
+  <h2 class="titre-section" style="margin-bottom: 8px">Les écoles</h2>
+  <p class="chapo" style="margin-bottom: 28px">Chaque école a ses enseignants, ses tarifs et son espace en ligne. Minassa les présente ; vous vous inscrivez chez elles.</p>
+  <div class="grille-ecoles">
+      <a href="/cours/?ecole=shs" class="carte carte-ecole">
+        <span class="carte-ecole__logo" aria-hidden="true" style="background: #142039; color: #C29A4B; box-shadow: inset 0 0 0 2px #C29A4B">SHS</span>
+        <span class="carte-ecole__texte">
+          <span class="carte-ecole__nom">Académie française des sciences humaines et sociales</span>
+          <span class="entree__texte">Un cursus de trois ans en études islamiques et sociales, pour adultes, en français.</span>
+          <span class="entree__lien">1 cours →</span>
         </span>
       </a>
-      <a href="cours-femmes/" class="popup-offer popup-offer--rose">
-        <span class="popup-offer__icon">🌸</span>
-        <span class="popup-offer__body">
-          <span class="popup-offer__title" data-i18n="popup.offer2_title">Sœurs adultes</span>
-          <span class="popup-offer__meta" data-i18n="popup.offer2_meta">Mémorisation · Tilâwa · Nourania · Al-Jazariyya</span>
-        </span>
-        <span class="popup-offer__side">
-          <span class="popup-offer__price" data-i18n="popup.offer2_price" data-i18n-html>280 €<small> /an</small></span>
-          <span class="popup-offer__go" data-i18n="popup.offer_go">Voir →</span>
+      <a href="/cours/?ecole=minassa" class="carte carte-ecole">
+        <img class="carte-ecole__logo" src="/assets/logo/minassa-icone.svg" alt="" width="72" height="72">
+        <span class="carte-ecole__texte">
+          <span class="carte-ecole__nom">Minassa</span>
+          <span class="entree__texte">Mémorisation du Coran, tilâwa et tajwîd, en petits groupes : cours pour les sœurs, et le week-end pour hommes et adolescents.</span>
+          <span class="entree__lien">2 offres →</span>
         </span>
       </a>
-    </div>
-
-    <button class="popup__later" onclick="closePopup()" data-i18n="popup.later">Pas maintenant</button>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav class="nav">
-  <div class="container">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <!-- Logo Minassa SVG -->
-        <svg class="nav__logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#0F766E;stop-opacity:1" />
-              <stop offset="50%" style="stop-color:#14B8A6;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <!-- Mosque minaret shape -->
-          <path d="M35,20 L35,75 L25,75 L25,85 L75,85 L75,75 L65,75 L65,20 L60,20 L60,15 L55,15 L55,10 L50,5 L45,10 L45,15 L40,15 L40,20 Z" fill="url(#logoGrad)"/>
-          <circle cx="50" cy="12" r="6" fill="#F59E0B"/>
-          <rect x="42" y="40" width="16" height="25" rx="2" fill="#fff" opacity="0.3"/>
-          <!-- Arabic calligraphy hint -->
-          <text x="50" y="92" font-family="Cairo,Amiri" font-size="16" fill="url(#logoGrad)" text-anchor="middle" font-weight="700">منصة</text>
-        </svg>
-        <div>
-          <div class="nav__logo-text" data-i18n="nav.logo">MINASSA</div>
-          <div class="nav__logo-sub" data-i18n="nav.tagline">Plateforme d'apprentissage</div>
-        </div>
-      </a>
-      <div class="nav__actions">
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="fr" onclick="setLanguage('fr')">FR</button>
-          <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
-        </div>
-        <a href="cours-coran/" class="nav__cta nav__cta--violet nav__cta--offer">📖 Cours Coran</a>
-        <a href="cours-femmes/" class="nav__cta nav__cta--rose nav__cta--offer">🌸 Cours sœurs</a>
-        <a href="#preinscription" class="nav__cta nav__cta--main">Préinscription →</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero__inner">
-      <p class="hero__arabic" data-i18n="hero.basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-      <div class="hero__badges">
-        <span class="hero__badge" data-i18n="hero.badge1">🟢 Préinscription ouverte</span>
-        <span class="hero__badge" data-i18n="hero.badge2">📅 Rentrée automne 2026</span>
-        <span class="hero__badge" data-i18n="hero.badge3">🌍 100% en ligne</span>
-      </div>
-      <h1 class="hero__title" data-i18n="hero.title" data-i18n-html>Apprenez l'<span>Arabe</span>, le Coran<br>& les Sciences Islamiques<br>depuis chez vous</h1>
-      <p class="hero__sub" data-i18n="hero.subtitle">Des cours en direct avec des enseignants qualifiés, pour enfants et adultes, à votre rythme. Rejoignez la liste d'attente prioritaire.</p>
-      <div class="hero__cta-group">
-        <a href="#preinscription" class="btn-primary" data-i18n="hero.cta_primary">✍️ Préinscription gratuite</a>
-        <a href="#programmes" class="btn-secondary" data-i18n="hero.cta_secondary">Voir les programmes ↓</a>
-      </div>
-      <div class="hero__counter">
-        <div class="hero__stat">
-          <div class="hero__stat-num">3</div>
-          <div class="hero__stat-label" data-i18n="hero.stat2_label">programmes</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-num">14</div>
-          <div class="hero__stat-label" data-i18n="hero.stat3_label">niveaux</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-num">0€</div>
-          <div class="hero__stat-label" data-i18n="hero.stat4_label">préinscription</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust">
-  <div class="container">
-    <div class="trust__inner">
-      <div class="trust__item"><span data-i18n="trust.item1" data-i18n-html>✅ Enseignants diplômés & ijazas</span></div>
-      <div class="trust__item"><span data-i18n="trust.item2" data-i18n-html>🔒 Données sécurisées</span></div>
-      <div class="trust__item"><span data-i18n="trust.item3" data-i18n-html>📱 Accessible sur tous les appareils</span></div>
-      <div class="trust__item"><span data-i18n="trust.item4" data-i18n-html>🌙 Cours en français & arabe</span></div>
-      <div class="trust__item"><span data-i18n="trust.item5" data-i18n-html>👨‍👩‍👧 Enfants dès 5 ans & adultes</span></div>
+<!-- La plateforme d'apprentissage : MadrassaNET -->
+<section class="conteneur section" id="plateforme">
+  <div class="bandeau-nuit">
+    <div class="bandeau-nuit__texte">
+      <p class="surtitre" style="color: var(--terre-clair)">La plateforme d'apprentissage</p>
+      <h2>Les cours se suivent sur MadrassaNET</h2>
+      <p>Une fois inscrit, vous retrouvez votre école sur MadrassaNET : la classe en direct, les rediffusions, les leçons, les devoirs et le suivi.</p>
+      <a href="https://www.madrassanet.com" target="_blank" rel="noopener" class="btn btn--clair">Découvrir MadrassaNET <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg><span class="sr">(nouvel onglet)</span></a>
+      <span style="font-size: 13px; color: var(--teal-clair)">www.madrassanet.com</span>
     </div>
-  </div>
-</div>
-
-<!-- COURSES -->
-<section class="section" id="cours">
-  <div class="container">
-    <div class="text-center">
-      <span class="badge section-eyebrow" data-i18n="courses.eyebrow">Nos filières</span>
-      <h2 class="section-title" data-i18n="courses.title">Trois parcours pour grandir dans votre foi</h2>
-      <p class="section-sub" data-i18n="courses.subtitle">Des cursus structurés, progressifs, encadrés par des professionnels de l'enseignement islamique.</p>
-    </div>
-    <div class="courses__grid">
-      <div class="course-card">
-        <div class="course-card__icon">📖</div>
-        <div class="course-card__title" data-i18n="courses.arabe_title">Langue Arabe (Fusha)</div>
-        <div class="course-card__desc" data-i18n="courses.arabe_desc">Apprenez l'arabe littéraire de zéro jusqu'au niveau avancé. Alphabet, grammaire, lecture, écriture et expression orale. Idéal pour comprendre le Coran et les textes islamiques.</div>
-        <div class="course-card__tags">
-          <span class="tag" data-i18n="courses.arabe_tag1">Débutant → Avancé</span>
-          <span class="tag" data-i18n="courses.arabe_tag2">Enfants & Adultes</span>
-          <span class="tag tag--gold" data-i18n="courses.arabe_tag3">🔥 Populaire</span>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-card__icon">🌙</div>
-        <div class="course-card__title" data-i18n="courses.coran_title">Coran & Tajwid</div>
-        <div class="course-card__desc" data-i18n="courses.coran_desc">Mémorisez le Coran avec les règles de tajwid. Cours individuels ou en petit groupe. Suivi personnalisé de la hifz. Enseignants avec ijaza transmise.</div>
-        <div class="course-card__tags">
-          <span class="tag" data-i18n="courses.coran_tag1">Lecture correcte</span>
-          <span class="tag" data-i18n="courses.coran_tag2">Mémorisation</span>
-          <span class="tag" data-i18n="courses.coran_tag3">Ijaza</span>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-card__icon">🕌</div>
-        <div class="course-card__title" data-i18n="courses.sciences_title">Sciences Islamiques</div>
-        <div class="course-card__desc" data-i18n="courses.sciences_desc">Aqida, Fiqh, Seerah, Hadith et Tafsir. Comprendre les fondements de l'Islam, les piliers de la foi et les règles pratiques du quotidien musulman.</div>
-        <div class="course-card__tags">
-          <span class="tag" data-i18n="courses.sciences_tag1">Aqida</span>
-          <span class="tag" data-i18n="courses.sciences_tag2">Fiqh pratique</span>
-          <span class="tag" data-i18n="courses.sciences_tag3">Seerah</span>
-        </div>
-      </div>
-    </div>
+    <ul class="atouts">
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M10 9l4 2-4 2z"></path><path d="M8 21h8"></path></svg></span><span><strong>Classe virtuelle</strong>Le cours en direct, avec l'enseignant, depuis l'ordinateur ou le téléphone.</span></li>
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><span><strong>Rediffusions</strong>Revoir une séance manquée ou à réviser.</span></li>
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path><path d="M8 13h8M8 17h5"></path></svg></span><span><strong>Leçons et devoirs</strong>Les supports du cours et le travail à faire, au même endroit.</span></li>
+      <li><span class="atouts__icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><span><strong>Suivi et messagerie</strong>Présences, résultats, échanges avec l'enseignant.</span></li>
+    </ul>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     PROGRAMMES DÉTAILLÉS
-═══════════════════════════════════════════════════════ -->
-<div id="programmes">
-
-  <!-- Section title -->
-  <div style="padding:80px 0 0;background:#fff;text-align:center">
-    <div class="container">
-      <span class="badge section-eyebrow" data-i18n="programmes.eyebrow">Programmes détaillés</span>
-      <h2 class="section-title" style="margin-top:12px" data-i18n="programmes.title">Des cursus structurés, de A à Z</h2>
-      <p class="section-sub" data-i18n="programmes.subtitle">Chaque programme est progressif, avec des objectifs clairs par niveau et un suivi personnalisé tout au long du parcours.</p>
+<!-- Votre école -->
+<section class="conteneur section" id="votre-ecole">
+  <div class="bandeau-terre">
+    <div class="bandeau-terre__texte">
+      <h2>Vous dirigez une école en ligne ?</h2>
+      <p>Vos cours apparaissent sur Minassa avec vos prix et vos horaires. L'inscription, le paiement et la relation avec vos élèves restent chez vous.</p>
+      <p style="font-size: 15px">Pas encore d'espace en ligne ? <a href="https://www.madrassanet.com" target="_blank" rel="noopener" style="color: var(--terre); font-weight: 700">Votre école sur MadrassaNET <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a></p>
     </div>
-  </div>
-
-  <!-- ══ PROGRAMME 1 : ARABE ENFANTS ══ -->
-  <section class="prog-block prog-block--green">
-    <div class="container">
-
-      <div class="prog-banner prog-banner--green">
-        <div class="prog-banner__num">01</div>
-        <div class="prog-banner__body">
-          <div class="prog-banner__overtitle" data-i18n="prog1.overtitle">📖 Programme Enfants &amp; Ados · à partir de 7 ans</div>
-          <h3 class="prog-banner__title" data-i18n="prog1.title">Langue Arabe — de l'alphabet à la maîtrise</h3>
-          <p class="prog-banner__desc" data-i18n="prog1.desc" data-i18n-html>Un parcours progressif en 4 niveaux annuels pour apprendre l'arabe littéraire (Fusha) depuis zéro. Alphabet, lecture, écriture, grammaire (Nahw &amp; Sarf) et expression orale. Objectif final : lire et comprendre le Coran sans traduction. <strong>Chaque niveau correspond à une année scolaire.</strong></p>
-          <div class="prog-banner__meta">
-            <span class="prog-banner__pill" data-i18n="prog1.pill1">👦 Dès 7 ans</span>
-            <span class="prog-banner__pill" data-i18n="prog1.pill2">💻 Ordinateur requis</span>
-            <span class="prog-banner__pill" data-i18n="prog1.pill3">📅 Plusieurs séances / semaine</span>
-            <span class="prog-banner__pill" data-i18n="prog1.pill4">👥 Max 6 élèves</span>
-            <span class="prog-banner__pill" data-i18n="prog1.pill5">🗓 1 an / niveau</span>
-            <span class="prog-banner__pill" data-i18n="prog1.pill6">📝 Devoirs en ligne</span>
-            <span class="prog-banner__pill" data-i18n="prog1.pill7">📋 Évaluations en ligne &amp; présentiel</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Info pédagogique -->
-      <div class="prog-info-bar">
-        <div class="prog-info-item prog-info-item--green">
-          <div class="prog-info-icon">💻</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog1.info1_label">Prérequis</div>
-            <div class="prog-info-value" data-i18n="prog1.info1_value">Maîtrise de l'ordinateur ou tablette</div>
-            <div class="prog-info-sub" data-i18n="prog1.info1_sub">L'élève doit savoir naviguer et accéder à une visioconférence. Dès 7 ans.</div>
-          </div>
-        </div>
-        <div class="prog-info-item prog-info-item--green">
-          <div class="prog-info-icon">📝</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog1.info2_label">Devoirs</div>
-            <div class="prog-info-value" data-i18n="prog1.info2_value">Exercices hebdomadaires en ligne</div>
-            <div class="prog-info-sub" data-i18n="prog1.info2_sub">Fiches de révision, exercices de lecture et d'écriture déposés sur la plateforme chaque semaine.</div>
-          </div>
-        </div>
-        <div class="prog-info-item prog-info-item--green">
-          <div class="prog-info-icon">📋</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog1.info3_label">Évaluations</div>
-            <div class="prog-info-value" data-i18n="prog1.info3_value">En ligne (trimestriel) + présentiel</div>
-            <div class="prog-info-sub" data-i18n="prog1.info3_sub">Tests en ligne 3×/an. Examen de fin d'année en présentiel possible selon les centres partenaires locaux.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="prog-levels">
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--green">
-            <div class="prog-level__num-badge">N1</div>
-            <span class="prog-level__age-tag" data-i18n="prog1.n1_age">Année 1 · dès 7 ans</span>
-            <div class="prog-level__title" data-i18n="prog1.n1_title">🌱 Les Fondations</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n1_item1">Alphabet arabe : 28 lettres, reconnaisance &amp; prononciation</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n1_item2">Écriture des lettres isolées et liées</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n1_item3">Voyelles courtes (fatha, kasra, damma)</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n1_item4">Voyelles longues, sukun &amp; chadda</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n1_item5">Lecture syllabique de mots simples</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n1_item6">Vocabulaire de base : corps, famille, couleurs</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n1_item7">Comptines &amp; chants éducatifs en arabe</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--green">
-            <div class="prog-level__num-badge">N2</div>
-            <span class="prog-level__age-tag" data-i18n="prog1.n2_age">Année 2</span>
-            <div class="prog-level__title" data-i18n="prog1.n2_title">📚 Les Bases</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n2_item1">Lecture fluide de textes courts</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n2_item2">Grammaire : nom, verbe, particule</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n2_item3">Genre &amp; nombre (singulier, duel, pluriel)</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n2_item4">Les cas i'rab (رفع نصب جر) simplifié</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n2_item5">Verbes au passé : conjugaison régulière</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n2_item6">Vocabulaire courant : école, maison, nature</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n2_item7">Compréhension écrite de textes courts</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--green">
-            <div class="prog-level__num-badge">N3</div>
-            <span class="prog-level__age-tag" data-i18n="prog1.n3_age">Année 3</span>
-            <div class="prog-level__title" data-i18n="prog1.n3_title">🏗 Grammaire &amp; Expression</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n3_item1">Nahw approfondi : i'rab complet</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n3_item2">Verbes : présent, impératif, formes dérivées (أوزان)</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n3_item3">Sarf (morphologie) : racines trilittères</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n3_item4">Expressions idiomatiques &amp; proverbes</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n3_item5">Lecture de textes islamiques simples</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n3_item6">Expression orale : présentation, dialogue</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n3_item7">Rédaction de courts paragraphes</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--green">
-            <div class="prog-level__num-badge">N4</div>
-            <span class="prog-level__age-tag" data-i18n="prog1.n4_age">Année 4</span>
-            <div class="prog-level__title" data-i18n="prog1.n4_title">🎓 Maîtrise &amp; Autonomie</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n4_item1">Lecture de textes coraniques avec analyse</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n4_item2">Textes classiques : Ajurrumiyya, Alfiyya</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n4_item3">Nahw &amp; Sarf niveau avancé</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n4_item4">Rhétorique arabe (Balagha) : introduction</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n4_item5">Rédaction d'essais et de compositions</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n4_item6">Autonomie complète en lecture islamique</span></li>
-              <li><span class="dot dot--green"></span><span data-i18n="prog1.n4_item7">Option : préparation diplôme arabe officiel</span></li>
-            </ul>
-          </div>
-        </div>
-
-      </div><!-- /prog-levels -->
-    </div>
-  </section>
-
-  <!-- ══ PROGRAMME 2 : SCIENCES ISLAMIQUES ENFANTS ══ -->
-  <section class="prog-block prog-block--teal">
-    <div class="container">
-
-      <div class="prog-divider" data-i18n="prog2.divider">Programme suivant</div>
-
-      <div class="prog-banner prog-banner--teal">
-        <div class="prog-banner__num">02</div>
-        <div class="prog-banner__body">
-          <div class="prog-banner__overtitle" data-i18n="prog2.overtitle">🕌 Programme Enfants &amp; Ados · à partir de 7 ans</div>
-          <h3 class="prog-banner__title" data-i18n="prog2.title">Sciences Islamiques — connaître et pratiquer sa religion</h3>
-          <p class="prog-banner__desc" data-i18n="prog2.desc" data-i18n-html>Un cursus progressif en 4 niveaux annuels : Aqida (foi), Fiqh (jurisprudence pratique), Seerah (vie du Prophète ﷺ) et Hadith. Former des enfants et adolescents ancrés dans leur identité islamique. <strong>Chaque niveau correspond à une année scolaire.</strong></p>
-          <div class="prog-banner__meta">
-            <span class="prog-banner__pill" data-i18n="prog2.pill1">👦 Dès 7 ans</span>
-            <span class="prog-banner__pill" data-i18n="prog2.pill2">💻 Ordinateur requis</span>
-            <span class="prog-banner__pill" data-i18n="prog2.pill3">📅 Plusieurs séances / semaine</span>
-            <span class="prog-banner__pill" data-i18n="prog2.pill4">👥 Max 8 élèves</span>
-            <span class="prog-banner__pill" data-i18n="prog2.pill5">🗓 1 an / niveau</span>
-            <span class="prog-banner__pill" data-i18n="prog2.pill6">📝 Devoirs en ligne</span>
-            <span class="prog-banner__pill" data-i18n="prog2.pill7">📋 Évaluations en ligne &amp; présentiel</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Info pédagogique -->
-      <div class="prog-info-bar">
-        <div class="prog-info-item prog-info-item--teal">
-          <div class="prog-info-icon">💻</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog2.info1_label">Prérequis</div>
-            <div class="prog-info-value" data-i18n="prog2.info1_value">Maîtrise de l'ordinateur ou tablette</div>
-            <div class="prog-info-sub" data-i18n="prog2.info1_sub">L'élève doit savoir naviguer et accéder à une visioconférence. Dès 7 ans.</div>
-          </div>
-        </div>
-        <div class="prog-info-item prog-info-item--teal">
-          <div class="prog-info-icon">📝</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog2.info2_label">Devoirs</div>
-            <div class="prog-info-value" data-i18n="prog2.info2_value">Fiches &amp; quiz hebdomadaires en ligne</div>
-            <div class="prog-info-sub" data-i18n="prog2.info2_sub">Quiz de mémorisation, questions de compréhension et fiches d'étude sur la plateforme.</div>
-          </div>
-        </div>
-        <div class="prog-info-item prog-info-item--teal">
-          <div class="prog-info-icon">📋</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog2.info3_label">Évaluations</div>
-            <div class="prog-info-value" data-i18n="prog2.info3_value">En ligne (trimestriel) + présentiel</div>
-            <div class="prog-info-sub" data-i18n="prog2.info3_sub">Tests en ligne 3×/an. Examen de fin d'année en présentiel possible selon les centres partenaires.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="prog-levels">
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--teal">
-            <div class="prog-level__num-badge">N1</div>
-            <span class="prog-level__age-tag" data-i18n="prog2.n1_age">Année 1 · dès 7 ans</span>
-            <div class="prog-level__title" data-i18n="prog2.n1_title">🌟 Les Piliers de l'Islam</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n1_item1">Les 5 piliers de l'Islam</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n1_item2">Les 6 piliers de la foi (أركان الإيمان)</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n1_item3">Allah : 10 noms et attributs essentiels</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n1_item4">La prière : wudhu, gestes, sourates</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n1_item5">Seerah : naissance &amp; enfance du Prophète ﷺ</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n1_item6">Les grands prophètes : Adam, Ibrahim, Musa, Issa, Muhammad ﷺ</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n1_item7">Adab islamique : salutations &amp; du'a quotidiens</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--teal">
-            <div class="prog-level__num-badge">N2</div>
-            <span class="prog-level__age-tag" data-i18n="prog2.n2_age">Année 2</span>
-            <div class="prog-level__title" data-i18n="prog2.n2_title">📿 Fiqh &amp; Pratique</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n2_item1">Purification : wudhu, ghusl, tayammum</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n2_item2">La prière : conditions, rukn, sunnah, nullités</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n2_item3">Le jeûne : conditions &amp; ce qui le rompt</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n2_item4">La Zakat : définition, nissab, bénéficiaires</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n2_item5">Seerah : Mission prophétique, Hijra, batailles</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n2_item6">Hadith : 40 hadiths An-Nawawi (simplifié)</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n2_item7">Asma Al-Husna (99 noms), anges, livres</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--teal">
-            <div class="prog-level__num-badge">N3</div>
-            <span class="prog-level__age-tag" data-i18n="prog2.n3_age">Année 3</span>
-            <div class="prog-level__title" data-i18n="prog2.n3_title">🔬 Approfondissement</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n3_item1">Aqida : Al-Wasitiyya (introduction commentée)</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n3_item2">Fiqh : halal/haram alimentaire &amp; transactions</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n3_item3">Seerah complète : conquête La Mecque &amp; dernier prêche</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n3_item4">Tafsir : Fatiha, Al-Baqara v.1-20, Juz' Amma</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n3_item5">40 hadiths An-Nawawi avec explication</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n3_item6">Vie des Compagnons : Abu Bakr, Omar, Othman, Ali</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n3_item7">Introduction à l'éthique islamique (Akhlaq)</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="prog-level">
-          <div class="prog-level__header prog-level__header--teal">
-            <div class="prog-level__num-badge">N4</div>
-            <span class="prog-level__age-tag" data-i18n="prog2.n4_age">Année 4</span>
-            <div class="prog-level__title" data-i18n="prog2.n4_title">🎓 Sciences &amp; Identité</div>
-          </div>
-          <div class="prog-level__body">
-            <ul class="prog-level__list">
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n4_item1">Usul Al-Fiqh : fondements de la jurisprudence</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n4_item2">Aqida avancée : at-Tawhid (3 catégories)</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n4_item3">Tafsir thématique : justice, famille, éducation</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n4_item4">Mustalah Al-Hadith : introduction</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n4_item5">Histoire islamique : 4 califes, Ummayades, Abbassides</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n4_item6">Islam &amp; modernité : réponses contemporaines</span></li>
-              <li><span class="dot dot--teal"></span><span data-i18n="prog2.n4_item7">Autonomie religieuse &amp; spirituelle</span></li>
-            </ul>
-          </div>
-        </div>
-
-      </div><!-- /prog-levels -->
-    </div>
-  </section>
-
-  <!-- ══ PROGRAMME 3 : CORAN ADULTES ══ -->
-  <section class="prog-block prog-block--gold">
-    <div class="container">
-
-      <div class="prog-divider" data-i18n="prog3.divider">Programme suivant</div>
-
-      <div class="prog-banner prog-banner--gold">
-        <div class="prog-banner__num">03</div>
-        <div class="prog-banner__body">
-          <div class="prog-banner__overtitle" data-i18n="prog3.overtitle">🌙 Programme Adultes · Hommes &amp; Femmes</div>
-          <h3 class="prog-banner__title" data-i18n="prog3.title">Coran — de la Nourania à l'Ijaza</h3>
-          <p class="prog-banner__desc" data-i18n="prog3.desc" data-i18n-html>4 phases progressives pour apprendre à lire le Coran correctement, maîtriser le Tajwid, mémoriser (Hifz) et obtenir une Ijaza transmise depuis le Prophète Muhammad ﷺ. <strong>Chaque phase dure une année</strong>, selon la progression de l'élève. Cours séparés hommes / femmes.</p>
-          <div class="prog-banner__meta">
-            <span class="prog-banner__pill" data-i18n="prog3.pill1">👨 Hommes séparés 👩 Femmes</span>
-            <span class="prog-banner__pill" data-i18n="prog3.pill2">📅 Plusieurs séances / semaine</span>
-            <span class="prog-banner__pill" data-i18n="prog3.pill3">👤 Individuel ou groupe max 4</span>
-            <span class="prog-banner__pill" data-i18n="prog3.pill4">🗓 1 an / phase</span>
-            <span class="prog-banner__pill" data-i18n="prog3.pill5">📝 Devoirs &amp; révisions en ligne</span>
-            <span class="prog-banner__pill" data-i18n="prog3.pill6">📋 Évaluations en ligne &amp; présentiel</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Info pédagogique -->
-      <div class="prog-info-bar">
-        <div class="prog-info-item prog-info-item--gold">
-          <div class="prog-info-icon">📱</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog3.info1_label">Accès</div>
-            <div class="prog-info-value" data-i18n="prog3.info1_value">Ordinateur, tablette ou smartphone</div>
-            <div class="prog-info-sub" data-i18n="prog3.info1_sub">Application mobile disponible pour écouter les récitations. Les cours en direct se font via visioconférence.</div>
-          </div>
-        </div>
-        <div class="prog-info-item prog-info-item--gold">
-          <div class="prog-info-icon">📝</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog3.info2_label">Devoirs &amp; révisions</div>
-            <div class="prog-info-value" data-i18n="prog3.info2_value">Journal de Hifz hebdomadaire en ligne</div>
-            <div class="prog-info-sub" data-i18n="prog3.info2_sub">Chaque élève soumet sa révision de la semaine en enregistrement audio vérifié par l'enseignant.</div>
-          </div>
-        </div>
-        <div class="prog-info-item prog-info-item--gold">
-          <div class="prog-info-icon">📋</div>
-          <div>
-            <div class="prog-info-label" data-i18n="prog3.info3_label">Évaluations</div>
-            <div class="prog-info-value" data-i18n="prog3.info3_value">Khatma en ligne + Ijaza en présentiel</div>
-            <div class="prog-info-sub" data-i18n="prog3.info3_sub">Test de récitation par Juz' en ligne. La Khatma finale et la remise de l'Ijaza se font en présentiel obligatoirement.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="quran-timeline">
-
-        <div class="quran-phase">
-          <div class="quran-phase__left">
-            <div class="quran-phase__circle quran-phase__circle--1">①</div>
-            <div class="quran-phase__dur-pill">
-              <span class="quran-phase__dur-num" data-i18n="prog3.ph1_dur">~1 an</span>
-              <span class="quran-phase__dur-unit" data-i18n="prog3.ph1_label">Phase 1</span>
-            </div>
-          </div>
-          <div class="quran-phase__card">
-            <div class="quran-phase__top">
-              <div class="quran-phase__title" data-i18n="prog3.ph1_title">Phase 1 — Al-Qa'ida Al-Nourania (القاعدة النورانية)</div>
-            </div>
-            <div class="quran-phase__arabic" data-i18n="prog3.ph1_arabic">تَعَلُّمُ مَخَارِجِ الحُرُوفِ وَالنُّطْقِ الصَّحِيحِ</div>
-            <p class="quran-phase__desc" data-i18n="prog3.ph1_desc" data-i18n-html>Méthode Nourania pour apprendre à lire le Coran depuis zéro. On travaille les makhraj (points d'articulation) de chaque lettre, les formes, les voyelles puis la lecture syllabique jusqu'à lire des versets coraniques. <strong>Aucune connaissance préalable requise.</strong></p>
-            <div class="quran-phase__chips">
-              <span class="quran-chip" data-i18n="prog3.ph1_chip1">Alphabet &amp; makhraj (28 lettres)</span>
-              <span class="quran-chip" data-i18n="prog3.ph1_chip2">Voyelles courtes &amp; longues</span>
-              <span class="quran-chip" data-i18n="prog3.ph1_chip3">Lecture syllabique</span>
-              <span class="quran-chip" data-i18n="prog3.ph1_chip4">Méthode Nourania (18 leçons)</span>
-              <span class="quran-chip" data-i18n="prog3.ph1_chip5">Lecture Juz' Amma</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="quran-phase">
-          <div class="quran-phase__left">
-            <div class="quran-phase__circle quran-phase__circle--2">②</div>
-            <div class="quran-phase__dur-pill">
-              <span class="quran-phase__dur-num" data-i18n="prog3.ph2_dur">~1 an</span>
-              <span class="quran-phase__dur-unit" data-i18n="prog3.ph2_label">Phase 2</span>
-            </div>
-          </div>
-          <div class="quran-phase__card">
-            <div class="quran-phase__top">
-              <div class="quran-phase__title" data-i18n="prog3.ph2_title">Phase 2 — Tajwid complet (أحكام التجويد)</div>
-            </div>
-            <div class="quran-phase__arabic" data-i18n="prog3.ph2_arabic">تِلَاوَةُ القُرْآنِ بِالتَّجْوِيدِ الكَامِلِ</div>
-            <p class="quran-phase__desc" data-i18n="prog3.ph2_desc">Apprentissage complet des règles du Tajwid, théoriques et pratiques. Chaque règle est apprise, exercée sur des versets, puis intégrée dans la lecture continue. Objectif : lire le Coran complet avec Tajwid correct et fluide.</p>
-            <div class="quran-phase__chips">
-              <span class="quran-chip" data-i18n="prog3.ph2_chip1">Nun Sakin &amp; Tanwin (إظهار، إدغام، إقلاب، إخفاء)</span>
-              <span class="quran-chip" data-i18n="prog3.ph2_chip2">Mim Sakin</span>
-              <span class="quran-chip" data-i18n="prog3.ph2_chip3">Madd (prolongations)</span>
-              <span class="quran-chip" data-i18n="prog3.ph2_chip4">Lam Shamsiyya / Qamariyya</span>
-              <span class="quran-chip" data-i18n="prog3.ph2_chip5">Qalqala</span>
-              <span class="quran-chip" data-i18n="prog3.ph2_chip6">Waqf &amp; Ibtida'</span>
-              <span class="quran-chip" data-i18n="prog3.ph2_chip7">Lecture Coran complet avec Tajwid</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="quran-phase">
-          <div class="quran-phase__left">
-            <div class="quran-phase__circle quran-phase__circle--3">③</div>
-            <div class="quran-phase__dur-pill">
-              <span class="quran-phase__dur-num" data-i18n="prog3.ph3_dur">1–3 ans</span>
-              <span class="quran-phase__dur-unit" data-i18n="prog3.ph3_label">Phase 3</span>
-            </div>
-          </div>
-          <div class="quran-phase__card">
-            <div class="quran-phase__top">
-              <div class="quran-phase__title" data-i18n="prog3.ph3_title">Phase 3 — Hifz Al-Qur'an (حفظ القرآن الكريم)</div>
-            </div>
-            <div class="quran-phase__arabic" data-i18n="prog3.ph3_arabic">مَنْ حَفِظَ القُرْآنَ فَقَدِ اسْتَدْرَجَ النُّبُوَّةَ بَيْنَ جَنْبَيْهِ</div>
-            <p class="quran-phase__desc" data-i18n="prog3.ph3_desc" data-i18n-html>Mémorisation progressive avec méthode structurée : nouvelle mémorisation quotidienne + révision des acquis. Chaque Juz' est testé avant de passer au suivant. <strong>Rapport hebdomadaire de progression</strong> envoyé à chaque élève.</p>
-            <div class="quran-phase__chips">
-              <span class="quran-chip" data-i18n="prog3.ph3_chip1">Plan personnalisé de mémorisation</span>
-              <span class="quran-chip" data-i18n="prog3.ph3_chip2">¼ à ½ page / jour</span>
-              <span class="quran-chip" data-i18n="prog3.ph3_chip3">Révision journalière des acquis</span>
-              <span class="quran-chip" data-i18n="prog3.ph3_chip4">Test par Juz' avant progression</span>
-              <span class="quran-chip" data-i18n="prog3.ph3_chip5">Révision générale tous les 5 Juz'</span>
-              <span class="quran-chip" data-i18n="prog3.ph3_chip6">Journal Hifz hebdomadaire</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="quran-phase">
-          <div class="quran-phase__left">
-            <div class="quran-phase__circle quran-phase__circle--4">④</div>
-            <div class="quran-phase__dur-pill">
-              <span class="quran-phase__dur-num" data-i18n="prog3.ph4_dur">~1 an</span>
-              <span class="quran-phase__dur-unit" data-i18n="prog3.ph4_label">Phase 4</span>
-            </div>
-          </div>
-          <div class="quran-phase__card">
-            <div class="quran-phase__top">
-              <div class="quran-phase__title" data-i18n="prog3.ph4_title">Phase 4 — Al-Ijaza (الإجازة في رواية حفص عن عاصم)</div>
-            </div>
-            <div class="quran-phase__arabic" data-i18n="prog3.ph4_arabic">إِسْنَادٌ مُتَّصِلٌ بِرَسُولِ اللَّهِ ﷺ</div>
-            <p class="quran-phase__desc" data-i18n="prog3.ph4_desc" data-i18n-html>Obtention de l'Ijaza en riwayat Hafs 'an 'Asim. L'élève récite le Coran complet devant le Shaykh porteur d'Ijaza. En cas de réussite, l'Ijaza est délivrée avec le <strong>sanad remontant jusqu'au Prophète ﷺ</strong>. Phase individuelle uniquement.</p>
-            <div class="quran-phase__chips">
-              <span class="quran-chip" data-i18n="prog3.ph4_chip1">Révision générale du Coran complet</span>
-              <span class="quran-chip" data-i18n="prog3.ph4_chip2">Récitation devant le Shaykh</span>
-              <span class="quran-chip" data-i18n="prog3.ph4_chip3">Examen oral (Khatma)</span>
-              <span class="quran-chip" data-i18n="prog3.ph4_chip4">Riwayat Hafs 'an 'Asim</span>
-              <span class="quran-chip--special quran-chip" data-i18n="prog3.ph4_chip5">🏅 Ijaza avec Sanad officiel</span>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /quran-timeline -->
-    </div>
-  </section>
-
-</div><!-- /#programmes -->
-
-<!-- TEASERS PROGRAMMES -->
-<div class="femmes-teaser">
-  <div class="container">
-    <div class="femmes-teaser__cards">
-
-      <div class="femmes-teaser__card femmes-teaser__card--coran">
-        <div class="femmes-teaser__left">
-          <div class="femmes-teaser__badge" data-i18n="coran.badge">📖 Cours Coran · Hommes, adolescents &amp; enfants · Inscriptions ouvertes</div>
-          <h2 class="femmes-teaser__title" data-i18n="coran.title">Mémorisez le Coran le week-end</h2>
-          <p class="femmes-teaser__sub" data-i18n="coran.sub">Mémorisation, révision et règles du tajwîd — deux heures par semaine, le samedi ou le dimanche, en groupes séparés par tranche d’âge.</p>
-          <div class="femmes-teaser__pills">
-            <span class="femmes-teaser__pill" data-i18n="coran.pill1">📖 Mémorisation &amp; révision</span>
-            <span class="femmes-teaser__pill" data-i18n="coran.pill2">🗣️ Tajwîd &amp; tilâwa</span>
-            <span class="femmes-teaser__pill" data-i18n="coran.pill3">🗓️ Samedi ou dimanche · 2 h</span>
-            <span class="femmes-teaser__pill" data-i18n="coran.pill4">💰 300 €/an</span>
-          </div>
-        </div>
-        <a href="cours-coran/" class="femmes-teaser__cta" data-i18n="coran.cta">Voir le programme →</a>
-      </div>
-
-      <div class="femmes-teaser__card">
-        <div class="femmes-teaser__left">
-          <div class="femmes-teaser__badge" data-i18n="femmes.badge">🌸 Cours pour sœurs adultes · Places disponibles</div>
-          <h2 class="femmes-teaser__title" data-i18n="femmes.title">Apprenez le Coran à votre rythme</h2>
-          <p class="femmes-teaser__sub" data-i18n="femmes.sub">Mémorisation, tajwid, correction de la tilâwa, méthode Nourania et Al-Jazariyya — avec un vrai suivi personnalisé pour chaque sœur.</p>
-          <div class="femmes-teaser__pills">
-            <span class="femmes-teaser__pill" data-i18n="femmes.pill1">📖 Cours collectifs — 280 €/an</span>
-            <span class="femmes-teaser__pill" data-i18n="femmes.pill2">💎 Séances individuelles — dès 18 €</span>
-            <span class="femmes-teaser__pill" data-i18n="femmes.pill3">👥 Groupes de 6 à 10 sœurs</span>
-            <span class="femmes-teaser__pill" data-i18n="femmes.pill4">💻 100 % en ligne</span>
-          </div>
-        </div>
-        <a href="cours-femmes/" class="femmes-teaser__cta" data-i18n="femmes.cta">Voir le programme →</a>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- WHY -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="text-center">
-      <span class="badge section-eyebrow" data-i18n="why.eyebrow">Pourquoi nous choisir</span>
-      <h2 class="section-title" data-i18n="why.title">Une école pensée pour votre famille</h2>
-      <p class="section-sub" data-i18n="why.subtitle">Nous combinons la qualité de l'enseignement traditionnel avec la flexibilité du digital.</p>
-    </div>
-    <div class="why__grid">
-      <div class="why-item">
-        <div class="why-item__icon">👨‍🏫</div>
-        <div class="why-item__title" data-i18n="why.item1_title">Enseignants qualifiés</div>
-        <div class="why-item__desc" data-i18n="why.item1_desc">Tous nos professeurs sont diplômés en sciences islamiques et pédagogie. Les enseignants du Coran possèdent une ijaza validée.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-item__icon">🕐</div>
-        <div class="why-item__title" data-i18n="why.item2_title">Cours flexibles</div>
-        <div class="why-item__desc" data-i18n="why.item2_desc">Planifiez vos cours selon votre emploi du temps. Matins, soirs, week-ends — nous nous adaptons à vos contraintes.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-item__icon">👧</div>
-        <div class="why-item__title" data-i18n="why.item3_title">Classes par âge</div>
-        <div class="why-item__desc" data-i18n="why.item3_desc">Groupes homogènes de 5-7 élèves. Séparation enfants (dès 7 ans), ados et adultes pour une pédagogie adaptée.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-item__icon">📊</div>
-        <div class="why-item__title" data-i18n="why.item4_title">Suivi de progression</div>
-        <div class="why-item__desc" data-i18n="why.item4_desc">Bulletins réguliers, rapports de mémorisation, accès à un espace parent pour suivre les progrès de votre enfant.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-item__icon">💬</div>
-        <div class="why-item__title" data-i18n="why.item5_title">Communauté active</div>
-        <div class="why-item__desc" data-i18n="why.item5_desc">Rejoignez notre communauté de familles engagées. Groupes WhatsApp, événements virtuels et cercles d'études.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-item__icon">💰</div>
-        <div class="why-item__title" data-i18n="why.item6_title">Tarifs accessibles</div>
-        <div class="why-item__desc" data-i18n="why.item6_desc">Des formules adaptées à tous les budgets. Réduction famille pour plusieurs enfants. Préinscrits bénéficient d'un tarif préférentiel garanti.</div>
-      </div>
-    </div>
+    <a href="mailto:contact@minassa.fr?subject=Pr%C3%A9senter%20mon%20%C3%A9cole%20sur%20Minassa" class="btn btn--terre">Présenter mon école</a>
   </div>
 </section>
-
-<!-- LEVELS -->
-<section class="section">
-  <div class="container">
-    <div class="text-center">
-      <span class="badge section-eyebrow" data-i18n="levels.eyebrow">Niveaux disponibles</span>
-      <h2 class="section-title" data-i18n="levels.title">Quel que soit votre niveau, nous avons un cours pour vous</h2>
+</main>
+<footer class="pied">
+  <div class="conteneur pied__in">
+    <div class="pied__marque">
+      <img src="/assets/logo/minassa-logo-inverse.svg" alt="Minassa منصّة" width="175" height="48">
+      <p>Minassa présente les cours des écoles. Chaque école inscrit ses élèves et encaisse elle-même.</p>
     </div>
-    <div class="levels__grid">
-      <div class="level-badge">
-        <div class="level-badge__icon">🌱</div>
-        <div class="level-badge__name" data-i18n="levels.debutant">Débutant absolu</div>
-        <div class="level-badge__sub" data-i18n="levels.debutant_sub">Aucune connaissance requise</div>
-      </div>
-      <div class="level-badge">
-        <div class="level-badge__icon">📚</div>
-        <div class="level-badge__name" data-i18n="levels.elementaire">Élémentaire</div>
-        <div class="level-badge__sub" data-i18n="levels.elementaire_sub">Bases de l'alphabet</div>
-      </div>
-      <div class="level-badge">
-        <div class="level-badge__icon">📝</div>
-        <div class="level-badge__name" data-i18n="levels.intermediaire">Intermédiaire</div>
-        <div class="level-badge__sub" data-i18n="levels.intermediaire_sub">Lecture & grammaire de base</div>
-      </div>
-      <div class="level-badge">
-        <div class="level-badge__icon">🎓</div>
-        <div class="level-badge__name" data-i18n="levels.avance">Avancé</div>
-        <div class="level-badge__sub" data-i18n="levels.avance_sub">Textes & littérature</div>
-      </div>
-      <div class="level-badge">
-        <div class="level-badge__icon">👦</div>
-        <div class="level-badge__name" data-i18n="levels.enfants">Enfants (7-10 ans)</div>
-        <div class="level-badge__sub" data-i18n="levels.enfants_sub">Pédagogie ludique</div>
-      </div>
-      <div class="level-badge">
-        <div class="level-badge__icon">🧑</div>
-        <div class="level-badge__name" data-i18n="levels.ados">Ados (11-17 ans)</div>
-        <div class="level-badge__sub" data-i18n="levels.ados_sub">Programme structuré</div>
-      </div>
-    </div>
+    <nav aria-label="Minassa">
+      <strong>Minassa</strong>
+      <a href="/cours/">Cours</a><a href="/apprendre/">Apprendre</a><a href="/#ecoles">Écoles</a>
+    </nav>
+    <nav aria-label="Écoles">
+      <strong>Écoles</strong>
+      <a href="/#votre-ecole">Votre école sur Minassa</a>
+    </nav>
+    <nav aria-label="Plateforme">
+      <strong>Plateforme</strong>
+      <a href="https://www.madrassanet.com" target="_blank" rel="noopener">MadrassaNET <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a>
+      <a href="/#plateforme">Suivre ses cours en ligne</a>
+    </nav>
+    <nav aria-label="Informations">
+      <strong>Informations</strong>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/politique-confidentialite.html">Confidentialité</a>
+      <a href="mailto:contact@minassa.fr">contact@minassa.fr</a>
+    </nav>
   </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="text-center">
-      <span class="badge section-eyebrow" data-i18n="testimonials.eyebrow">Ils soutiennent le projet</span>
-      <h2 class="section-title" data-i18n="testimonials.title">Des familles préinscrites et impatientes</h2>
-      <p class="section-sub" data-i18n="testimonials.subtitle">Des parents et étudiants qui ont rejoint la liste d'attente et attendent avec impatience l'ouverture de la plateforme.</p>
-    </div>
-    <div class="testimonials__grid">
-      <div class="testimonial">
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text" data-i18n="testimonials.test1_text">"J'ai rempli le formulaire dès que j'ai découvert Minassa. Enfin un projet sérieux, avec de vrais professeurs qualifiés, pour apprendre l'arabe à mes enfants depuis la maison. On attend l'ouverture avec impatience !"</p>
-        <div class="testimonial__author">
-          <div class="testimonial__avatar">F</div>
-          <div>
-            <div class="testimonial__name" data-i18n="testimonials.test1_name">Fatima B.</div>
-            <div class="testimonial__role" data-i18n="testimonials.test1_role">Maman de 2 enfants, Argenteuil</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text" data-i18n="testimonials.test2_text">"Je cherchais depuis longtemps un cours de tajwid en ligne avec un vrai enseignant. Des petits groupes, un professeur avec ijaza, des séances en direct — je me suis préinscrit sans hésiter."</p>
-        <div class="testimonial__author">
-          <div class="testimonial__avatar">K</div>
-          <div>
-            <div class="testimonial__name" data-i18n="testimonials.test2_name">Karim M.</div>
-            <div class="testimonial__role" data-i18n="testimonials.test2_role">Étudiant adulte, Argenteuil</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text" data-i18n="testimonials.test3_text">"Trois enfants, niveaux différents, emploi du temps chargé — ce projet est fait pour nous. Un cursus structuré et progressif, pensé pour les familles. Vivement la rentrée 2026 !"</p>
-        <div class="testimonial__author">
-          <div class="testimonial__avatar">A</div>
-          <div>
-            <div class="testimonial__name" data-i18n="testimonials.test3_name">Aïcha D.</div>
-            <div class="testimonial__role" data-i18n="testimonials.test3_role">Maman, Argenteuil</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FORM -->
-<section class="form-section" id="preinscription">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:40px">
-      <span class="badge badge--gold section-eyebrow" data-i18n="form.eyebrow">Préinscription gratuite</span>
-      <h2 class="section-title" style="color:#fff" data-i18n="form.title">Réservez votre place dès maintenant</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.75)" data-i18n="form.subtitle">Aucun engagement. Les préinscrits bénéficient d'un tarif early-bird et d'une priorité à l'inscription.</p>
-    </div>
-
-    <div class="form-card">
-      <div id="form-content">
-        <div class="form-redirect">
-          <span class="form-redirect__icon">📖</span>
-          <div>
-            <strong data-i18n="form.redirect_title">Vous souhaitez vous inscrire aux cours de Coran ?</strong>
-            <p data-i18n="form.redirect_sub">Les inscriptions se font directement sur la page du programme concerné : c’est plus rapide, et votre demande arrive au bon endroit.</p>
-            <div class="form-redirect__links">
-              <a href="cours-coran/" data-i18n="form.redirect_link1">📖 Hommes, ados &amp; enfants →</a>
-              <a href="cours-femmes/" data-i18n="form.redirect_link2">🌸 Sœurs adultes →</a>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="form-card__title" data-i18n="form.form_title">📋 Formulaire de préinscription</h3>
-        <p class="form-card__sub" data-i18n="form.form_subtitle">Remplissez ce formulaire et nous vous contacterons dès que les inscriptions définitives seront ouvertes.</p>
-
-        <form id="registration-form" novalidate>
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="prenom"><span data-i18n="form.prenom">Prénom</span> <span class="required">*</span></label>
-              <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Votre prénom" maxlength="100" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="nom"><span data-i18n="form.nom">Nom</span> <span class="required">*</span></label>
-              <input class="form-input" type="text" id="nom" name="nom" placeholder="Votre nom" maxlength="100" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email"><span data-i18n="form.email">Email</span> <span class="required">*</span></label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="votre@email.com" maxlength="254" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="telephone" data-i18n="form.telephone">Téléphone / WhatsApp</label>
-              <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="+33 6 XX XX XX XX" maxlength="30">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="type"><span data-i18n="form.type_label">Pour qui ?</span> <span class="required">*</span></label>
-              <select class="form-select" id="type" name="type" required>
-                <option value="">— Sélectionner —</option>
-                <option value="enfant" data-i18n="form.type_option1">Pour mon/mes enfant(s)</option>
-                <option value="adulte" data-i18n="form.type_option2">Pour moi (adulte)</option>
-                <option value="les-deux" data-i18n="form.type_option3">Pour moi et mes enfants</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="age"><span data-i18n="form.age_label">Tranche d'âge</span> <span class="required">*</span></label>
-              <select class="form-select" id="age" name="age" required>
-                <option value="">— Sélectionner —</option>
-                <option value="5-7" data-i18n="form.age_option1">7 – 9 ans</option>
-                <option value="8-10" data-i18n="form.age_option2">8 – 10 ans</option>
-                <option value="11-14" data-i18n="form.age_option3">11 – 14 ans</option>
-                <option value="15-17" data-i18n="form.age_option4">15 – 17 ans</option>
-                <option value="adulte" data-i18n="form.age_option5">Adulte (18+)</option>
-                <option value="plusieurs" data-i18n="form.age_option6">Plusieurs enfants (âges variés)</option>
-              </select>
-            </div>
-            <div class="form-group form-group--full">
-              <label class="form-label"><span data-i18n="form.cours_label">Cours souhaités</span> <span class="required">*</span></label>
-              <div class="form-checkboxes">
-                <label class="form-checkbox"><input type="checkbox" name="cours" value="arabe"> <span data-i18n="form.cours_arabe">📖 Langue Arabe</span></label>
-                <label class="form-checkbox"><input type="checkbox" name="cours" value="coran"> <span data-i18n="form.cours_coran">🌙 Coran & Tajwid</span></label>
-                <label class="form-checkbox"><input type="checkbox" name="cours" value="sciences"> <span data-i18n="form.cours_sciences">🕌 Sciences Islamiques</span></label>
-                <label class="form-checkbox"><input type="checkbox" name="cours" value="all"> <span data-i18n="form.cours_all">🎓 Les trois filières</span></label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="niveau" data-i18n="form.niveau_label">Niveau actuel en arabe</label>
-              <select class="form-select" id="niveau" name="niveau">
-                <option value="">— Sélectionner —</option>
-                <option value="zero" data-i18n="form.niveau_option1">Aucune connaissance</option>
-                <option value="alphabet" data-i18n="form.niveau_option2">Connaît l'alphabet</option>
-                <option value="lecture" data-i18n="form.niveau_option3">Peut lire lentement</option>
-                <option value="intermediaire" data-i18n="form.niveau_option4">Niveau intermédiaire</option>
-                <option value="avance" data-i18n="form.niveau_option5">Niveau avancé</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="ville" data-i18n="form.ville">Ville / Pays</label>
-              <input class="form-input" type="text" id="ville" name="ville" placeholder="Paris, France" maxlength="100">
-            </div>
-            <div class="form-group form-group--full">
-              <label class="form-label" for="message" data-i18n="form.message">Message ou questions (optionnel)</label>
-              <textarea class="form-textarea" id="message" name="message" placeholder="Vos questions, besoins particuliers..." maxlength="1000"></textarea>
-            </div>
-          </div>
-          <!-- Cloudflare Turnstile — remplacer VOTRE_SITE_KEY après création du widget -->
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAADU1Kwvjip0WjmbB" data-theme="light" data-language="fr"></div>
-          <button type="submit" class="form-submit" data-i18n="form.submit">✅ Préinscription gratuite</button>
-          <!-- Honeypot anti-bot : champ invisible, un bot le remplit, un humain non -->
-          <input type="text" name="_hp" id="_hp" value="" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
-          <label class="form-checkbox" style="margin-top:16px;align-items:flex-start;gap:10px">
-            <input type="checkbox" id="rgpd" name="rgpd" required style="margin-top:3px;flex-shrink:0">
-            <span style="font-size:.85rem;color:var(--c-muted);line-height:1.5" data-i18n="form.rgpd" data-i18n-html>
-              J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma préinscription à Minassa. Elles ne seront pas transmises à des tiers. Conformément au RGPD, vous pouvez demander leur suppression à tout moment à <a href="mailto:contact@minassa.fr" style="color:var(--c-brand)">contact@minassa.fr</a>. <span class="required">*</span>
-            </span>
-          </label>
-          <p class="form-note" data-i18n="form.note">🔒 Données confidentielles · Aucun spam · Suppression sur demande</p>
-        </form>
-      </div>
-
-      <div class="form-success" id="form-success">
-        <div class="form-success__icon">🎉</div>
-        <div class="form-success__title" data-i18n="form.success_title">Préinscription enregistrée !</div>
-        <div class="form-success__sub" data-i18n="form.success_subtitle">بارك الله فيكم — Nous vous contacterons dès l'ouverture des inscriptions définitives.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section">
-  <div class="container">
-    <div class="text-center">
-      <span class="badge section-eyebrow" data-i18n="faq.eyebrow">FAQ</span>
-      <h2 class="section-title" data-i18n="faq.title">Questions fréquentes</h2>
-    </div>
-    <div class="faq__list">
-      <details class="faq-item">
-        <summary data-i18n="faq.q1">La préinscription est-elle payante ?</summary>
-        <div class="faq-item__body" data-i18n="faq.a1">Non, la préinscription est totalement gratuite et sans engagement. Elle vous permet simplement de réserver votre place en priorité et de bénéficier du tarif early-bird lors de l'ouverture officielle.</div>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="faq.q2">Quand débutent les cours ?</summary>
-        <div class="faq-item__body" data-i18n="faq.a2">Le lancement est prévu pour l'automne 2026. Tous les préinscrits seront informés en priorité de la date exacte d'ouverture et des créneaux disponibles.</div>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="faq.q3">Comment se déroulent les cours en ligne ?</summary>
-        <div class="faq-item__body" data-i18n="faq.a3">Les cours se font en direct via visioconférence (Zoom ou similaire), en petits groupes de 5 à 7 élèves maximum. Des enregistrements sont disponibles pour les absences exceptionnelles.</div>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="faq.q4">Mes enfants peuvent-ils s'inscrire même s'ils ne connaissent pas l'alphabet arabe ?</summary>
-        <div class="faq-item__body" data-i18n="faq.a4">Absolument ! Nos cours débutants commencent à zéro, alphabet inclus. Nous accueillons les enfants dès 7 ans avec une pédagogie ludique et adaptée à leur âge.</div>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="faq.q5">Proposez-vous des cours pour adultes débutants ?</summary>
-        <div class="faq-item__body" data-i18n="faq.a5">Oui, nous avons des classes spécifiques pour adultes débutants. Il n'est jamais trop tard pour apprendre l'arabe ou commencer la mémorisation du Coran.</div>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="faq.q6">Quels sont les tarifs prévus ?</summary>
-        <div class="faq-item__body" data-i18n="faq.a6">Les tarifs définitifs seront communiqués lors de l'ouverture. Les préinscrits bénéficieront d'un tarif préférentiel garanti. Des réductions famille sont prévues pour les fratries.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <div class="footer__logo" data-i18n="footer.logo">Minassa – منصة</div>
-        <p class="footer__desc" data-i18n="footer.description">Plateforme d'enseignement islamique en ligne pour enfants et adultes. Arabe, Coran, Sciences Islamiques — apprenez depuis chez vous avec des enseignants qualifiés.</p>
-      </div>
-      <div class="footer__links">
-        <a href="#cours" class="footer__link" data-i18n="footer.link_courses">Nos cours</a>
-        <a href="cours-coran/" class="footer__link" data-i18n="footer.link_coran">Cours Coran — hommes, ados, enfants</a>
-        <a href="cours-femmes/" class="footer__link" data-i18n="footer.link_femmes">Cours pour sœurs adultes</a>
-        <a href="#preinscription" class="footer__link" data-i18n="footer.link_preinscription">Préinscription</a>
-        <a href="mailto:contact@minassa.fr" class="footer__link">contact@minassa.fr</a>
-        <a href="https://minassa.fr" class="footer__link">minassa.fr</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span data-i18n="footer.copyright">© 2026 Minassa — Tous droits réservés</span> |
-      <a href="mentions-legales.html" style="color:rgba(255,255,255,.4)" data-i18n="footer.legal">Mentions légales</a> ·
-      <a href="politique-confidentialite.html" style="color:rgba(255,255,255,.4)" data-i18n="footer.privacy">Confidentialité</a>
-    </div>
+  <div class="conteneur pied__bas">
+    <span>© 2026 Minassa</span>
+    <span>Plateforme d'apprentissage : <a href="https://www.madrassanet.com" target="_blank" rel="noopener">MadrassaNET</a></span>
   </div>
 </footer>
-
-<!-- STICKY BANNER -->
-<div class="sticky-banner" id="sticky-banner">
-  <div class="sticky-banner__text">
-    <span data-i18n="sticky.text">🌟 Préinscription ouverte</span> — 
-    <strong data-i18n="sticky.highlight">Places limitées pour la rentrée 2026</strong>
-  </div>
-  <a href="#preinscription" class="sticky-banner__cta" data-i18n="sticky.cta">Je m'inscris</a>
-  <button class="sticky-banner__close" onclick="document.getElementById('sticky-banner').classList.remove('visible');bannerDismissed=true;" aria-label="Fermer">×</button>
-</div>
-
-<script>
-// ═══════════════════════════════════════════════════════
-// i18n SYSTEM - Internationalization with JSON
-// ═══════════════════════════════════════════════════════
-
-let i18nData = null;
-let currentLang = 'fr';
-
-// Load i18n data from JSON file (loads language-specific file)
-async function loadI18n() {
-  try {
-    const response = await fetch(`locales/${currentLang}.json`);
-    i18nData = await response.json();
-    return true;
-  } catch (error) {
-    console.error('Failed to load i18n data:', error);
-    return false;
-  }
-}
-
-// Get translation by key (supports nested keys with dot notation)
-function t(key) {
-  if (!i18nData) return key;
-  
-  const keys = key.split('.');
-  let value = i18nData;  // Direct access since each file contains only one language
-  
-  for (const k of keys) {
-    if (value && typeof value === 'object' && k in value) {
-      value = value[k];
-    } else {
-      return key; // Return key if not found
-    }
-  }
-  
-  return value;
-}
-
-// Update all elements with data-i18n attribute
-function updateTranslations() {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    const translation = t(key);
-    
-    // Check if element has data-i18n-html for HTML content
-    if (el.hasAttribute('data-i18n-html')) {
-      el.innerHTML = translation;
-    } else {
-      el.textContent = translation;
-    }
-  });
-}
-
-// Set language and update UI
-async function setLanguage(lang) {
-  currentLang = lang;
-  const html = document.documentElement;
-  const body = document.body;
-  
-  // Load translations for the selected language
-  await loadI18n();
-  
-  // Update HTML attributes
-  html.setAttribute('lang', lang);
-  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-  
-  // Update all translations
-  updateTranslations();
-  
-  // Update active button states
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-  });
-  
-  // Save preference
-  localStorage.setItem('minassa-lang', lang);
-  
-  // Update font family for better Arabic rendering
-  if (lang === 'ar') {
-    body.style.fontFamily = "'Cairo', 'Amiri', system-ui, sans-serif";
-  } else {
-    body.style.fontFamily = "'Inter', system-ui, sans-serif";
-  }
-}
-
-// Initialize i18n system on page load
-window.addEventListener('DOMContentLoaded', async () => {
-  // Load i18n data first
-  const loaded = await loadI18n();
-  
-  if (loaded) {
-    // Load saved language preference
-    const savedLang = localStorage.getItem('minassa-lang') || 'fr';
-    await setLanguage(savedLang);
-  } else {
-    console.warn('i18n data not loaded, using fallback content');
-  }
-});
-
-// ═══════════════════════════════════════════════════════
-// COUNTER ANIMATION
-// ═══════════════════════════════════════════════════════
-
-function animateCounter(el, target, duration) {
-  let start = 0;
-  const step = Math.ceil(target / (duration / 16));
-  const timer = setInterval(() => {
-    start += step;
-    if (start >= target) { 
-      el.textContent = target; 
-      clearInterval(timer); 
-    } else { 
-      el.textContent = start; 
-    }
-  }, 16);
-}
-
-// ═══════════════════════════════════════════════════════
-// STICKY BANNER
-// ═══════════════════════════════════════════════════════
-
-const banner = document.getElementById('sticky-banner');
-let bannerDismissed = false;
-window.addEventListener('scroll', () => {
-  if (!bannerDismissed && window.scrollY > 600) banner.classList.add('visible');
-});
-
-// ═══════════════════════════════════════════════════════
-// FORM SUBMISSION
-// ═══════════════════════════════════════════════════════
-
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLIWiRL4jLl5cuLMoyVVNfXkXkCvWPXDHFuRia8gsbn9lGSz3HLxB-bK_s1Mdz-2mq/exec';
-
-document.getElementById('registration-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = this;
-  const submitBtn = form.querySelector('.form-submit');
-
-  const prenom = form.querySelector('#prenom').value.trim();
-  const nom = form.querySelector('#nom').value.trim();
-  const email = form.querySelector('#email').value.trim();
-  const telephone = form.querySelector('#telephone').value.trim();
-  const type = form.querySelector('#type').value;
-  const age = form.querySelector('#age').value;
-  const niveau = form.querySelector('#niveau').value;
-  const ville = form.querySelector('#ville').value.trim();
-  const message = form.querySelector('#message').value.trim();
-  const coursCochees = Array.from(form.querySelectorAll('input[name="cours"]:checked'))
-                            .map(cb => cb.value);
-
-  // Validation
-  if (!prenom || !nom || !email || !type || !age || coursCochees.length === 0) {
-    showFormError(t('form.error_required'));
-    return;
-  }
-  if (!form.querySelector('#rgpd').checked) {
-    showFormError(t('form.error_rgpd'));
-    return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showFormError(t('form.error_email'));
-    return;
-  }
-
-  // Loading state
-  submitBtn.disabled = true;
-  submitBtn.textContent = t('form.loading');
-
-  const payload = { 
-    prenom, nom, email, telephone, type, age, niveau, ville, message,
-    cours: coursCochees.join(', '),
-    _hp: form.querySelector('#_hp').value,
-    _turnstile: (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '',
-    date: new Date().toLocaleString('fr-FR', {timeZone: 'Europe/Paris'}),
-    platform: 'Minassa'
-  };
-
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(payload)
-    });
-    showFormSuccess();
-  } catch (err) {
-    submitBtn.disabled = false;
-    submitBtn.textContent = t('form.submit');
-    showFormError(t('form.error_network'));
-  }
-});
-
-function showFormError(msg) {
-  let el = document.getElementById('form-error-msg');
-  if (!el) {
-    el = document.createElement('p');
-    el.id = 'form-error-msg';
-    el.style.cssText = 'color:#c62828;background:#ffebee;border:1px solid #ef9a9a;border-radius:8px;padding:10px 16px;margin-top:12px;font-size:.9rem;font-weight:600';
-    document.querySelector('.form-submit').insertAdjacentElement('afterend', el);
-  }
-  el.textContent = '⚠️ ' + msg;
-  el.scrollIntoView({behavior:'smooth', block:'nearest'});
-}
-
-// ═══════════════════════════════════════════════════════
-// POPUP OUVERTURE DES INSCRIPTIONS
-// ═══════════════════════════════════════════════════════
-
-function closePopup() {
-  document.getElementById('popup-offres').classList.remove('visible');
-  sessionStorage.setItem('popup-offres-seen', '1');
-}
-
-function showPopup() {
-  if (sessionStorage.getItem('popup-offres-seen')) return;
-  setTimeout(() => {
-    document.getElementById('popup-offres').classList.add('visible');
-  }, 900);
-}
-
-document.getElementById('popup-offres').addEventListener('click', function(e) {
-  if (e.target === this) closePopup();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closePopup();
-});
-
-window.addEventListener('DOMContentLoaded', showPopup);
-
-function showFormSuccess() {
-  document.getElementById('form-content').style.display = 'none';
-  const successEl = document.getElementById('form-success');
-  successEl.style.cssText = 'display:flex;flex-direction:column;align-items:center';
-  
-  // Update counter
-  const el = document.getElementById('counter-inscrit');
-  const current = parseInt(el.textContent) || 127;
-  animateCounter(el, current + 1, 600);
-}
-</script>
 </body>
 </html>

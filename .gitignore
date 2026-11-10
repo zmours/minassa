@@ -21,6 +21,27 @@
 !cours-coran/index.html
 !cours-coran/og-image-coran.jpg
 
+# Hub (09/11/2026) : pages générées par outils/construire.py
+!mentions-legales.html
+!politique-confidentialite.html
+!sitemap.xml
+!robots.txt
+!assets/
+!assets/**
+!cours/
+!cours/**
+!apprendre/
+!apprendre/index.html
+!donnees/
+!donnees/ecoles.json
+!outils/
+!outils/construire.py
+!outils/gabarits/
+!outils/gabarits/*.html
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
+
 
 # 3. Autoriser git lui-même et ce fichier
 !.gitignore

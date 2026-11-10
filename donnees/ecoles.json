@@ -1,0 +1,47 @@
+{
+  "_lisezmoi": "Liste des écoles présentées sur minassa.fr (drapeau V4 tenu à la main). Une école n'y entre qu'une fois ses cours publiés, son inscription testée, son paiement configuré et la charte acceptée. Les offres Minassa gardent leurs pages de préinscription (A-2) : elles sont décrites ici, pas lues dans l'API.",
+  "ecoles": [
+    {
+      "code": "shs",
+      "nom": "Académie française des sciences humaines et sociales",
+      "nomCourt": "Académie SHS",
+      "domaine": "shs.madrassanet.fr",
+      "presentation": "Un cursus de trois ans en études islamiques et sociales, pour adultes, en français.",
+      "sigle": "SHS",
+      "fond": "#142039",
+      "accent": "#C29A4B",
+      "accentTexte": "#E6CF9F",
+      "publics": ["femmes", "hommes"],
+      "publicLibelle": "Adultes",
+      "horaires": {
+        "899": "Lun., mar., mer. · 19 h – 21 h"
+      }
+    }
+  ],
+  "offresMinassa": [
+    {
+      "code": "femmes",
+      "nom": "Cours de Coran pour les sœurs",
+      "resume": "Mémorisation, correction de la tilâwa, tajwîd, méthode Nourania et Al-Jazariyya. Petits groupes, suivi personnalisé, 100 % en ligne.",
+      "infoCourte": "Mémorisation, tilâwa, tajwîd · petits groupes · horaires flexibles",
+      "puces": ["Horaires flexibles", "Sœurs adultes", "Collectif ou individuel"],
+      "prix": "280 €",
+      "periode": "/ an",
+      "publics": ["femmes"],
+      "lien": "/cours-femmes/",
+      "image": "/assets/img/cours-femmes.jpg"
+    },
+    {
+      "code": "coran",
+      "nom": "Coran le week-end — hommes et adolescents",
+      "resume": "Mémorisation (حفظ), révision (مراجعة) et règles du tajwîd et de la tilâwa. Groupes séparés par âge, même programme.",
+      "infoCourte": "Samedi ou dimanche · 2 h par semaine · groupes par âge",
+      "puces": ["Samedi ou dimanche · 2 h", "Hommes 18 +", "Adolescents 12–17"],
+      "prix": "300 €",
+      "periode": "/ an",
+      "publics": ["hommes", "ados"],
+      "lien": "/cours-coran/",
+      "image": "/assets/img/cours-coran.jpg"
+    }
+  ]
+}

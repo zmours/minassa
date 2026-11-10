@@ -1,0 +1,40 @@
+# Reconstruit le hub chaque nuit à partir des catalogues publics des écoles.
+# Dépôt public : les minutes GitHub Actions sont gratuites.
+# Si une école est illisible, le script échoue et rien n'est publié.
+name: Catalogue des écoles
+
+on:
+  schedule:
+    - cron: "15 3 * * *"   # 4 h 15 (heure de Paris, hiver)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: catalogue
+  cancel-in-progress: false
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construire les pages
+        run: python3 outils/construire.py
+      - name: Publier si quelque chose a changé
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Aucun changement dans les catalogues."
+            exit 0
+          fi
+          git -c user.name="minassa-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "chore(catalogue): mise à jour nocturne des cours des écoles"
+          git push
+          # Un push fait avec le jeton du workflow ne déclenche pas la construction Pages : on la demande.
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" >/dev/null
