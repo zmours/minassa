@@ -205,7 +205,7 @@ def pied() -> str:
     <nav aria-label="Informations">
       <strong>Informations</strong>
       <a href="/mentions-legales.html">Mentions légales</a>
-      <a href="/politique-confidentialite.html">Confidentialité</a>
+      <a href="/confidentialite/">Confidentialité</a>
       <a href="mailto:contact@minassa.fr">contact@minassa.fr</a>
     </nav>
   </div>

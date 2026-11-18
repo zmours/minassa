@@ -24,6 +24,10 @@
 # Hub (09/11/2026) : pages générées par outils/construire.py
 !mentions-legales.html
 !politique-confidentialite.html
+!confidentialite/
+!confidentialite/index.html
+!supprimer-mon-compte/
+!supprimer-mon-compte/index.html
 !sitemap.xml
 !robots.txt
 !assets/

@@ -1,0 +1,307 @@
+<!doctype html>
+<!--
+  La page de demande de suppression d'un compte Minassa, sans connexion (exigence de Google Play) :
+  https://minassa.fr/supprimer-mon-compte/. Copie statique de la page que sert le backend
+  (madrasssnet : backend/src/main/resources/minassa/supprimer-mon-compte.html) ; elle appelle l'API
+  https://api.madrassanet.com/api/public/minassa/suppression/{code,confirmer}, ouverte à l'origine
+  minassa.fr. Langue : ?lang=, sinon celle du navigateur, sinon le français. Trois langues : fr, en, ar.
+  Autonome : ni police, ni script, ni feuille de style venus d'ailleurs.
+-->
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src https://api.madrassanet.com; img-src 'self' data:; form-action 'none'; base-uri 'none'">
+<link rel="canonical" href="https://minassa.fr/supprimer-mon-compte/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Minassa</title>
+<style>
+  :root { --fond: #F6F1E7; --encre: #0B4F4A; --teal: #0F766E; --gris: #5B6B69; --erreur: #B42318; --carte: #FFFFFF; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fond); color: var(--encre);
+         font-family: Nunito, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Naskh Arabic", "Geeza Pro", sans-serif;
+         line-height: 1.5; }
+  main { max-width: 480px; margin: 0 auto; padding: 24px 16px 48px; }
+  .marque { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin: 0 0 8px; font-weight: 700; }
+  [dir="rtl"] .marque { letter-spacing: 0; }
+  h1 { font-size: 26px; line-height: 1.25; margin: 0 0 12px; }
+  p { margin: 0 0 12px; }
+  .carte { background: var(--carte); border-radius: 16px; padding: 20px; margin: 16px 0; box-shadow: 0 1px 3px rgba(11,79,74,.08); }
+  .note { font-size: 15px; color: var(--gris); }
+  label { display: block; font-weight: 700; margin: 0 0 6px; }
+  input[type="email"], input[type="text"] { width: 100%; font: inherit; font-size: 17px; padding: 12px 14px; border: 2px solid #D5CFC2;
+         border-radius: 12px; background: #fff; color: var(--encre); }
+  input[type="email"]:focus, input[type="text"]:focus { outline: none; border-color: var(--teal); }
+  input.code { letter-spacing: .4em; text-align: center; font-size: 24px; direction: ltr; }
+  .case { display: flex; gap: 10px; align-items: flex-start; margin: 14px 0 0; font-weight: 400; }
+  .case input { margin-top: 4px; width: 20px; height: 20px; flex: none; }
+  button { width: 100%; margin-top: 16px; font: inherit; font-size: 17px; font-weight: 700; padding: 14px; border: 0; border-radius: 999px;
+           background: var(--teal); color: #fff; cursor: pointer; }
+  button.danger { background: var(--erreur); }
+  button[disabled] { opacity: .55; cursor: default; }
+  .liens { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .lien { background: none; border: 0; padding: 0; margin: 0; width: auto; color: var(--teal); font-weight: 700; font-size: 15px; text-decoration: underline; cursor: pointer; }
+  .erreur { color: var(--erreur); font-weight: 700; margin: 12px 0 0; }
+  .erreur.ok { color: var(--teal); }
+  .langues { display: flex; gap: 12px; justify-content: flex-end; margin-bottom: 16px; font-size: 14px; }
+  .langues a { color: var(--teal); }
+  .langues a[aria-current="true"] { font-weight: 700; text-decoration: none; color: var(--encre); }
+  a { color: var(--teal); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="langues" aria-label="Langue / Language / اللغة">
+    <a href="?lang=fr" lang="fr" data-l="fr">Français</a>
+    <a href="?lang=en" lang="en" data-l="en">English</a>
+    <a href="?lang=ar" lang="ar" data-l="ar">العربية</a>
+  </nav>
+
+  <p class="marque">Minassa</p>
+  <h1 data-t="titre"></h1>
+  <p data-t="intro"></p>
+  <p class="note" data-t="quoi"></p>
+
+  <noscript><p class="erreur">Cette page a besoin de JavaScript. · This page needs JavaScript. · تحتاج هذه الصفحة إلى JavaScript.</p></noscript>
+
+  <!-- 1 · l'adresse -->
+  <form class="carte" id="etape-adresse" novalidate>
+    <label for="email" data-t="adresse"></label>
+    <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="150">
+    <!-- Le pot de miel : un humain ne le voit pas et le laisse vide. -->
+    <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"
+           style="position:absolute;left:-10000px;width:1px;height:1px;opacity:0">
+    <button type="submit" data-t="recevoir"></button>
+    <p class="erreur" role="alert" hidden></p>
+  </form>
+
+  <!-- 2 · le code -->
+  <form class="carte" id="etape-code" novalidate hidden>
+    <p data-t="envoye"></p>
+    <label for="code" data-t="code"></label>
+    <input id="code" name="code" class="code" type="text" inputmode="numeric" autocomplete="one-time-code"
+           pattern="[0-9]{6}" maxlength="6" required>
+    <label class="case"><input id="compris" type="checkbox" required> <span data-t="compris"></span></label>
+    <button type="submit" class="danger" data-t="supprimer"></button>
+    <p class="erreur" role="alert" hidden></p>
+    <div class="liens">
+      <button type="button" class="lien" id="renvoyer" data-t="renvoyer"></button>
+      <button type="button" class="lien" id="changer" data-t="changer"></button>
+    </div>
+  </form>
+
+  <!-- 3 · c'est fait -->
+  <section class="carte" id="etape-fin" hidden aria-live="polite">
+    <h2 data-t="fait"></h2>
+    <p data-t="desinstaller"></p>
+  </section>
+
+  <p class="note" data-t="ecole"></p>
+  <p class="note"><span data-t="contact"></span> <a href="mailto:contact@minassa.fr" dir="ltr">contact@minassa.fr</a></p>
+  <p class="note"><a href="/confidentialite/" data-t="confidentialite"></a></p>
+</main>
+
+<script>
+(function () {
+  var TEXTES = {
+    fr: {
+      titre: "Supprimer mon compte Minassa",
+      intro: "Vous pouvez supprimer ici votre compte Minassa, sans ouvrir l'application. Vous pouvez aussi le faire dans l'application, depuis l'onglet « Compte ».",
+      quoi: "Ce qui est supprimé : votre compte, les profils de vos enfants et toute leur progression (chapitres, étoiles, série de jours). C'est définitif. Nous ne gardons, sans nom ni adresse, que les dates de création et de suppression du compte, pour nos statistiques.",
+      adresse: "Adresse e-mail de votre compte",
+      recevoir: "Recevoir un code",
+      envoye: "Si un compte Minassa correspond à cette adresse, nous venons d'y envoyer un code à 6 chiffres, valable 15 minutes. Pensez à regarder dans les courriers indésirables.",
+      code: "Code reçu",
+      compris: "Je comprends que la suppression est définitive.",
+      supprimer: "Supprimer définitivement mon compte",
+      renvoyer: "Renvoyer un code",
+      changer: "Changer d'adresse",
+      fait: "Votre compte a été supprimé",
+      desinstaller: "Merci d'avoir appris avec Minassa. Vous pouvez désinstaller l'application.",
+      ecole: "Votre compte vous a été donné par votre école (MadrassaNET) ? C'est elle qui le gère : adressez-vous à elle pour le supprimer.",
+      contact: "Une question ? Écrivez-nous :",
+      adresseInvalide: "Saisissez une adresse e-mail valide.",
+      codeInvalide: "Le code compte 6 chiffres.",
+      pasCoche: "Cochez la case pour confirmer.",
+      CODE_FAUX: "Ce code n'est pas le bon. Vérifiez-le et réessayez.",
+      CODE_EXPIRE: "Ce code n'est plus valable. Demandez-en un nouveau.",
+      TROP_D_ESSAIS: "Trop d'essais : ce code n'est plus valable. Demandez-en un nouveau.",
+      tropDeDemandes: "Trop de tentatives depuis votre connexion. Réessayez dans une heure.",
+      reseau: "Impossible de joindre Minassa. Vérifiez votre connexion et réessayez.",
+      renvoye: "Un nouveau code est parti, si un compte correspond à cette adresse.",
+      confidentialite: "Politique de confidentialité"
+    },
+    en: {
+      titre: "Delete my Minassa account",
+      intro: "You can delete your Minassa account here, without opening the app. You can also do it in the app, from the “Account” tab.",
+      quoi: "What is deleted: your account, your children's profiles and all their progress (chapters, stars, day streak). This cannot be undone. We only keep, without any name or address, the dates the account was created and deleted, for our statistics.",
+      adresse: "Your account's email address",
+      recevoir: "Get a code",
+      envoye: "If a Minassa account matches this address, we have just sent it a 6-digit code, valid for 15 minutes. Check your spam folder too.",
+      code: "Code received",
+      compris: "I understand that deletion is permanent.",
+      supprimer: "Permanently delete my account",
+      renvoyer: "Send a new code",
+      changer: "Use another address",
+      fait: "Your account has been deleted",
+      desinstaller: "Thank you for learning with Minassa. You can now uninstall the app.",
+      ecole: "Was your account given to you by your school (MadrassaNET)? Your school manages it: please contact your school to delete it.",
+      contact: "A question? Write to us:",
+      adresseInvalide: "Enter a valid email address.",
+      codeInvalide: "The code has 6 digits.",
+      pasCoche: "Tick the box to confirm.",
+      CODE_FAUX: "This code is not right. Check it and try again.",
+      CODE_EXPIRE: "This code is no longer valid. Ask for a new one.",
+      TROP_D_ESSAIS: "Too many attempts: this code is no longer valid. Ask for a new one.",
+      tropDeDemandes: "Too many attempts from your connection. Try again in an hour.",
+      reseau: "Minassa cannot be reached. Check your connection and try again.",
+      renvoye: "A new code has been sent, if an account matches this address.",
+      confidentialite: "Privacy policy (in French)"
+    },
+    ar: {
+      titre: "حذف حسابي على Minassa",
+      intro: "يمكنك حذف حسابك على Minassa من هنا دون فتح التطبيق. ويمكنك أيضًا حذفه من داخل التطبيق، من تبويب «الحساب».",
+      quoi: "ما الذي يُحذف: حسابك وملفات أطفالك وكل تقدّمهم (الفصول والنجوم وسلسلة الأيام). الحذف نهائي. لا نحتفظ، دون اسم ولا عنوان، إلا بتاريخَي إنشاء الحساب وحذفه لأغراض إحصائية.",
+      adresse: "البريد الإلكتروني لحسابك",
+      recevoir: "استلام رمز",
+      envoye: "إذا كان هناك حساب Minassa بهذا العنوان، فقد أرسلنا إليه للتوّ رمزًا من 6 أرقام صالحًا لمدة 15 دقيقة. تحقّق أيضًا من مجلد الرسائل غير المرغوب فيها.",
+      code: "الرمز المستلَم",
+      compris: "أفهم أن الحذف نهائي.",
+      supprimer: "حذف حسابي نهائيًا",
+      renvoyer: "إرسال رمز جديد",
+      changer: "تغيير العنوان",
+      fait: "تم حذف حسابك",
+      desinstaller: "شكرًا لأنك تعلّمت مع Minassa. يمكنك الآن إزالة التطبيق.",
+      ecole: "حصلت على حسابك من مدرستك (MadrassaNET)؟ المدرسة هي التي تديره: تواصل معها لحذفه.",
+      contact: "لديك سؤال؟ راسلنا:",
+      adresseInvalide: "أدخل بريدًا إلكترونيًا صحيحًا.",
+      codeInvalide: "يتكوّن الرمز من 6 أرقام.",
+      pasCoche: "ضع علامة في المربع للتأكيد.",
+      CODE_FAUX: "الرمز غير صحيح. تحقّق منه وأعد المحاولة.",
+      CODE_EXPIRE: "لم يعد هذا الرمز صالحًا. اطلب رمزًا جديدًا.",
+      TROP_D_ESSAIS: "محاولات كثيرة: لم يعد هذا الرمز صالحًا. اطلب رمزًا جديدًا.",
+      tropDeDemandes: "محاولات كثيرة من اتصالك. أعد المحاولة بعد ساعة.",
+      reseau: "تعذّر الاتصال بـ Minassa. تحقّق من اتصالك وأعد المحاولة.",
+      renvoye: "أُرسل رمز جديد، إذا كان هناك حساب بهذا العنوان.",
+      confidentialite: "سياسة الخصوصية (بالفرنسية)"
+    }
+  };
+  // La langue : ?lang=, sinon la première langue connue du navigateur, sinon le français.
+  function choisirLangue() {
+    var demandee = (new URLSearchParams(location.search).get("lang") || "").toLowerCase();
+    if (demandee in TEXTES) return demandee;
+    var navigateur = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < navigateur.length; i++) {
+      var l = String(navigateur[i] || "").slice(0, 2).toLowerCase();
+      if (l in TEXTES) return l;
+    }
+    return "fr";
+  }
+  var langue = choisirLangue();
+  document.documentElement.lang = langue;
+  document.documentElement.dir = langue === "ar" ? "rtl" : "ltr";
+  var T = TEXTES[langue];
+  var API = "https://api.madrassanet.com/api/public/minassa/suppression/";
+
+  document.title = T.titre + " — Minassa";
+  Array.prototype.forEach.call(document.querySelectorAll("[data-t]"), function (el) {
+    el.textContent = T[el.getAttribute("data-t")] || "";
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-l]"), function (a) {
+    if (a.getAttribute("data-l") === langue) a.setAttribute("aria-current", "true");
+  });
+
+  var formAdresse = document.getElementById("etape-adresse");
+  var formCode = document.getElementById("etape-code");
+  var fin = document.getElementById("etape-fin");
+  var champEmail = document.getElementById("email");
+  var champCode = document.getElementById("code");
+  var compris = document.getElementById("compris");
+  var adresse = "";
+
+  function erreur(form, texte, bon) {
+    var p = form.querySelector(".erreur");
+    p.textContent = texte || "";
+    p.hidden = !texte;
+    p.classList.toggle("ok", !!bon);
+  }
+
+  function occupe(form, oui) {
+    Array.prototype.forEach.call(form.querySelectorAll("button"), function (b) { b.disabled = oui; });
+  }
+
+  function envoyer(chemin, corps) {
+    return fetch(API + chemin, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(corps)
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) { return { statut: r.status, data: data }; });
+    });
+  }
+
+  function demanderCode(form, apres) {
+    occupe(form, true);
+    erreur(form, "");
+    return envoyer("code", { email: adresse, website: formAdresse.website.value })
+      .then(function (r) {
+        if (r.statut === 429) { erreur(form, T.tropDeDemandes); return; }
+        if (r.statut >= 400) { erreur(form, T.adresseInvalide); return; }
+        apres();
+      })
+      .catch(function () { erreur(form, T.reseau); })
+      .then(function () { occupe(form, false); });
+  }
+
+  formAdresse.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var saisie = champEmail.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(saisie)) { erreur(formAdresse, T.adresseInvalide); return; }
+    adresse = saisie;
+    demanderCode(formAdresse, function () {
+      formAdresse.hidden = true;
+      formCode.hidden = false;
+      champCode.focus();
+    });
+  });
+
+  formCode.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var code = champCode.value.replace(/\s/g, "");
+    if (!/^[0-9]{6}$/.test(code)) { erreur(formCode, T.codeInvalide); return; }
+    if (!compris.checked) { erreur(formCode, T.pasCoche); return; }
+    occupe(formCode, true);
+    erreur(formCode, "");
+    envoyer("confirmer", { email: adresse, code: code })
+      .then(function (r) {
+        if (r.statut === 429) { erreur(formCode, T.tropDeDemandes); return; }
+        var issue = r.data && r.data.issue;
+        if (issue === "SUPPRIME") {
+          formCode.hidden = true;
+          fin.hidden = false;
+          return;
+        }
+        erreur(formCode, T[issue] || T.reseau);
+      })
+      .catch(function () { erreur(formCode, T.reseau); })
+      .then(function () { occupe(formCode, false); });
+  });
+
+  document.getElementById("renvoyer").addEventListener("click", function () {
+    champCode.value = "";
+    demanderCode(formCode, function () { erreur(formCode, T.renvoye, true); });
+  });
+
+  document.getElementById("changer").addEventListener("click", function () {
+    champCode.value = "";
+    erreur(formCode, "");
+    formCode.hidden = true;
+    formAdresse.hidden = false;
+    champEmail.focus();
+  });
+})();
+</script>
+</body>
+</html>
